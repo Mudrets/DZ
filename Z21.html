@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z21</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container-fluid">
+    <div class="d_flex">
+        <div class="block p-5 m-3">
+            <div class="style m-2 pb-3">Перевірка віку</div>
+            <input min="0" class="age" type="number">
+            <br>
+            <input type="button" value="ok" onclick="PofL()">
+            <div id="Live" class="style m-2 pt-5">Місце відповіді</div>
+        </div>
+        <div class="block p-5 m-3">
+            <div class="style m-2 pb-3">Перевірка символу</div>
+            <input min="0" max="9" class="digit" type="number">
+            <br>
+            <input type="button" value="ok" onclick="SL()">
+            <div id="Simvol" class="style m-2 pt-5">Місце відповіді</div>
+        </div>
+        <div class="block p-5 m-3">
+            <div class="style m-2 pb-3">Знижка</div>
+            <input min="0" class="summ" type="number">
+            <br>
+            <input type="button" value="ok" onclick="Sale()">
+            <div id="persent" class="style m-2 pt-5">Місце відповіді</div>
+        </div>
+        <div class="block p-5 m-3">
+            <div class="style m-2 pb-3">Високосний чи невисокосний рік</div>
+            <input min="0" class="date" type="number">
+            <br>
+            <input type="button" value="ok" onclick="Year()">
+            <div id="Vis" class="style m-2 pt-5">Місце відповіді</div>
+        </div>
+        <div class="block p-5 m-3">
+            <div class="style m-2 pb-3">Наступна дата</div>
+            <input class="day mt-1" type="date">
+            <br>
+            <input type="button" value="ok" onclick="Data()">
+            <div id="Vidpodid" class="style m-2 pt-5">Місце відповіді</div>
+        </div>
+    </div>
+    <script src="./Z21.js"></script>
+</body>
+</html>
