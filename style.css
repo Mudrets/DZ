@@ -1,9 +1,38 @@
+.block_2{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+.block_3{
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
 .block{
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
-    flex-direction: column;
     display: flex;
+    justify-content: center;
+}
+#hider{
+    display: block;
+    width: 600px;
+    opacity: 100;
+}
+#hider.is-visible{
+    display: block;
+    width: 600px;
+    opacity: 100;
+}
+
+
+.f_between{
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 .d_flex{
     justify-content: space-around;
@@ -12,7 +41,7 @@
     height: 100vh;
     flex-wrap: wrap;
 }
-input{
+input,select{
     width: 100px;
     text-align: center;
     outline: 0px;
@@ -21,17 +50,34 @@ input{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-transform: uppercase;
 }
 .style{
     display: flex;
+    width: 150px;
     justify-content: center;
     align-items: center;
-    width: 150px;
     text-align: center;
     height: 30px;
+    font-size: 35px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.style_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.style_3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }
 ::placeholder{
     color: gray;
@@ -40,4 +86,11 @@ input{
     padding: 0px;
     font-size: 15px;
     text-transform: capitalize;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
