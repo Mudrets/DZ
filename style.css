@@ -18,17 +18,67 @@
     justify-content: center;
 }
 #hider{
-    display: block;
-    width: 600px;
-    opacity: 100;
-}
-#hider.is-visible{
-    display: block;
-    width: 600px;
-    opacity: 100;
+    width: 0px;
+    position: relative;
+    font-size: 0;
+    visibility: hidden;
+    display: none;
+    animation: fade_2 1s ease;
 }
 
+@keyframes fade_2{
+    0%{
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        font-size: 15px;
+        width: 600px;
+    }
+    10%{
+        visibility: visible;
+        opacity: 0;
+        display: block;
+        font-size: 15px;
+        width: 600px;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+        font-size: 0;
+        width: 0px;
 
+    }
+}
+#hider.is-invisible{
+    display: block;
+    width: 600px;
+    position: relative;
+    font-size: 15px;
+    animation: fade 1s ease;
+    visibility: visible;
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+        font-size: 0;
+        width: 0px;
+        visibility: hidden;
+    }
+    90%{
+        font-size: 15px;
+        opacity: 0;
+        width: 600px;
+        visibility: hidden;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#code{
+    display: none;
+}
 .f_between{
     display: flex;
     justify-content: start;
