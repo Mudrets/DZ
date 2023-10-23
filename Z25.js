@@ -11,6 +11,9 @@ function Digits(){
     console.log(...separatedArray);
     Summ(...separatedArray)
 }
+document.getElementById("clearButton").onclick = function(e) {
+    document.getElementById("digits").value = "";
+  }
 
 
 
