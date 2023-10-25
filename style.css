@@ -1,83 +1,20 @@
-.block_2{
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-}
-.block_3{
-    height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-}
 .block{
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
+    flex-direction: column;
     display: flex;
-    justify-content: center;
 }
-#hider{
-    width: 0px;
-    position: relative;
-    font-size: 0;
-    visibility: hidden;
-    display: none;
-    animation: fade_2 1s ease;
+.block_2{
+    border-radius: 30px;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
 }
-
-@keyframes fade_2{
-    0%{
-        visibility: visible;
-        opacity: 1;
-        display: block;
-        font-size: 15px;
-        width: 600px;
-    }
-    10%{
-        visibility: visible;
-        opacity: 0;
-        display: block;
-        font-size: 15px;
-        width: 600px;
-    }
-    100%{
-        opacity: 0;
-        visibility: hidden;
-        display: none;
-        font-size: 0;
-        width: 0px;
-
-    }
-}
-#hider.is-invisible{
-    display: block;
-    width: 600px;
-    position: relative;
-    font-size: 15px;
-    animation: fade 1s ease;
-    visibility: visible;
-}
-@keyframes fade{
-    0%{
-        opacity: 0;
-        font-size: 0;
-        width: 0px;
-        visibility: hidden;
-    }
-    90%{
-        font-size: 15px;
-        opacity: 0;
-        width: 600px;
-        visibility: hidden;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-#code{
-    display: none;
+.block{
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .f_between{
     display: flex;
@@ -91,7 +28,7 @@
     height: 100vh;
     flex-wrap: wrap;
 }
-input,select{
+input{
     width: 100px;
     text-align: center;
     outline: 0px;
@@ -108,26 +45,18 @@ input,select{
     align-items: center;
     text-align: center;
     height: 30px;
-    font-size: 35px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .style_2{
     display: flex;
+    width: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: auto;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.style_3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: gray;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
 }
 ::placeholder{
     color: gray;
@@ -144,3 +73,4 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+
