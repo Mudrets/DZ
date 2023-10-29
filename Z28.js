@@ -171,14 +171,23 @@ function RD(){
   const a = Math.min.apply(null, [...h]);
   const filterd = h.indexOf(a)
   const filterd_2 = h.indexOf(a,filterd + 1)
+  const filterd_3 = h.indexOf(a,filterd_2 + 1)
   console.log(...h);
   if(filterd_2 === -1){
     console.log(filterd);
-    document.getElementById('RD').innerHTML = `Найменьше число під індексом: ${filterd}`
+    document.getElementById('RD').innerHTML = `Найменьше число  ${a} під індексом: ${filterd}`
+  }
+  else if(filterd_3 === -1 && filterd_2 === -1){
+    console.log(filterd);
+    document.getElementById('RD').innerHTML = `Найменьше число  ${a} під індексами: ${filterd}`
+  }
+  else if(filterd_3 === -1){
+    console.log(filterd,filterd_2);
+    document.getElementById('RD').innerHTML = `Найменьше число  ${a} під індексами: ${filterd} та ${filterd_2}`
   }
   else{
-    console.log(filterd,filterd_2);
-    document.getElementById('RD').innerHTML = `Найменьше число під індексами: ${filterd} та ${filterd_2}`
+    console.log(filterd,filterd_2,filterd_3);
+    document.getElementById('RD').innerHTML = `Найменьше число  ${a} під індексами: ${filterd}, ${filterd_2} та ${filterd_3}`
   }
 document.getElementById('Random_3').innerHTML = h.join(`, `)
 }
