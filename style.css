@@ -8,6 +8,7 @@
 /* .container-fluid{
     background-color: rgb(52, 52, 52);
 } */
+
 .block_2{
     border-radius: 30px;
     box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
@@ -43,7 +44,6 @@ input{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .style{
-    
     display: flex;
     width: auto;
     justify-content: center;
@@ -52,6 +52,18 @@ input{
     height: 30px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#Random_1{
+    width: 300px;
+    height: 220px;
+}
+#Random_2{
+    width: 300px;
+    height: 100px;
+}
+#Random_3{
+    width: 300px;
+    height: 100px;
 }
 .style_2{
     display: flex;

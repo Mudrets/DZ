@@ -1,8 +1,8 @@
-// alert('Вводьте числа в інпут через кому, дозволяеться десятичний запис, через крапку')
+// alert('Вводьте числа в інпут через пробіл, дозволяеться десятичний запис, через крапку')
 //! Pluses
 function Pluses(){
   const digit = document.querySelector('.pl').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   console.log(...separatedArray.filter((item)=>{return item >= 0}));
   document.getElementById('pluses').innerHTML = separatedArray.filter((item)=>{return item >= 0});
 }
@@ -14,7 +14,7 @@ document.getElementById("clearButton").onclick = function(e) {
 //! MINMAX
 function MaxMin(){
   const digit = document.querySelector('.mm').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   const a = Math.min.apply(null, [...separatedArray]);
   const b = Math.max.apply(null, [...separatedArray]);
   console.log(a);
@@ -34,8 +34,8 @@ document.getElementById("clearButton_2").onclick = function(e) {
 function Duo(){
   const digit_1 = document.querySelector('.f_i').value
   const digit_2 = document.querySelector('.s_i').value
-  const separatedArray = digit_1.split(',').map(Number);
-  const separatedArray_2 = digit_2.split(',').map(Number);
+  const separatedArray = digit_1.split(' ').map(Number);
+  const separatedArray_2 = digit_2.split(' ').map(Number);
   console.log(...separatedArray);
   console.log(...separatedArray_2);
   const allArrays = separatedArray.concat(separatedArray_2).sort((a, b) => a - b)
@@ -48,10 +48,10 @@ document.getElementById("clearButton_3").onclick = function(e) {
   document.getElementById('Duo').innerHTML = `Місце відповіді`;
 }
 
-//! Dublicate
+//! Duplicate
 function Dublicate(){
   const digit = document.querySelector('.dbl').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   const w_d = [...new Set(separatedArray)].sort((a, b) => a - b)
   console.log(...w_d);
   document.getElementById('Dublicate').innerHTML = w_d;
@@ -64,7 +64,7 @@ document.getElementById("clearButton_4").onclick = function(e) {
 //! Otricat
 function Otricat(){
   const digit = document.querySelector('.soch').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   console.log(minus(...separatedArray))
   console.log(ot_do_mnoj(separatedArray));
   if(minus(...separatedArray) === 0){
@@ -82,7 +82,7 @@ document.getElementById("clearButton_6").onclick = function(e) {
 //! ParniPlus
 function ParniPlus(){
   const digit = document.querySelector('.spch').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   console.log(parne(...separatedArray))
   console.log(ot_do_plus(separatedArray));
   if(parne(...separatedArray) === 0){
@@ -100,7 +100,7 @@ document.getElementById("clearButton_5").onclick = function(e) {
 //! MaxEl
 function MaxEl(){
   const digit = document.querySelector('.ml').value
-  const separatedArray = digit.split(',').map(Number);
+  const separatedArray = digit.split(' ').map(Number);
   const max = Math.max.apply(null, [...separatedArray]);
   const index = separatedArray.indexOf(max);
   console.log(`Number ${max}`);
@@ -121,6 +121,68 @@ document.getElementById("clearButton_7").onclick = function(e) {
   document.getElementById('MaxEl').innerHTML = `Місце відповіді`;
 }
 }
+
+//! Plus 100 randoms
+function Rsumm(){
+  a = []
+  g = 0
+  for(let i = 0;i<100;i++){
+    min = Math.ceil(-100);
+    max = Math.floor(100);
+    const c = Math.floor(Math.random() * (max - min)) + min;
+    a.push (c)
+    g += c
+}
+console.log(...a);
+console.log(g);
+document.getElementById('Random_1').innerHTML = a.join(`, `)
+document.getElementById('Rsumm').innerHTML = `Сумма чисел цього масиву = ${g}`
+}
+
+//! Plus 50 parn randoms
+function Rsumm_2(){
+  a = []
+  g = 0
+  for(let i = 0;i<50;i++){
+    min = Math.ceil(-100);
+    max = Math.floor(100);
+    const c = Math.floor(Math.random() * (max - min)) + min;
+    a.push (c)
+    if(c % 2 === 0){
+      g += c
+    }
+}
+console.log(...a);
+console.log(g);
+document.getElementById('Random_2').innerHTML = a.join(`, `)
+document.getElementById('Rsumm_2').innerHTML = `Сумма парних чисел цього масиву чисел = ${g}`
+}
+
+//! Random duplicates
+function RD(){
+  h = []
+  g = 0
+  for(let i = 0;i<50;i++){
+    min = Math.ceil(-100);
+    max = Math.floor(100);
+    const c = Math.floor(Math.random() * (max - min)) + min;
+    h.push (c)
+  }
+  const a = Math.min.apply(null, [...h]);
+  const filterd = h.indexOf(a)
+  const filterd_2 = h.indexOf(a,filterd + 1)
+  console.log(...h);
+  if(filterd_2 === -1){
+    console.log(filterd);
+    document.getElementById('RD').innerHTML = `Найменьше число під індексом: ${filterd}`
+  }
+  else{
+    console.log(filterd,filterd_2);
+    document.getElementById('RD').innerHTML = `Найменьше число під індексами: ${filterd} та ${filterd_2}`
+  }
+document.getElementById('Random_3').innerHTML = h.join(`, `)
+}
+
 //! Доп функции
 function fora(){
   for(let a = 0; a < arguments.length; a++){
@@ -183,5 +245,4 @@ function ot_do_mnoj(arr){
   const test = arr.slice(i_b+1,i_a)
   return(mnoj(...test));
 }
-
 
