@@ -176,6 +176,7 @@ function PairChange(Pair,NP,Value){
         }
         else if(NP === `Condition`){
                     Stand[index].Condition = Value
+                    console.log(`Pair ${key.Pair}, in used condition`)
                     return
         }
         }
