@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DZ32</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container-fluid row">
+    <div class="ins row col-10">
+                <div class = "col-2 commit golova">Номер</div>
+                <div class = "col-2 commit golova">Пара</div>
+                <div class = "col-2 commit golova">Дата релиза</div>
+                <div class = "col-2 commit golova">Сток</div>
+                <div class = "col-2 commit golova">Ретеил</div>
+                <div class = "col-2 commit golova">Рессеил</div>
+    </div>
+    <div class="delete col-2">
+        <div class=" col-12 commit golova">Удаление пары</div>
+        <select class="style golova" name="" id="se">
+            <option value="0">Выбери пару</option>
+        </select>
+        <br>
+        <div class=" col-12 commit golova">Добавление пары</div>
+        <input class="commit standart Pairs" type="text" placeholder="Пара">
+        <input class="commit standart RD" type="number" placeholder="Дата релиза (Только цифры)">
+        <input class="commit standart Edition" type="number" placeholder="Сток (Только цифры)">
+        <input class="commit standart RetPrise" type="number" placeholder="Ретеил (Только цифры)">
+        <input class="commit standart ResPrise" type="number" placeholder="Рессеил (Только цифры)">
+        <input class="commit golova ok" type="button" value="ok">
+        <div   class = "zam"></div>
+    </div>
+    <script src="./DZ32.js"></script>
+</body>
+</html>

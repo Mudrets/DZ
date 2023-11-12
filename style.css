@@ -5,9 +5,9 @@
     flex-direction: column;
     display: flex;
 }
-/* .container-fluid{
-    background-color: rgb(52, 52, 52);
-} */
+.container-fluid{
+    background-color: rgb(79, 79, 79);
+}
 .block_2{
     border-radius: 30px;
     box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
@@ -31,25 +31,47 @@
     height: 100vh;
     flex-wrap: wrap;
 }
-input{
+input,button{
     width: 100px;
+    height: 30px;
     text-align: center;
     outline: 0px;
     border: 0px;
-    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .style{
     display: flex;
-    width: auto
+    width: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: 30px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.commit{
+    color: gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.golova{
+    background-color: rgb(44, 44, 44);
+    width: 100%;
+}
+.standart{
+    background-color: rgb(79, 79, 79);
+    width: 100%;
+}
+.red{
+    background-color: rgb(113, 58, 58);
+}
+.ins{
+    height: 100vb;
 }
 .style_2{
     display: flex;
@@ -69,5 +91,11 @@ input{
     font-size: 15px;
     text-transform: capitalize;
 }
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
 
