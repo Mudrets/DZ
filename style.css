@@ -4,16 +4,16 @@
     align-items: center;
     flex-direction: column;
     display: flex;
+    animation: start 2s ease;
+    position: relative;
+    background-color: white;
+    
 }
-/* .container-fluid{
-    background-color: rgb(52, 52, 52);
-} */
-.block_2{
-    border-radius: 30px;
-    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
+
+.container-fluid{
+    animation: gradient 10s ease infinite;
+    background-image: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200%;
 }
 .block{
     border-radius: 30px;
@@ -30,20 +30,42 @@
     display: flex;
     height: 100vh;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 input{
     width: 100px;
+    height: 30px;
     text-align: center;
-    outline: 0px;
+    outline: none;
     border: 0px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     color: gray;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: medium;
+    -webkit-transition: all 0.3s ease;
+}
+.c_b:hover{
+    position: relative;
+    transition: all 0.3s ease;
+    scale: 120%;
+    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 .style{
     display: flex;
-    width: auto
+    width: auto;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -68,6 +90,15 @@ input{
     padding: 0px;
     font-size: 15px;
     text-transform: capitalize;
+}
+.ins{
+    overflow: hidden;
+}
+.c_b:active{
+    background-image: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 2000%;
+    color: rgb(255, 255, 255);
+    animation: gradient 10s ease infinite;
 }
 
 
