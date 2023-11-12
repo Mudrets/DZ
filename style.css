@@ -1,14 +1,14 @@
-.block{
+/* .block{
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
     flex-direction: column;
     display: flex;
-}
-.container-fluid{
+} */
+     /* .container-fluid{
     background-color: rgb(79, 79, 79);
-}
-.block_2{
+} */
+/* .block_2{
     border-radius: 30px;
     box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
     align-items: center;
@@ -90,7 +90,7 @@ input,button{
     padding: 0px;
     font-size: 15px;
     text-transform: capitalize;
-}
+}*/
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -98,4 +98,130 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+.k1,.k2,.k3,.k4,.k5{
+    border-bottom:1px solid gray ;
+}
+.logo{
+    font-family: 'Futura PT', sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.tool{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+}
+.bar{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
 
+    height: 350px;
+}
+input,select{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    outline: 0px;
+    border: 0px;
+    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+    color: gray;
+    font-family: 'Futura PT', sans-serif;
+    background-color: white;
+}
+.commit{
+    font-family: 'Futura PT', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+.golova{
+    width: 100%;
+}
+.ins{
+    height: 300px;
+    width: 100%;
+}
+.block{
+    margin: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 5px;
+}
+.number{
+    height: 30px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(198, 66, 9);
+    font-family: 'Futura PT', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.para{
+    font-family: 'Futura PT', sans-serif;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 30px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+img{
+    height: 170px;
+} 
+.relise{
+    font-family: 'Futura PT', sans-serif;
+    color: gray;
+    padding-left: 5px;
+    height: 30px;
+    width: 100%;
+}
+.stok{
+    font-family: 'Futura PT', sans-serif;
+    color: gray;
+    padding-left: 5px;
+    height: 30px;
+    width: 100%;
+}
+.reteil{
+    font-family: 'Futura PT', sans-serif;
+    color: gray;
+    padding-left: 5px;
+    height: 30px;
+    width: 100%;
+}
+.reseil{
+    font-family: 'Futura PT', sans-serif;
+    color: gray;
+    padding-left: 5px;
+    height: 30px;
+    width: 100%;
+}
+.prise{
+    font-family: 'Futura PT', sans-serif;
+    color: black;
+}
+.ok{
+    color: rgb(198, 66, 9);
+}
