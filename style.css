@@ -1,43 +1,102 @@
-.j_center{
+#game-container{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 3px solid;
+    margin: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+
+.square{
+    position: absolute;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 3px solid;
+}
+.square:hover{
+    scale: 120%;
+}
+body{
+    height: 98vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.block{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    width: 1500px;
-    border-radius: 20px;
+.container{
+    margin: 0 auto;
+    width: 700px;
+    height: 700px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;;
+    background-color: aliceblue;
     overflow: hidden;
 }
-.commit{
-    height: 70px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: gray;
-    text-align: center;
-}
-.b_d{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 4px;
-    /* border-bottom: 1px solid gray; */
-}
-input,select{
-    height: 30px;
-    padding-left: 10px;
-    text-align: center;
-    outline: 0px;
-    border: 0px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 10px;
-    color: gray;
-    font-family: 'Futura PT', sans-serif;
-    background-color: white;
-}
-.bg_red{
-    background-color: rgb(238, 138, 138);
-}
-.bg_green{
-    background-color: rgb(151, 238, 138);
+
+[for="duration"]{
+    font-size: 30px;
+    font-weight: 800;
+    font-family: cursive;
 }
 
-.Big{
+#duration, select{
+    font-size: 35px;
+    width: 150px;
+    border: 3px solid ;
+    border-radius: 15px;
+    font-family: cursive;
+    font-weight: 800;
+    text-align: center;
+}
+#startGameBtn{
+    font-size: 20px;
+    font-weight: 800;
+    font-family: cursive;
+    border-radius: 15px;
+    border: 3px solid ;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+#startGameBtn:hover{
+    width: 140px;
+    height: 40px;
+}
+#score,#timer,#last,#best{
     font-size: 30px;
+    font-weight: 800;
+    font-family: cursive;
+    width: 600px;
+    text-align: start;
+    display: inline-block;
+}
+#alertmessage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    font-size: 70px;
+    font-weight: 800;
+    font-family: cursive;
+    color: red;
+    background-color: black;
+}
+.font{
+    font-size: 30px;
+    font-weight: 800;
+    font-family: cursive;
+    width: 300px;
 }
