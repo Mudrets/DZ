@@ -1,289 +1,240 @@
-class Person {
-    constructor(firstName, lastName, birthDate, email, password, confirmPassword,profession) {
-      this.firstName = firstName
-      this.lastName = lastName
-      this.email = email
-      this.birthDate = birthDate
-      this.password = password
-      this.confirmPassword = confirmPassword
-      this.profession = profession
+document.addEventListener('DOMContentLoaded', function () {
+  let tdsize=`e`
+  let size = 10
+  let mines = 15
+  let masiv = []
+  let records=[]
+  let fl = 0
+  let clickedcells = 0
+  document.querySelector(`#mode`).addEventListener(`change`,()=>{
+    const mode = document.querySelector(`#mode`).value
+    if(mode===`easy`){
+      size=10
+      mines=15
+      tdsize=`e`
+      initializeMasiv()
+    addMines()
+    addNumbers()
+    renderMasiv()
+    console.log(!isGameWon())
     }
-    Registration(){
-      this.firstName = document.querySelector(`#firstName`).value
-      this.lastName = document.querySelector(`#lastName`).value
-      this.email = document.querySelector(`#email`).value
-      this.birthDate = document.querySelector(`#birthDate`).value
-      this.password = document.querySelector(`#password`).value
-      this.confirmPassword = document.querySelector(`#passwordConfirm`).value
-      this.profession = document.querySelector(`#profession`).value
-      if (this.firstName.length < 1) {
-        alert('First name is not valid! The first name should be at least one symbol long.')
-        return false
-      }
-        
-      if (this.lastName.length < 1) {
-        alert('Last name is not valid! The last name should be at least one symbol long.')
-        return false
-      }
+    else if(mode===`medium`){
+      size=15
+      mines=30
+      tdsize=`m`
+      initializeMasiv()
+    addMines()
+    addNumbers()
+    renderMasiv()
+    console.log(!isGameWon())
+    }
+    else if(mode===`hard`){
+      size=20
+      mines=60
+      tdsize=`h`
+      initializeMasiv()
+    addMines()
+    addNumbers()
+    renderMasiv()
+    console.log(!isGameWon())
+    }
+  })
+  function initializeMasiv() {
+    masiv = [];
+    clickedcells = 0;
 
-      if (this.birthDate.length < 1) {
-        alert('Date is not valid!')
-          return false
+    for (let i = 0; i < size; i++) {
+      masiv[i] = [];
+      for (let j = 0; j < size; j++) {
+        masiv[i][j] = {
+          isMine: false,
+          count: 0,
+          revealed: false,
+          flagged: false
+        };
       }
-      if (this.email.length < 1) {
-        alert('Email is not valid!')
-        return false
-      }
-        
-      if (this.password.length < 6) {
-        alert('Password is not valid! The password should be at least six symbol long.')
-        return false
-      }
-        
-      if (this.confirmPassword !== this.password) {
-        alert('Passwords do not match!')
-        return false
-      }
-    }
-
-}
-class Driver extends Person {
-    constructor(firstName, lastName, birthDate, email, password, confirmPassword, licenseNumber, vehicleType, experienceYears) {
-        super(firstName, lastName, birthDate, email, password, confirmPassword)
-        this.licenseNumber = licenseNumber
-        this.vehicleType = vehicleType
-        this.experienceYears = experienceYears
-    }
-    Registration(){
-        if(super.Registration() === false){
-            return
-        }
-        else{
-
-            this.licenseNumber = document.querySelector(`#licenseNumber`).value
-            this.vehicleType = document.querySelector(`#vehicleType`).value
-            this.experienceYears = document.querySelector(`#experienceYears_1`).value
-            
-            this.first = `License Number: ${this.licenseNumber}`
-            this.second = `Vehicle Type: ${this.vehicleType}`
-            this.third = `Experience Years: ${this.experienceYears} years`
-        localStorage.setItem(this.email, JSON.stringify(this))
-        }
-        alert(`Registration success!!!`)
-    }
-  }
-  class Doctor extends Person {
-    constructor(firstName, lastName, birthDate, email, password, confirmPassword, specialization, hospital, experienceYears) {
-      super(firstName, lastName, birthDate, email, password, confirmPassword)
-      this.specialization = specialization
-      this.hospital = hospital
-      this.experienceYears = experienceYears
-    }
-    Registration(){
-        if(super.Registration() === false){
-            return
-        }
-        else{
-            this.specialization = document.querySelector(`#specialization`).value
-            this.hospital = document.querySelector(`#hospital`).value
-            this.experienceYears = document.querySelector(`#experienceYears_2`).value
-
-            this.first = `Specialization: ${this.specialization}`
-            this.second = `Hospital: ${this.hospital}`
-            this.third = `Experience Years: ${this.experienceYears} years`
-        localStorage.setItem(this.email, JSON.stringify(this))
-        }
-        alert(`Registration success!!!`)
-    }
-  }
-  class Teacher extends Person {
-    constructor(firstName, lastName, birthDate, email, password, confirmPassword, subject, school, experienceYears) {
-      super(firstName, lastName, birthDate, email, password, confirmPassword)
-      this.subject = subject
-      this.school = school
-      this.experienceYears = experienceYears
-    }
-    Registration(){
-        if(super.Registration() === false){
-            return
-        }
-        else{
-            this.subject = document.querySelector(`#subject`).value
-            this.school = document.querySelector(`#school`).value
-            this.experienceYears = document.querySelector(`#experienceYears_3`).value
-            
-            this.first = `Subject: ${this.subject}`
-            this.second = `School: ${this.school}`
-            this.third = `Experience Years: ${this.experienceYears} years`
-        localStorage.setItem(this.email, JSON.stringify(this))
-        }
-        alert(`Registration success!!!`)
-    }
-  }
-  class Salesperson extends Person {
-    constructor(firstName, lastName, birthDate, email, password, confirmPassword, product, company, experienceYears) {
-      super(firstName, lastName, birthDate, email, password, confirmPassword)
-      this.product = product
-      this.company = company
-      this.experienceYears = experienceYears
-    }
-    Registration(){
-        if(super.Registration() === false){
-            return
-        }
-        else{
-            this.product = document.querySelector(`#product`).value
-            this.company = document.querySelector(`#company`).value
-            this.experienceYears = document.querySelector(`#experienceYears_4`).value
-        
-            this.first = `Subject: ${this.product}`
-            this.second = `School: ${this.company}`
-            this.third = `Experience Years: ${this.experienceYears} years`
-        localStorage.setItem(this.email, JSON.stringify(this))
-        }
-        alert(`Registration success!!!`)
     }
   }
 
-  document.querySelector(`#registerButton`).addEventListener(`click`,()=>{
-    if (document.querySelector(`#profession`).value === "driver") {
-        let fullName = new Driver
-        fullName.Registration()
+  function addMines() {
+    let minesPlaced = 0;
+    while (minesPlaced < mines) {
+      const str = Math.floor(Math.random() * size)
+      const kol = Math.floor(Math.random() * size)
+      if (!masiv[str][kol].isMine) {
+        console.log(!masiv[str][kol].isMine)
+        masiv[str][kol].isMine = true
+        minesPlaced++
+      }
     }
-    if (document.querySelector(`#profession`).value === "doctor") {
-        let fullName = new Doctor
-        fullName.Registration()
-    }
-    if (document.querySelector(`#profession`).value === "teacher") {
-        let fullName = new Teacher
-        fullName.Registration()
-    }
-    if (document.querySelector(`#profession`).value === "salesperson") {
-        let fullName = new Salesperson
-        fullName.Registration()
-    }
-    if (document.querySelector(`#profession`).value === "nothing") {
-        alert('Select proffesion!!!')
-        return
-    }
-  })
-  
-  document.querySelector(`#profession`).addEventListener(`change`,()=>{
-    const profession = document.querySelector(`#profession`).value
-    if (profession === `driver`) {
-        document.querySelector(`#driver`).style.display=`block`
-        document.querySelector(`#doctor`).style.display=`none`
-        document.querySelector(`#teacher`).style.display=`none`
-        document.querySelector(`#salesperson`).style.display=`none`
-    }
-    if (profession === `doctor`) {
-        document.querySelector(`#driver`).style.display=`none`
-        document.querySelector(`#doctor`).style.display=`block`
-        document.querySelector(`#teacher`).style.display=`none`
-        document.querySelector(`#salesperson`).style.display=`none`
-    }
-    if (profession === `teacher`) {
-        document.querySelector(`#driver`).style.display=`none`
-        document.querySelector(`#doctor`).style.display=`none`
-        document.querySelector(`#teacher`).style.display=`block`
-        document.querySelector(`#salesperson`).style.display=`none`
-    }
-    if (profession === `salesperson`) {
-        document.querySelector(`#driver`).style.display=`none`
-        document.querySelector(`#doctor`).style.display=`none`
-        document.querySelector(`#teacher`).style.display=`none`
-        document.querySelector(`#salesperson`).style.display=`block`
-    }
-    if (profession === `nothing`){
-        document.querySelector(`#driver`).style.display=`none`
-        document.querySelector(`#doctor`).style.display=`none`
-        document.querySelector(`#teacher`).style.display=`none`
-        document.querySelector(`#salesperson`).style.display=`none`
-    }
-  })
+  }
 
-  document.querySelector(`#choiseRegister`).addEventListener('click',()=>{
-    document.querySelector(`#Register`).style.display=`block`
-    document.querySelector(`#Login`).style.display=`none`
-    document.querySelector(`#Info`).style.display=`none`
-  })
+  function addNumbers() {
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if (!masiv[i][j].isMine) {
+          masiv[i][j].count = countAdjacentmines(i, j)
+        }
+      }
+    }
+  }
 
-  document.querySelector(`#choiseLogin`).addEventListener('click',()=>{
-    document.querySelector(`#Register`).style.display=`none`
-    document.querySelector(`#Login`).style.display=`block`
-    document.querySelector(`#Info`).style.display=`none`
-  })
+  function countAdjacentmines(str, kol) {
+    let count = 0;
 
-  document.querySelector(`#loginButton`).addEventListener(`click`,()=>{
-    const email = document.querySelector(`#email_log`).value
-    const password = document.querySelector(`#password_log`).value
-    const userData = localStorage.getItem(email)
-    if(userData){
-        const user = JSON.parse(userData)
-        if(password === user.password){
-            document.querySelector(`#Login`).style.display=`none`
-            document.querySelector(`#Info`).style.display=`block`
-            document.querySelector(`#infoDiv`).innerHTML=` 
-              <label>Name: ${user.firstName} ${user.lastName}</label>
-              <label>Birthday: ${user.birthDate}</label>
-              <label>Email: ${user.email}</label>
-              <label>Profession: ${user.profession}</label>
-              <label>${user.first}</label>
-              <label>${user.second}</label>
-              <label>${user.third}</label>
-              <input type="text" id = "emailD" style="display: none;" value="${user.email}">`
-              
+    for (let i = -1; i <= 1; i++) {
+      for (let j = -1; j <= 1; j++) {
+        const newstr = str + i
+        const newkol = kol + j
+
+        if (newstr >= 0 && newstr < size && newkol >= 0 && newkol < size && masiv[newstr][newkol].isMine) {
+          count++
+        }
+      }
+    }
+
+    return count
+  }
+
+  function clickedCell(str, kol) {
+    if (!masiv[str][kol].revealed && !masiv[str][kol].flagged) {
+      masiv[str][kol].revealed = true
+      clickedcells++
+      if (masiv[str][kol].count === 0) {
+        for (let i = -1; i <= 1; i++) {
+          for (let j = -1; j <= 1; j++) {
+            const newstr = str + i
+            const newkol = kol + j
+
+            if (newstr >= 0 && newstr < size && newkol >= 0 && newkol < size) {
+              clickedCell(newstr, newkol)
+            }
+          }
+        }
+      }
+    }
+  }
+  function isGameWon() {
+    return clickedcells === size * size - mines
+  }
+
+
+  function addFlag(str, kol) {
+    if (!masiv[str][kol].revealed) {
+      masiv[str][kol].flagged = !masiv[str][kol].flagged
+      if(event.target.id===`flagged`){
+        fl--
+        document.querySelector(`#flags`).innerHTML=`🚩: ${fl}`
+      }
+      else{
+        fl++
+        document.querySelector(`#flags`).innerHTML=`🚩: ${fl}`
+      }
+    }
+  }
+
+  function renderMasiv() {
+    const table = document.getElementById('tablo')
+    
+    while (table.firstChild) {
+      table.removeChild(table.firstChild)
+    }
+    
+
+    for (let i = 0; i < size; i++) {
+      const str = document.createElement('tr')
+
+      for (let j = 0; j < size; j++) {
+        const cell = document.createElement('td')
+        cell.classList.add(`${tdsize}`)
+        cell.setAttribute("id", `${i+j}`)
+        if( cell.id%2===0){
+          cell.classList.toggle(`g1`)
         }
         else{
-            alert(`Password or Username is not valid!`)
+          cell.classList.toggle(`g2`)
         }
-    }
-    else{
-        alert(`Password or Username is not valid!`)
-    }
-  })
-  document.querySelector(`#deleteButton`).addEventListener(`click`, ()=>{
-    event.preventDefault()
-    const user = document.getElementById(`emailD`).value
-    console.log(user);
-    var isAdmin = confirm("Are you sure you want to delete this account?");
-    if(isAdmin === true){
-    document.querySelector(`#Login`).style.display = 'block'
-      document.querySelector(`#Info`).style.display = 'none'
-      localStorage.removeItem(`${user}`)
-    }
-  })
-    document.querySelector(`#backButton`).addEventListener('click',()=>{
-        document.querySelector(`#Register`).style.display=`none`
-        document.querySelector(`#Login`).style.display=`block`
-        document.querySelector(`#Info`).style.display=`none`
-        document.querySelector(`#allDiv`).style.display=`none`
-      })
-    document.querySelector(`#backButton_2`).addEventListener('click',()=>{
-        document.querySelector(`#Register`).style.display=`none`
-        document.querySelector(`#Login`).style.display=`block`
-        document.querySelector(`#Info`).style.display=`none`
-        document.querySelector(`#allDiv`).style.display=`none`
-      })
-      
-      document.querySelector(`#showAllButton`).addEventListener('click',()=>{
-        document.querySelector(`#all`).innerHTML=``
-        document.querySelector(`#Register`).style.display=`none`
-        document.querySelector(`#Login`).style.display=`none` 
-        document.querySelector(`#Info`).style.display=`none`   
-        document.querySelector(`#allDiv`).style.display=`flex`   
-        for (var i = 0; i < localStorage.length; i++){
-            let user = JSON.parse(localStorage.getItem(localStorage.key(i)))
-                document.querySelector(`#all`).insertAdjacentHTML(`beforeend`,`
-                <div class="all">
-                <span>${user.firstName} ${user.lastName}</span>
-                  <label>Birthday: ${user.birthDate}</label>
-                  <label>Email: ${user.email}</label>
-                  <label>Profession: ${user.profession}</label>
-                  <label>${user.first}</label>
-                  <label>${user.second}</label>
-                  <label>${user.third}</label>
-                  <input type="text" id = "emailD" style="display: none;" value="${user.email}">
-                </div>`)
+        cell.addEventListener('click', () => cellClick(i, j))
+        cell.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+          addFlag(i, j)
+          renderMasiv()
+        });
+
+        if (masiv[i][j].revealed) {
+          cell.textContent = masiv[i][j].isMine ?``: (masiv[i][j].count || '')
+          if( masiv[i][j].isMine ? '' : (masiv[i][j].count || '')===1){
+            cell.style.color=`rgb(25, 118, 210)`
+          }
+          if( masiv[i][j].isMine ? '' : (masiv[i][j].count || '')===2){
+            cell.style.color=`rgb(56, 142, 60)`
+          }
+          if( masiv[i][j].isMine ? '' : (masiv[i][j].count || '')===3){
+            cell.style.color=`rgb(211, 47, 47)`
+          }
+          if( cell.id%2===0){
+            cell.classList.toggle(`t1`)
+          }
+          else{
+            cell.classList.toggle(`t2`)
+          }
+          cell.classList.add('revealed')
+
+          if (masiv[i][j].isMine) {
+            cell.classList.add('mine')
+          }
+        } else if (masiv[i][j].flagged) {
+          cell.textContent = '🚩'
+          cell.setAttribute("id", "flagged")
+        } else {
+          cell.textContent = ''
         }
-      })
+
+        str.appendChild(cell)
+      }
+      table.appendChild(str)
+    }
+    timer()
+    document.querySelector(`#rem`).innerHTML=`❎: ${(size*size)-clickedcells}`
+  }
+  function timer(){
+    let i = 1
+    if (clickedcells===0) {
+      squareInterval = setInterval(() => {
+        if (clickedcells===0) {
+          document.querySelector(`#time`).innerHTML=`⏲ 0:0`
+          return i=1
+        }
+        document.querySelector(`#time`).innerHTML=`⏲ ${Math.floor(i / 60)}:${i % 60}`
+        return i++
+      }, 1000)
+      }
+  }
+  function cellClick(str, kol) {
+
+    if (masiv[str][kol].isMine) {
+      document.querySelector(`#lose`).style.display=`flex`
+      setTimeout(()=>document.querySelector(`#lose`).style.display=`none`,1000)
+      fl=0
+      document.querySelector(`#flags`).innerHTML=`🚩: ${fl}`
+      initializeMasiv()
+      addMines()
+      addNumbers()
+    } else {
+      clickedCell(str, kol)
+
+      if (isGameWon()) {
+        alert('Congratulations! You won!')
+        initializeMasiv()
+        addMines()
+        addNumbers()
+      }
+    }
+    renderMasiv()
+  }
+  initializeMasiv()
+  addMines()
+  addNumbers()
+  renderMasiv()
+  console.log(!isGameWon())
+})

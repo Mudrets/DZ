@@ -1,97 +1,148 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: mine;
+    src: url(./Minecraft.ttf);
+}
+html{
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+table{
+    border-collapse: collapse;
+    width: 47vw;
+    height: 80vh;
+}
+div{
+    flex-direction: column;
+    display: flex;
+    border: 10px solid rgb(185, 156, 127);
+}
+td{
+    text-align: center;
+    cursor: pointer;
+    font-family: mine;
+    color: gold;
+}
+.e{
+    font-size: 3vh;
+    height: 10%;
+    width: 10%;
+}
+
+.m{
+    font-size: 3vh;
+    height: 6.66666667%;
+    width: 6.66666667%;
+}
+.h{
+    font-size: 2vh;
+    height: 5%;
+    width: 5%;
+}
+.g1:hover,.g2:hover{
+    transition: all 0.3s;
+    background-color: rgb(133, 176, 49);
+}
+body{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./cropped-5120-2880-1130469.png);
+}
+.g1{
+    background-color: rgb(162, 209, 73);
+}
+.g2{
+    background-color: rgb(170, 215, 81);
+}
+.t1{
+    background-color: rgb(215, 184, 153);
+}
+
+.t2{
+    background-color: rgb(229, 194, 159);
+}
+.t1:hover,.t2:hover{
+    transition: all 0.3s;
+    background-color: rgb(185, 156, 127);
+}
+select{
+    text-align: center;
+    border: 3px solid rgb(185, 156, 127);
+    width: 100%;
+    font-size: 3vh;
+    color: rgb(134, 84, 40);
+    font-family: mine;
+    background-color:rgb(229, 194, 159); ;
+    outline: none;
+}
+span{
+    padding: 0 1vw;
+}
+form{
+    color: gold;
+    font-size: 20px;
+    padding: 10px;
+    font-family: mine;
+    text-align: center;
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-  }
-form{
-    margin: 5px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 500px;
+    background-color: rgb(74, 117, 44);
+    width: 47vw;
+    padding: 10px 0;
 }
-.all {
-    margin: 5px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
-#driver{
-    width: 100%;
-}
-
-label {
-    display: block;
-    margin: 10px 0;
-    text-align: left;
-    color: #555;
-}
-
-input,select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-span {
-    color: #4285f4;
-  }
-#choiseLogin,#choiseRegister,#backButton,#backButton_2{
-    width: 40%;
-    background-color: #f40a25;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-#registerButton,#loginButton,#deleteButton{
-    width: 40%;
-    background-color: #4285f4;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-#registerButton:hover,#loginButton:hover,#deleteButton:hover {
-    background-color: #357ae8;
-}
-#choiseLogin:hover,#choiseRegister:hover,#backButton:hover,#backButton_2:hover {
-    background-color: #cd0000;
-}
-#showAllButton{
-    background-color: #07b739;
-    width: 100%;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-#showAllButton:hover{
-    background-color: #0fc254;
-}
-#allDiv{
-    display: flex;
-    flex-wrap: wrap;
+#lose{
+    padding: 0;
+    display: none;
+    opacity: 100;
     justify-content: center;
-    width: 300px;
-    margin: 5px;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    font-size: 10vh;
+    font-family: mine;
+    color:#f00;
+    animation: lose 2s ease;
+}
+@keyframes lose {
+    20%{
+        opacity: 100;
+        color:rgb(253, 221, 11);
+    }
+    40%{
+        color:#f00;
+    }
+    60%{
+        color:rgb(253, 221, 11);
+    }
+    80%{
+        opacity: 0;
+        color:#f00;
+    }
+}
+@media screen and (max-width:900px) {
+    div{
+        width: 90vw;
+        height: 90vh;
+    }
+    form{
+        font-size: 15px;
+        width: 100%;
+    }
+    table{
+        border-collapse: collapse;
+        width: 100%;
+        height: 90vh;
+    }
+
 }
