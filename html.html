@@ -9,22 +9,26 @@
 <body>
     <div id="all" class="block">
         <form action="">
+            <label for="zag">Закордонний паспорт</label>
             <select name="" id="pasport1">
                 <option value="nonPas">Паспорт відсутній</option>
                 <option value="valPas">Дійсний закордонний паспорт</option>
                 <option value="invPas">Простроченний закордонний паспорт</option>
             </select>
-            <select name="" id="pasport2">
+            <label for="">Паспорт України</label>
+            <select name="pas" id="pasport2">
                 <option value="nonPas">Паспорт відсутній</option>
                 <option value="valPas">Дійсний паспорт України</option>
                 <option value="invPas">Простроченний паспорт України</option>
             </select>
+            <label for="zag">Свідотства про шлюб</label>
             <select name="" id="brak">
                 <option value="non">Свідоцтва відсутні</option>
                 <option value="never">Не був (була) у шлюбі</option>
                 <option value="is">Свідоцтво про шлюб</option>
                 <option value="been">Свідоцтво про розлучення</option>
             </select>
+            <label for="zag">Свідотства про народження дітей</label>
             <select name="" id="children">
                 <option value="non">Свідоцтва відсутні</option>
                 <option value="never">Діти відсутні</option>
@@ -32,6 +36,7 @@
                 <option value="2">2 дитини</option>
                 <option value="3">3 дитини</option>
             </select>
+            <label for="zag">Виписка з банку за останні пів року<br>(Не меньше 20 тис.$)</label>
             <select name="" id="bill">
                 <option value="non">Відсутня виписка</option>
                 <option value="invBill">Некоректна виписка</option>
