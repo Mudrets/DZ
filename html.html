@@ -7,78 +7,44 @@
     <link rel="stylesheet" href="./css.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body class="bg">
-    <div id="container">
-        <div id="exchangeRate" class="row">
-            <h1 class="col-12">Курси валют на стан (01.12.2014)</h1>
-            <table class="col-3">
-                <tr class="name">
-                    <td>Валюта</td>
-                    <td>Купівля</td>
-                    <td>Продаж</td>
-                </tr>
-                <tr>
-                    <td id="n1">---</td>
-                    <td id="usd1">---</td>
-                    <td id="usd2">---</td>
-                </tr>
-                <tr>
-                    <td id="n2">---</td>
-                    <td id="eur1">---</td>
-                    <td id="eur2">---</td>
-                </tr>
-                <tr>
-                    <td id="n3">---</td>
-                    <td id="plz1">---</td>
-                    <td id="plz2">---</td>
-                </tr>
-            </table>
-                <div id="currencyContainer" class="col-5">
-                    <div class="row">
-                        <h2 class="calc col-10">Калькулятор валют</h2>
-                        <span id="swButt" class="col-2">⇅</span>
-                    </div>
-                    <div class="switch1">
-                        <input type="number" id="input1" placeholder="0">
-                        <select id="baseCurrency1">
-                        </select>
-                        <br>
-                        <input type="text" id="input2" disabled placeholder="0">
-                    </div>
-                    <div class="switch2 hide">
-                        <input type="number" id="input3"placeholder="0">
-                        <br>
-                        <input type="text" id="input4" disabled  placeholder="0">
-                        <select id="baseCurrency2">
-                        </select>
-                    </div>
-                    <button id="butt1">Підрахувати</button>
-                </div>
-                <table class="col-3">
-                    <tr class="name">
-                        <td>Валюта</td>
-                        <td>Купівля</td>
-                        <td>Продаж</td>
-                    </tr>
-                    <tr id="curN">
-                        <td id="n4"></td>
-                        <td id="cur1"></td>
-                        <td id="cur2"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-        </div>
+<body style="background-color: #202124;">
+<div id="headS">
+  <span id="logo">Weather</span>
+  <div id="search">  
+    <input id="input" type="text" value="rivne">
+    <img id="clearBtn" src="./cross-sign.png" alt="">
+    <div id="sp"></div>
+    <img id="keyBtn" src="./free-icon-keyboard-7732080.png" alt="">
+    <img id="voiceBtn" src="./free-icon-google-voice-3128290.png" alt="">
+    <img id="lensBtn" src="./google_lens_logo_icon_159340.png" alt="">
+    <img id="searchBtn" src="./free-icon-loupe-751463.png" alt="">
+  </div>
+</div>  
+<header class="weather">
+  <div class="row p-1">
+    <h2 id="lTeg" class="col-11">Результат:<span style="font-weight: 500; color: #d9dbdd;" id="loc"></span></h2>
+    <div id="bInfo" class="col-9">
+      <div id="wImg"></div>
+      <span id="deg"></span>
+      <span id="degBtn">°C</span>
+      <span id="sInfo"><br><br></span>
     </div>
-    <script src="./js.js"></script>
+    <div id="dInfo" class="col-3">
+      <span id="wTeg">Погода</span>
+      <span id="date"><br></span>
+    </div>
+  </div>
+</header>
+<footer id="hoursWeather">
+    <!-- <div class="block">
+      <span class="day">СБ</span>
+      <div class="wImgs">
+        <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="">
+      </div>
+      <span class="min-max">1-12</span>
+    </div> -->
+</footer>
+<script src="./js.js"></script>
 </body>
 </html>
 

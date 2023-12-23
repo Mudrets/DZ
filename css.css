@@ -1,106 +1,135 @@
 @font-face {
-    font-family: fut;
-    src: url(./FuturaMediumC.ttf);
+  font-family: google;
+  src: url(./Product\ Sans\ Bold.ttf);
 }
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+.weather{
+  min-width: 1000px;
+  /* display: none; */
+  padding: 2vh;
+  color: #d9dbdd;
+  background-color: #202124;
 }
-.bg{
-    background-color: #f5f5f5;
+#logo{
+  font-family: google;
+  color: #d9dbdd;
+  font-size: 30px;
+  margin: 0 10px;
 }
-#currencyContainer{
-    text-align: center;
-    padding: 20px;
-    margin:0 10px;
-    background-color: #fff;
+header{
+  border-top: 1px solid #9aa0a6;
 }
-#container{
-    font-family: fut;
-    width: 800px;
+#keyBtn,#voiceBtn,#searchBtn,#clearBtn,#lensBtn{
+  cursor: pointer;
 }
-h1 {
-    color: #333;
+#headS{
+  display: flex;
+  background-color: #202124;
+  padding: 3vh 1vw;
 }
+#search{
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #303134;
+  border-radius:50px;
+  padding: 0 20px;
+}
+#search img{
+  height: 24px;
+  margin: 3px;
+}
+#search input{
+  font-weight: 500;
+  color: #d9dbdd;
+  height: 44px;
+  width: 700px;
+  border-radius:50px;
+  outline: none;
+  border: none;
+  background-color: #303134;
+}
+#sp{
+  height: 30px;
+  font-size: 20px;
+  width: 2px;
+  border-right: 1px solid #9aa0a6;
+  margin: 0 10px;
+}
+#lTeg{
+  margin: 1vh 1vw;
+  font-size: 3vh;
+  font-weight: 500;
+  font-weight: 300; 
+  color: #9aa0a6;
+}
+#wImg{
+  height: 15vh;
+  margin: 0 2vw;
+}
+.wImgs{
+  height: 15vh;
+  margin: 0 2vw;
+  width: 20vh;
+}
+.wImgs img{
+  height: 15vh;
+}
+#wImg img{
+  height: 15vh;
+}
+#deg{
+  font-size: 12vh;
+  line-height: 12vh;
+  margin: 0 0 2vw 0;
+}
+#degBtn{
+  font-size: 5vh;
+  margin:  0 2vw 0 1vh;
+}
+#bInfo{
+  display: flex;
+}
+#sInfo{
+  color: #9aa0a6;
+  height: 15vh;
+  font-size: 3vh;
 
-select,input {
-    height: 40px;
-    padding: 0 10px;
-    font-size: 16px;
-    background-color: #f8f8f8;
-    outline: none;
-    border: 1px solid gray;
-    font-size: 16px;
 }
-#baseCurrency1{
-    width: 100px;
-    margin: 10px 0px;
+#dInfo{
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
 }
-#baseCurrency2{
-    width: 100px;
-    margin: 10px 0px;
+#wTeg{
+  font-size: 5vh;
+  line-height: 6vh;
 }
-table{
-    background-color: white;
+#date{
+  color: #9aa0a6;
+  font-size: 3vh;
+  line-height: 4vh;
 }
-#input1{
-    width: 196px;
-    margin: 10px 0px;
+.block{
+  cursor: pointer;
+  border-radius:20px; 
+  height: 25vh; 
+  width: 20vh;
+  margin: 1vh 3vh; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-#input2{
-    width: 300px;
-    margin: 10px 0px;
+.active{
+  background-color: #303134;
 }
-#input4{
-    width: 196px;
-    margin: 10px 0px;
+.day,.min-max{
+  text-align: center;
+  font-size: 3vh;
+  color: #d9dbdd;;
 }
-#input3{
-    width: 300px;
-    margin: 10px 0px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4ac35a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-}
-td {
-    width: 100px;
-    border: 1px solid #dddddd;
-    height: 30px;
-    text-align: center;
-}
-.name {
-    
-    background-color: #4ac35a;
-    color: white;
-}
-h1{
-    padding: 50px;
-    text-align: center;
-}
-.calc{
-    text-align: start;
-    font-size: 16px;
-}
-.hide{
-    display: none;
-}
-#swButt{
-    cursor: pointer;
-    color: gray;
-}
-#swButt:hover{
-    transition: all 0.5s;
-    color: black;
+#hoursWeather{
+  display: flex;
 }

@@ -1,65 +1,81 @@
-var rounded = function(number){
-  return Math.round(parseFloat(number) * 100) / 100;
-}
-
-const url = `https://api.privatbank.ua/p24api/exchange_rates?json&date=01.12.2014`
-async function privatbank(){
-  const fileCors = await fetch(url)
-  const data = await fileCors.json()
-  return data.exchangeRate
-}
 addEventListener(`DOMContentLoaded`,()=>{
-  const baseCurrency1 = document.querySelector(`#baseCurrency1`)
-  const baseCurrency2 = document.querySelector(`#baseCurrency2`)
-  privatbank().then(result => {  
-    for (let i = 0; i < result.length; i++) {
-      baseCurrency2.insertAdjacentHTML(`beforeend`,`
-            <option value="${i}">${result[i].currency}</option>
-            `)
-      baseCurrency1.insertAdjacentHTML(`beforeend`,`
-            <option value="${i}">${result[i].currency}</option>
-            `)
-    }
-    document.querySelector(`#n1`).innerHTML=`${result[14].currency}`
-    document.querySelector(`#usd1`).innerHTML=`${rounded(result[14].purchaseRateNB)}`
-    document.querySelector(`#usd2`).innerHTML=`${rounded(result[14].saleRateNB)}`
-    document.querySelector(`#n2`).innerHTML=`${result[16].currency}`
-    document.querySelector(`#eur1`).innerHTML=`${rounded(result[16].purchaseRateNB)}`
-    document.querySelector(`#eur2`).innerHTML=`${rounded(result[16].saleRateNB)}`
-    document.querySelector(`#n3`).innerHTML=`${result[18].currency}`
-    document.querySelector(`#plz1`).innerHTML=`${rounded(result[18].purchaseRateNB)}`
-    document.querySelector(`#plz2`).innerHTML=`${rounded(result[18].saleRateNB)}`
-    showOut()
-  })
+  add()
 })
-function showOut(){
-  privatbank().then(result => {
-    const baseCurrency = document.querySelector(`#baseCurrency1`).value
-    document.querySelector(`#n4`).innerHTML=`${result[baseCurrency].currency}`
-    document.querySelector(`#cur1`).innerHTML=`${rounded(result[baseCurrency].purchaseRateNB)}`
-    document.querySelector(`#cur2`).innerHTML=`${rounded(result[baseCurrency].saleRateNB)}`
-  })
+document.querySelector(`#searchBtn`).addEventListener(`click`,add)
+window.addEventListener('keypress', (e)=>{
+  if(e.key === 'Enter'){
+    add()
+  }
+})
+function add(){
+  const input = document.querySelector(`#input`)
+  if(input.value.length === 0){
+    input.style.borderColor = 'red'
+  }else{
+    const cityName = input.value
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lang=ua&units=metric&appid=33a4edb2fe337fd387e632012d97d0de`
+    weather(url)
+  }
 }
-function calculate(){
-  const input1 = document.querySelector(`#input1`).value
-  const input2 = document.querySelector(`#input2`)
-  const baseCurrency1 = document.querySelector(`#baseCurrency1`).value
-  const input3 = document.querySelector(`#input3`).value
-  const input4 = document.querySelector(`#input4`)
-  const baseCurrency2 = document.querySelector(`#baseCurrency2`).value
-  privatbank().then(result => {
-    input2.value=`${(rounded(input1*result[baseCurrency1].saleRateNB))} грн.`  
-    input4.value=`${(rounded(input3/result[baseCurrency2].saleRateNB))}`  
-  })
+document.querySelector(`#clearBtn`).addEventListener(`click`,()=>{document.querySelector(`#input`).value=``})
+
+const weather = async(url) => {
+  try {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data);
+    if(response.status === 404){
+      input.style.borderColor = 'red'
+    }
+    generelInfo(data)
+  } catch (error) {
+    console.error('Error', error)
+  }
 }
 
-function switc(){
-  document.querySelector(`.switch1`).classList.toggle(`hide`)
-  document.querySelector(`.switch2`).classList.toggle(`hide`)
+function generelInfo(data) {
+  document.querySelector('#deg').innerHTML = Math.floor(data.list[0].main.temp) 
+  document.querySelector('#wImg').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" alt="">`
+  document.querySelector('#loc').innerHTML = ` ${data.city.country} ${data.city.name}`
+  document.querySelector('#sInfo').innerHTML = `Відчуваеться як: ${Math.floor(data.list[0].main.feels_like)}°C<br>Вологість: ${Math.floor(data.list[0].main.humidity)}% <br>Вітер: ${Math.floor(data.list[0].wind.speed)} км/ч`
+  document.querySelector('#date').innerHTML = `${secondsToDate(data.list[0].dt+data.city.timezone-21600)[1]} ${secondsToDate(data.list[0].dt+data.city.timezone-21600)[0]} <br>${data.list[0].weather[0].description}`
+  document.querySelector(`#hoursWeather`).innerHTML=``
+  document.querySelector(`#hoursWeather`).insertAdjacentHTML(`beforeend`,`
+  <div class="block active">
+  <span class="day">${secondsToDate(data.list[0].dt+data.city.timezone-21600)[2]}</span>
+  <div class="wImgs">
+    <img src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" alt="">
+  </div>
+  <span class="min-max">${Math.floor(data.list[0].main.temp_max)}° <span style="color: #9aa0a6;">${Math.floor(data.list[0].main.temp_min)}°</span></span>
+</div>`)
+  for(let i = 4;i<39;i=i+8)
+  document.querySelector(`#hoursWeather`).insertAdjacentHTML(`beforeend`,`
+  <div class="block">
+  <span class="day">${secondsToDate(data.list[i].dt+data.city.timezone-21600)[2]}</span>
+  <div class="wImgs">
+    <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" alt="">
+  </div>
+  <span class="min-max">${Math.floor(data.list[i].main.temp_max)}° <span style="color: #9aa0a6;">${Math.floor(data.list[i].main.temp_min)}°</span></span>
+</div>`)
 }
-
-document.querySelector(`#butt1`).addEventListener(`click`,calculate)
-document.querySelector(`#swButt`).addEventListener(`click`,switc)
-document.querySelector(`#baseCurrency1`).addEventListener(`change`,showOut)
-document.querySelector(`#baseCurrency2`).addEventListener(`change`,showOut)
-
+function secondsToDate(seconds) {
+  const date = new Date(0);
+  date.setSeconds(seconds);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const daysOfWeekf = [`Неділя`, `Понеділок`, `Вівторок`, `Середа`, `Четвер`, `П'ятниця`, `Субота`];
+  const daysOfWeek = ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+  const dayOfWeekf = daysOfWeekf[date.getUTCDay()];
+  const dayOfWeek = daysOfWeek[date.getUTCDay()];
+  const dayOfMonth = date.getUTCDate();
+  const months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень','Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+  const month = months[date.getUTCMonth()];
+  const formattedTime = [
+    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`,
+    `${dayOfWeekf}`,
+    `${dayOfWeek}`,
+    `${month}`,
+    `${dayOfMonth}`
+  ]
+  return formattedTime;
+}
