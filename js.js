@@ -67,6 +67,8 @@ function generelInfo(data,id,n) {
   document.querySelector('#wImg').innerHTML = `<img src="./animation-ready/${icons[data.list[id].weather[0].icon]}.svg" alt="">`
   document.querySelector('#wTeg').innerHTML = ` ${data.city.country} ${data.city.name}`
   document.querySelector('#sInfo').innerHTML = `Відчуваеться як: ${Math.floor(data.list[id].main.feels_like)}°C<br>Вологість: ${Math.floor(data.list[id].main.humidity)}% <br>Вітер: ${Math.floor(data.list[id].wind.speed)} км/ч`
+  document.querySelector(`#date2`).innerHTML =`${data.list[id].weather[0].description}`
+  document.querySelector(`#date3`).innerHTML =`${data.list[id].weather[0].description}`
   if(n){
     document.querySelector('#date').innerHTML = `${secondsToDate(data.list[id].dt+data.city.timezone-14400)[1]}<br>${data.list[id].weather[0].description}`
   }

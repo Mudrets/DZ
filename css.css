@@ -83,6 +83,7 @@
   height: 15vh;
 }
 #deg {
+  width: 8vw;
   font-size: 12vh;
   line-height: 12vh;
   margin: 0 0 2vw 0;
@@ -99,49 +100,40 @@
   margin: 0 2vw 0 1vh;
   color: #9aa0a6;
 }
-
-/* Toggle Styles */
 #cel,
 #far {
   cursor: pointer;
 }
-
 .degActive {
   color: white;
 }
-
-/* Information Styles */
 #bInfo {
   display: flex;
 }
-
 #sInfo {
   color: #9aa0a6;
   height: 15vh;
   font-size: 3vh;
 }
-
 #dInfo {
   height: 15vh;
   display: flex;
   flex-direction: column;
   text-align: end;
 }
-
-/* Date and Time Styles */
 #wTeg {
   font-size: 5vh;
   line-height: 6vh;
 }
-
 #date {
   color: #9aa0a6;
   font-size: 3vh;
   line-height: 4vh;
   text-transform: capitalize;
 }
-
-/* Block Styles */
+#date2{
+  display: none;
+}
 .block {
   transition: background-color 0.5s;
   cursor: pointer;
@@ -154,7 +146,6 @@
   align-items: center;
   text-align: center;
 }
-
 .pelena {
   border-radius: 20px;
   z-index: 10;
@@ -162,18 +153,15 @@
   min-width: 12.5vw;
   position: absolute;
 }
-
 .active {
   background-color: #303134;
   border: 3px solid #b28e2a;
 }
-
 .activeSpan {
   color: #b28e2a;
   scale: 1.1;
   transition: all 1s;
 }
-
 .day,
 .min-max,
 .dayF {
@@ -181,23 +169,16 @@
   font-size: 3vh;
   color: #d9dbdd;
 }
-
 .dayF {
   display: none;
 }
-
-/* Hours Weather Styles */
 #hoursWeather {
   justify-content: space-between;
   display: flex;
 }
-
-/* Scroll Styles */
 #scroll {
   overflow: hidden;
 }
-
-/* Digital Time, Temperature, and Speed Styles */
 #digitalTime,
 #tempText,
 #speedText,
@@ -206,8 +187,6 @@
   color: aliceblue;
   display: flex;
 }
-
-/* Arrow Animation Styles */
 .arr {
   animation: arrow infinite 5s;
   overflow: hidden;
@@ -217,7 +196,6 @@
   justify-content: center;
   align-items: center;
 }
-
 @keyframes arrow {
   0% {
     transform: rotate(0deg);
@@ -235,8 +213,6 @@
     transform: rotate(0deg);
   }
 }
-
-/* Additional Weather Styles */
 .speedTxt,
 .miniTemp {
   min-width: 12.5vw;
@@ -244,7 +220,6 @@
   text-align: center;
   font-size: 3vh;
 }
-
 .miniWind {
   min-width: 5vw;
   height: 20vh;
@@ -254,28 +229,22 @@
   background-position: center;
   transition: all 2s;
 }
-
 .high {
   min-width: 12.5vw;
   height: 20vh;
   background-color: #b28e2a66;
 }
-
-/* Hover Styles */
 .block:hover {
   background-color: #303134;
 }
-
 .h {
   position: relative;
   background-color: #202124;
   border-bottom: 5px solid #b28e2a;
 }
-
 .miniWind:hover {
   scale: 1.5;
 }
-
 .miniTime {
   min-width: 12.5vw;
   height: 5vh;
@@ -284,17 +253,12 @@
   cursor: pointer;
   transition: all 0.5s;
 }
-
 .miniTime:hover {
   scale: 1.1;
 }
-
-/* Wind Image Styles */
 .windImg {
   height: 10vh;
 }
-
-/* Button Styles */
 #btns {
   display: flex;
   align-items: center;
@@ -302,32 +266,25 @@
   font-size: 3vh;
   padding-left: 2vw;
 }
-
 #tempBtn,
 #windBtn {
   line-height: 5vh;
   cursor: pointer;
 }
-
 .activeBtn {
   border-bottom: 3px solid #b28e2a;
 }
-
-/* Additional Animation Styles */
 .topHide {
   transition: opacity 0.3s;
   opacity: 0;
 }
-
 .none {
   display: none;
 }
-
 #digitalTemp,
 #digitalWind {
   animation: topHide 0.3s;
 }
-
 @keyframes topHide {
   0% {
     opacity: 0;
@@ -337,8 +294,6 @@
     opacity: 100;
   }
 }
-
-/* Information Section Styles */
 #info {
   display: flex;
   justify-content: space-between;
@@ -353,8 +308,14 @@
 #gInfo {
   display: flex;
 }
-
+#date3{
+  display: none;
+}
 @media  screen and (max-width:960px) {
+  .active {
+    border: 2px solid #b28e2a;
+    box-sizing: border-box;
+  }
   #hoursWeather {
     align-items: center;
     display: flex;
@@ -407,12 +368,14 @@
   #bInfo {
     justify-content: space-between;
     width: 100vw;
+    flex-wrap: wrap;
   }
   #deg {
+    width: 110px;
     margin: 0;
     font-size: 100px;
     line-height: 60px;
-    margin: 0 0 2vw 0;
+    margin: 0;
   }
   #degBtn {
     font-size: 40px;
@@ -425,6 +388,7 @@
   #sInfo {
     text-align: end;
     font-size: 20px;
+    height: auto;
   }
   .wImgs img {
     height: 50px;
@@ -439,6 +403,16 @@
   }
   #wImg img{
     height: 100px;
+  }
+  #date2 {
+    display: flex;
+    color: #ffffff;
+    font-size: 5vh;
+    padding-left: 3vw;
+    text-transform: capitalize;
+    width: 95vw;
+    line-height: 5vh;
+    padding-bottom: 1vh;
   }
 }  
 @media  screen and (max-width:740px) {
@@ -492,12 +466,16 @@
   }
   #sInfo {
     font-size: 15px;
+    height: auto;
   }
   .weather {
     padding: 0;
   }
   #tempHigh {
     display: none;
+  }
+  #date2 {
+    font-size: 25px;
   }
 }
 @media  screen and (max-width:560px) {
@@ -542,6 +520,16 @@
   }
 }
 @media  screen and (max-width:450px) {
+  #date2{
+    display: none;
+  }
+  #date3 {
+    text-transform: capitalize;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+  }
   #bInfo{
     flex-direction: column;
     justify-content: center;
