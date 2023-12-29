@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="background-color: #202124;">
+<div id="headS">
+  <span id="logo">Weather</span>
+  <div id="search">  
+    <input id="input" type="text" value="Rivne">
+    <img id="clearBtn" src="./cross-sign.png" alt="">
+    <div id="sp"></div>
+    <!-- <img id="keyBtn" src="./free-icon-keyboard-7732080.png" alt="">
+    <img id="voiceBtn" src="./free-icon-google-voice-3128290.png" alt="">
+    <img id="lensBtn" src="./google_lens_logo_icon_159340.png" alt=""> -->
+    <img id="searchBtn" src="./free-icon-loupe-751463.png" alt="">
+  </div>
+</div>  
+<h2 id="lTeg"> Нажаль не вдалося знайти місце по запиту: <span style="font-weight: 500; color: #d9dbdd;" id="loc"></span></h2>
+<header class="weather">
+  <div id="info">
+    <div id="bInfo">
+      <div id="gInfo">
+        <div id="wImg"></div>
+        <span id="deg"></span>
+        <span id="degBtn">
+          <span class="degActive" id="cel">°C</span>
+          <div id="sp3"></div>
+          <span id="far">°F</span>
+        </span>
+      </div>
+      <span id="sInfo"></span>
+    </div>
+    <div id="dInfo">
+      <span id="wTeg">Погода</span>
+      <span id="date"><br></span>
+    </div>
+  </div>
+  <div id="btns">
+    <span class="activeBtn" id="tempBtn">Температура</span>
+    <div id="sp2"></div>
+    <span id="windBtn">Вітер</span>
+  </div>
+  </header>
+    <main id="scroll">
+      <div id="digitalTemp">
+        <div id="tempText"></div>
+        <div id="tempHigh"></div>
+      </div>
+      <div id="digitalWind" class="topHide none">
+        <div id="speedText"></div>
+        <div id="degArr"></div>
+      </div>
+      <div id="digitalTime">
+      </div>
+    </main>
+  <footer id="hoursWeather">
+</footer>
+<script src="./js.js"></script>
+</body>
+</html>
+
