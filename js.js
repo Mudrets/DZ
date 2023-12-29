@@ -16,6 +16,7 @@ document.querySelector(`#searchBtn`).addEventListener(`click`,()=>{
 function add(id){
   weather()
   .then((data)=>{
+    console.log(data);
     generelInfo(data,id)
     outzero(data)
     miniTime(data,0)
@@ -83,6 +84,12 @@ function miniTemp(data,id){
   for(let i = id;i<data.list.length;i++){
     temp.push(Math.floor(data.list[i].main.temp))
   }
+  let m1=0
+  let m2=1
+  if(document.querySelector(`#cel`).className!==`degActive`){
+    m1=32
+    m2=5/9
+  }
   for(let i = id;i<data.list.length;i++){
     document.querySelector(`#tempText`).insertAdjacentHTML(`beforeend`,`
     <span class="miniTemp">${Math.floor(data.list[i].main.temp)}°
@@ -91,7 +98,7 @@ function miniTemp(data,id){
     </div>
     </span>`)
     document.querySelector(`#tempHigh`).insertAdjacentHTML(`beforeend`,`
-    <div class="high"><div class="h" style="  height: ${(20+Math.min(...temp))-(Math.floor(data.list[i].main.temp))}vh;"></div></div>`)
+    <div class="high"><div class="h" style="  height: ${((20+(Math.min(...temp)-m1)*m2))-(Math.floor(data.list[i].main.temp)-m1)*m2}vh;"></div></div>`)
   }
   scroll(0)
 }
@@ -134,12 +141,11 @@ function scroll(id){
 
 function outzero(data){
   const newDay=Math.floor((secondsToDate(data.list[0].dt+data.city.timezone-21600)[5])/3)
-  console.log(newDay);
   let temp=[]
   for(let j = 0;j<data.list.length;j=j+8){
     let day=[]
     for(let i = j;i<j+8;i++){
-      day.push(Math.floor(data.list[i].main.temp))
+        day.push(Math.floor(data.list[i].main.temp))
     }
     temp.push(day)
   }
