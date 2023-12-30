@@ -161,7 +161,7 @@ function outzero(data){
   <div class="wImgs">
   <img src="./animation-ready/${icons[data.list[0].weather[0].icon]}.svg" alt="">
   </div>
-  <span class="min-max">${Math.max(...temp[0])}° <span style="color: #9aa0a6;">${Math.min(...temp[0])}°</span></span>
+  <span class="min-max">${Math.max(...temp[0])}° <span style="color: var(--gray);">${Math.min(...temp[0])}°</span></span>
   `
   )
   for(let i = 8;i<data.list.length;i=i+8)
@@ -173,7 +173,7 @@ function outzero(data){
 <div class="wImgs">
 <img src="./animation-ready/${icons[data.list[i].weather[0].icon]}.svg" alt="">
 </div>
-<span class="min-max">${Math.max(...temp[i/8])}° <span style="color: #9aa0a6;">${Math.min(...temp[i/8])}°</span></span>
+<span class="min-max">${Math.max(...temp[i/8])}° <span style="color: var(--gray);">${Math.min(...temp[i/8])}°</span></span>
 </div>`)
 }
   const icons={
@@ -348,19 +348,19 @@ function bg(){
       --bg3:#8d8363;
     }`
   }
-  else if(document.querySelector(`#wImg img`).alt==="partly-cloudy-day-snow"){
-    return `
-    :root {
-      --deg: #edc34d;
-      --white: #7a7a7a;
-      --bg: #e2e2e2;
-      --bg2: #d2d2d2;
-      --yellow: #edc34d;
-      --bg_yellow:#a0a0a0;
-      --gray:#545454;
-      --bg3:#d2d2d2;
-    }`
-  }
+  // else if(document.querySelector(`#wImg img`).alt==="partly-cloudy-day-snow"){
+  //   return `
+  //   :root {
+  //     --deg: #edc34d;
+  //     --white: #7a7a7a;
+  //     --bg: #e2e2e2;
+  //     --bg2: #d2d2d2;
+  //     --yellow: #edc34d;
+  //     --bg_yellow:#a0a0a0;
+  //     --gray:#545454;
+  //     --bg3:#d2d2d2;
+  //   }`
+  // }
   else{
     return`
     :root {
@@ -370,7 +370,7 @@ function bg(){
       --bg2: #757c92;
       --yellow: #edc34d;
       --bg_yellow:#9a9eab;
-      --gray:#ffffff;
+      --gray:#e6e6e6;
       --bg3:#757c92;
     }`
   }
