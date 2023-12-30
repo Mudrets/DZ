@@ -64,11 +64,12 @@ const weather = async() => {
 
 function generelInfo(data,id,n) {
   document.querySelector('#deg').innerHTML = Math.floor(data.list[id].main.temp) 
-  document.querySelector('#wImg').innerHTML = `<img src="./animation-ready/${icons[data.list[id].weather[0].icon]}.svg" alt="">`
+  document.querySelector('#wImg').innerHTML = `<img src="./animation-ready/${icons[data.list[id].weather[0].icon]}.svg" alt="${icons[data.list[id].weather[0].icon]}">`
   document.querySelector('#wTeg').innerHTML = ` ${data.city.country} ${data.city.name}`
   document.querySelector('#sInfo').innerHTML = `Відчуваеться як: ${Math.floor(data.list[id].main.feels_like)}°C<br>Вологість: ${Math.floor(data.list[id].main.humidity)}% <br>Вітер: ${Math.floor(data.list[id].wind.speed)} км/ч`
-  document.querySelector(`#date2`).innerHTML =`${data.list[id].weather[0].description}`
+  document.querySelector(`#date2`).innerHTML =`<span>${data.city.name}</span><span>${data.list[id].weather[0].description}</span>`
   document.querySelector(`#date3`).innerHTML =`${data.list[id].weather[0].description}`
+  document.querySelector(`style`).innerHTML=bg()
   if(n){
     document.querySelector('#date').innerHTML = `${secondsToDate(data.list[id].dt+data.city.timezone-14400)[1]}<br>${data.list[id].weather[0].description}`
   }
@@ -133,7 +134,6 @@ function miniWind(data,id){
   }
   scroll(0)
 }
-{/* <div style="transform: rotate(${data.list[i].wind.deg-180}deg); background-size: ${data.list[i].wind.speed*(100/Math.max(...wind))/15}vh;" class="miniWind"></div> */}
 
 function scroll(id){
   document.querySelector(`#scroll`).scrollTo({
@@ -311,3 +311,81 @@ addEventListener(`click`,(e)=>{
     }
   }
 })
+document.querySelector(`#theme`).addEventListener(`click`,()=>{
+  if(document.querySelector(`#theme`).className===`act`){
+    document.querySelector(`#theme`).src="./free-icon-brightness-2130739.png"
+    document.querySelector(`#theme`).className=``
+    document.querySelector(`style`).innerHTML=`
+    :root {
+      --deg: #ffffff;
+      --white: #d9dbdd;
+      --bg: #202124;
+      --bg2: #303134;
+      --yellow: #b28e2a;
+      --bg_yellow:#b28e2a66;
+      --gray:#9aa0a6;
+      --bg3:#202124;
+    }`
+  }
+  else{
+    document.querySelector(`#theme`).src="./free-icon-brightness-2280442.png"
+    document.querySelector(`#theme`).className=`act`
+    document.querySelector(`style`).innerHTML=bg()
+  }
+})
+function bg(){
+  if(document.querySelector(`#theme`).className===`act`){
+  if(document.querySelector(`#wImg img`).alt==="clear-day"){
+    return `
+    :root {
+      --deg: #edc34d;
+      --white: #ffffff;
+      --bg: #ddc78d;
+      --bg2: #8d8363;
+      --yellow: #ffcc00;
+      --bg_yellow:#beaa6e;
+      --gray:#ffffff;
+      --bg3:#8d8363;
+    }`
+  }
+  else if(document.querySelector(`#wImg img`).alt==="partly-cloudy-day-snow"){
+    return `
+    :root {
+      --deg: #edc34d;
+      --white: #7a7a7a;
+      --bg: #e2e2e2;
+      --bg2: #d2d2d2;
+      --yellow: #edc34d;
+      --bg_yellow:#a0a0a0;
+      --gray:#545454;
+      --bg3:#d2d2d2;
+    }`
+  }
+  else{
+    return`
+    :root {
+      --deg: #edc34d;
+      --white: #ffffff;
+      --bg: #b8bdcc;
+      --bg2: #757c92;
+      --yellow: #edc34d;
+      --bg_yellow:#9a9eab;
+      --gray:#ffffff;
+      --bg3:#757c92;
+    }`
+  }
+}
+else{
+  return`
+    :root {
+      --deg: #ffffff;
+      --white: #d9dbdd;
+      --bg: #202124;
+      --bg2: #303134;
+      --yellow: #b28e2a;
+      --bg_yellow:#b28e2a66;
+      --gray:#9aa0a6;
+      --bg3:#202124;
+    }`
+}
+}
