@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #202124;
-  padding: 3vh 3vw;
+  padding: 3vh 0;
   flex-wrap: wrap;
 }
 #search {
@@ -83,15 +83,16 @@
   height: 15vh;
 }
 #deg {
-  width: 8vw;
+  text-align: center;
+  width: 180px;
   font-size: 12vh;
   line-height: 12vh;
-  margin: 0 0 2vw 0;
 }
 #clearBtn,#searchBtn{
   cursor: pointer;
 }
 #degBtn {
+  align-items: center;
   width: 100px;
   justify-content: space-between;
   display: flex;
@@ -109,8 +110,10 @@
 }
 #bInfo {
   display: flex;
+  align-items: center;
 }
 #sInfo {
+  padding-left: 1vw;
   color: #9aa0a6;
   height: 15vh;
   font-size: 3vh;
@@ -139,8 +142,8 @@
   cursor: pointer;
   border-radius: 20px;
   height: 25vh;
-  width: 12.5vw;
-  margin: 1vh 3vh;
+  width: 12.5%;
+  margin: 1vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,7 +153,7 @@
   border-radius: 20px;
   z-index: 10;
   height: 25vh;
-  min-width: 12.5vw;
+  min-width: 12.5%;
   position: absolute;
 }
 .active {
@@ -177,7 +180,10 @@
   display: flex;
 }
 #scroll {
+  margin-top: 1vh;
   overflow: hidden;
+  background-color: #303134;
+  border-radius: 20px;
 }
 #digitalTime,
 #tempText,
@@ -190,7 +196,7 @@
 .arr {
   animation: arrow infinite 5s;
   overflow: hidden;
-  min-width: 12.5vw;
+  min-width: 12.5%;
   height: 20vh;
   display: flex;
   justify-content: center;
@@ -215,7 +221,7 @@
 }
 .speedTxt,
 .miniTemp {
-  min-width: 12.5vw;
+  min-width: 12.5%;
   height: 5vh;
   text-align: center;
   font-size: 3vh;
@@ -230,7 +236,7 @@
   transition: all 2s;
 }
 .high {
-  min-width: 12.5vw;
+  min-width: 12.5%;
   height: 20vh;
   background-color: #b28e2a66;
 }
@@ -239,15 +245,14 @@
 }
 .h {
   position: relative;
-  background-color: #202124;
+  background-color: #303134;
   border-bottom: 5px solid #b28e2a;
 }
 .miniWind:hover {
   scale: 1.5;
 }
 .miniTime {
-  min-width: 12.5vw;
-  height: 5vh;
+  min-width: 12.5%;
   text-align: center;
   font-size: 3vh;
   cursor: pointer;
@@ -297,7 +302,6 @@
 #info {
   display: flex;
   justify-content: space-between;
-  padding: 3vh;
 }
 
 /* Additional Weather Image Styles */
@@ -306,12 +310,20 @@
 }
 
 #gInfo {
+  align-items: center;
+  background-color: #303134;
+  border-radius: 20px;
   display: flex;
 }
 #date3{
   display: none;
 }
-@media  screen and (max-width:960px) {
+@media  screen and (max-width:994px) {
+  .high {
+    min-width: 12.5%;
+    height: 100px;
+    background-color: #b28e2a66;
+  }
   .active {
     border: 2px solid #b28e2a;
     box-sizing: border-box;
@@ -328,7 +340,7 @@
     padding: 2vh;
     background-color: #303134;
     height: 50px;
-    width: 90vw;
+    width: 100%;
     margin: 1vh 0;
     display: flex;
     flex-direction: row;
@@ -340,7 +352,7 @@
     border-radius: 20px;
     z-index: 10;
     position: absolute;
-    width: 90vw;
+    width: 80%;
     text-align: start;
   }
   #btns {
@@ -350,7 +362,6 @@
     display: none;
   }
   #info {
-    padding: 0 3vh;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -367,19 +378,18 @@
   }
   #bInfo {
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
     flex-wrap: wrap;
   }
   #deg {
-    width: 110px;
+    width: 150px;
     margin: 0;
-    font-size: 100px;
+    font-size: 80px;
     line-height: 60px;
     margin: 0;
   }
   #degBtn {
     font-size: 40px;
-    max-width: 0;
     line-height: 40px;
   }
   #sp3 {
@@ -406,20 +416,25 @@
   }
   #date2 {
     display: flex;
-    color: #ffffff;
+    color: #9aa0a6;
     font-size: 5vh;
-    padding-left: 3vw;
     text-transform: capitalize;
     width: 95vw;
     line-height: 5vh;
     padding-bottom: 1vh;
   }
+  #scroll{
+    margin-bottom: 1vh;
+  }
 }  
-@media  screen and (max-width:740px) {
+@media  screen and (max-width:768px) {
   #deg {
     margin: 0;
     font-size: 60px;
     line-height: 60px;
+  }
+  #scroll{
+    border-radius: 15px;
   }
   #wImg{
     height: 70px;
@@ -428,8 +443,8 @@
     height: 70px;
   }
   #degBtn {
+    width: 60px;
     font-size: 20px;
-    max-width: 0;
     line-height: 20px;
   }
   #sp3 {
@@ -437,7 +452,7 @@
   }
   .miniTemp {
     height: auto;
-    font-size: 20px;
+    font-size: 17px;
   }
   .wImgs2 {
     display: block;
@@ -447,10 +462,9 @@
     height: 50px;
   }
   .miniTime {
-    min-width: 12.5vw;
-    height: 5vh;
+    min-width: 12.5%;
     text-align: center;
-    font-size: 20px;
+    font-size: 17px;
     cursor: pointer;
     transition: all 0.5s;
   }
@@ -478,7 +492,7 @@
     font-size: 25px;
   }
 }
-@media  screen and (max-width:560px) {
+@media  screen and (max-width:574px) {
   #info img {
     height: 60px;
   }
@@ -507,8 +521,8 @@
     margin-bottom: 2vw;
   }
   #degBtn {
+    width: 25px;
     font-size: 20px;
-    max-width: 0;
     flex-direction: column;
     justify-content: start;
   }
@@ -522,6 +536,20 @@
 @media  screen and (max-width:450px) {
   #date2{
     display: none;
+  }
+  .miniTime,
+  .block span,
+  .miniTemp,
+  .pelena {
+    font-size: 12px;
+  }
+  #scroll{
+    border-radius: 0;
+    background-color: #202124;
+  }
+  #gInfo{
+    border-radius: 0;
+    background-color: #202124;
   }
   #date3 {
     text-transform: capitalize;

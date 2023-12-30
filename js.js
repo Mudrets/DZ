@@ -100,7 +100,7 @@ function miniTemp(data,id){
     </div>
     </span>`)
     document.querySelector(`#tempHigh`).insertAdjacentHTML(`beforeend`,`
-    <div class="high"><div class="h" style="  height: ${((20+(Math.min(...temp)-m1)*m2))-(Math.floor(data.list[i].main.temp)-m1)*m2}vh;"></div></div>`)
+    <div class="high"><div class="h" style="  height: ${((70+(Math.min(...temp)-m1)*m2))-(Math.floor(data.list[i].main.temp)-m1)*m2}%;"></div></div>`)
   }
   scroll(0)
 }
@@ -126,13 +126,14 @@ function miniWind(data,id){
   for(let i = id;i<data.list.length;i++){
     document.querySelector(`#degArr`).insertAdjacentHTML(`beforeend`,`
     <div class="arr">
-    <div style="transform: rotate(${data.list[i].wind.deg-180}deg); background-size: ${data.list[i].wind.speed*(100/Math.max(...wind))/10}vh;" class="miniWind"></div>
+    <div style="transform: rotate(${data.list[i].wind.deg-180}deg); ${windSize(data.list[i].wind.speed)};" class="miniWind"></div>
     </div>`)
     document.querySelector(`#speedText`).insertAdjacentHTML(`beforeend`,`
     <span class="speedTxt">${Math.floor(data.list[i].wind.speed)} км/ч</span>`)
   }
   scroll(0)
 }
+{/* <div style="transform: rotate(${data.list[i].wind.deg-180}deg); background-size: ${data.list[i].wind.speed*(100/Math.max(...wind))/15}vh;" class="miniWind"></div> */}
 
 function scroll(id){
   document.querySelector(`#scroll`).scrollTo({
@@ -194,6 +195,26 @@ function outzero(data){
 		"13n": "partly-cloudy-day-snow",
 		"50d": "mist",
 		"50n": "mist"
+  }
+  function windSize(n){
+    if(n < 5){
+      return "background-size:3ch"
+    }
+    if(n < 10){
+      return "background-size:4vh"
+    }
+    if(n < 15){
+      return "background-size:5vh"
+    }
+    if(n < 30){
+      return "background-size:6vh"
+    }
+    if(n < 50){
+      return "background-size:7vh"
+    }
+    if(n > 50){
+      return "background-size:9vh"
+    }
   }
 
 function secondsToDate(seconds) {
