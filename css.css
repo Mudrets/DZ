@@ -1,6 +1,6 @@
 @font-face {
   font-family: google;
-  src: url(./Product\ Sans\ Bold.ttf);
+  src: url(./res/Product\ Sans\ Bold.ttf);
 }
 #theme{
   cursor: pointer;
@@ -80,7 +80,7 @@
 }
 .wImgs img,
 #wImg img {
-  height: 15vh;
+  height: 12vh;
 }
 #deg {
   text-align: center;
@@ -232,7 +232,7 @@
   min-width: 5vw;
   height: 20vh;
   font-size: 3vh;
-  background-image: url(./up-arrow.png);
+  background-image: url(./res/up-arrow.png);
   background-repeat: no-repeat;
   background-position: center;
   transition: all 2s;
@@ -570,3 +570,4 @@
   #gInfo{
     justify-content: center;
   }
+}

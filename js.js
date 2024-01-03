@@ -13,7 +13,7 @@ document.querySelector(`#searchBtn`).addEventListener(`click`,()=>{
   add(0)
 })
 
-function add(id){
+const add = (id) => {
   weather()
   .then((data)=>{
     console.log(data);
@@ -62,9 +62,9 @@ const weather = async() => {
   }
 }
 
-function generelInfo(data,id,n) {
+const generelInfo = (data,id,n) => {
   document.querySelector('#deg').innerHTML = Math.floor(data.list[id].main.temp) 
-  document.querySelector('#wImg').innerHTML = `<img src="./animation-ready/${icons[data.list[id].weather[0].icon]}.svg" alt="${icons[data.list[id].weather[0].icon]}">`
+  document.querySelector('#wImg').innerHTML = `<img src="./res/svg/${icons[data.list[id].weather[0].icon]}.svg" alt="${icons[data.list[id].weather[0].icon]}">`
   document.querySelector('#wTeg').innerHTML = ` ${data.city.country} ${data.city.name}`
   document.querySelector('#sInfo').innerHTML = `Відчуваеться як: ${Math.floor(data.list[id].main.feels_like)}°C<br>Вологість: ${Math.floor(data.list[id].main.humidity)}% <br>Вітер: ${Math.floor(data.list[id].wind.speed)} км/ч`
   document.querySelector(`#date2`).innerHTML =`<span>${data.city.name}</span><span>${data.list[id].weather[0].description}</span>`
@@ -77,10 +77,10 @@ function generelInfo(data,id,n) {
     document.querySelector('#date').innerHTML = `${secondsToDate(data.list[id].dt+data.city.timezone-14400)[1]} ${secondsToDate(data.list[id].dt+data.city.timezone-21600)[0]} <br>${data.list[id].weather[0].description}`
   }
 }
-function fix(data){
+const fix = (data) => {
   return newDay=Math.floor((secondsToDate(data.list[0].dt+data.city.timezone-21600)[5])/3)
 }
-function miniTemp(data,id){
+const miniTemp = (data,id) => {
   let temp=[]
   document.querySelector(`#tempText`).innerHTML=``
   document.querySelector(`#tempHigh`).innerHTML=``
@@ -97,7 +97,7 @@ function miniTemp(data,id){
     document.querySelector(`#tempText`).insertAdjacentHTML(`beforeend`,`
     <span class="miniTemp">${Math.floor(data.list[i].main.temp)}°
     <div class="wImgs2">
-    <img src="./animation-ready/${icons[data.list[i].weather[0].icon]}.svg" alt="">
+    <img src="./res/svg/${icons[data.list[i].weather[0].icon]}.svg" alt="">
     </div>
     </span>`)
     document.querySelector(`#tempHigh`).insertAdjacentHTML(`beforeend`,`
@@ -106,7 +106,7 @@ function miniTemp(data,id){
   scroll(0)
 }
 
-function miniTime(data,id){
+const miniTime = (data,id) => {
   document.querySelector(`#digitalTime`).innerHTML=``
   document.querySelector(`#digitalTime`).insertAdjacentHTML(`beforeend`,`
     <span id='${0}' class="miniTime activeSpan">${secondsToDate(data.list[0].dt+data.city.timezone-21600)[0]}</span>`)
@@ -117,7 +117,7 @@ function miniTime(data,id){
   scroll(0)
 }
 
-function miniWind(data,id){
+const miniWind = (data,id) => {
   let wind=[]
   document.querySelector(`#degArr`).innerHTML=``
   document.querySelector(`#speedText`).innerHTML=``
@@ -135,14 +135,14 @@ function miniWind(data,id){
   scroll(0)
 }
 
-function scroll(id){
+const scroll = (id) => {
   document.querySelector(`#scroll`).scrollTo({
     left: document.querySelector(`#digitalTime`).offsetWidth*0.125*id,
     behavior: "smooth",
   });
 }
 
-function outzero(data){
+const outzero = (data)  => {
   const newDay=Math.floor((secondsToDate(data.list[0].dt+data.city.timezone-21600)[5])/3)
   let temp=[]
   for(let j = 0;j<data.list.length;j=j+8){
@@ -159,7 +159,7 @@ function outzero(data){
   <span class="day">${secondsToDate(data.list[0].dt+data.city.timezone-21600)[2]}</span>
   <span class="dayF">${secondsToDate(data.list[0].dt+data.city.timezone-21600)[1]}</span>
   <div class="wImgs">
-  <img src="./animation-ready/${icons[data.list[0].weather[0].icon]}.svg" alt="">
+  <img src="./res/svg/${icons[data.list[0].weather[0].icon]}.svg" alt="">
   </div>
   <span class="min-max">${Math.max(...temp[0])}° <span style="color: var(--gray);">${Math.min(...temp[0])}°</span></span>
   `
@@ -171,14 +171,14 @@ function outzero(data){
 <span class="day">${secondsToDate(data.list[i].dt+data.city.timezone-21600)[2]}</span>
 <span class="dayF">${secondsToDate(data.list[i].dt+data.city.timezone-21600)[1]}</span>
 <div class="wImgs">
-<img src="./animation-ready/${icons[data.list[i].weather[0].icon]}.svg" alt="">
+<img src="./res/svg/${icons[data.list[i].weather[0].icon]}.svg" alt="">
 </div>
 <span class="min-max">${Math.max(...temp[i/8])}° <span style="color: var(--gray);">${Math.min(...temp[i/8])}°</span></span>
 </div>`)
 }
   const icons={
     "01d": "clear-day",
-		"01n": "clear-night",
+		"01n": "falling-stars",
 		"02d": "partly-cloudy-day",
 		"02n": "partly-cloudy-night",
 		"03d": "cloudy",
@@ -191,12 +191,12 @@ function outzero(data){
 		"10n": "partly-cloudy-night-rain",
 		"11d": "thunderstorms",
 		"11n": "thunderstorms",
-		"13d": "partly-cloudy-day-snow",
-		"13n": "partly-cloudy-day-snow",
+		"13d": "snow",
+		"13n": "snow",
 		"50d": "mist",
 		"50n": "mist"
   }
-  function windSize(n){
+  const windSize = (n)  => {
     if(n < 5){
       return "background-size:3ch"
     }
@@ -217,7 +217,7 @@ function outzero(data){
     }
   }
 
-function secondsToDate(seconds) {
+const secondsToDate = (seconds)  => {
   const date = new Date(0);
   date.setSeconds(seconds);
   const hours = date.getHours();
@@ -279,7 +279,7 @@ addEventListener(`click`,(e)=>{
     else{click()}
   }
 })
-function click(){
+const click = () => {
   document.querySelector(`#digitalWind`).classList.toggle(`topHide`)
   document.querySelector(`#digitalTemp`).classList.toggle(`topHide`)
   setTimeout(() => {
@@ -333,7 +333,7 @@ document.querySelector(`#theme`).addEventListener(`click`,()=>{
     document.querySelector(`style`).innerHTML=bg()
   }
 })
-function bg(){
+const bg = () => {
   if(document.querySelector(`#theme`).className===`act`){
   if(document.querySelector(`#wImg img`).alt==="clear-day"){
     return `
