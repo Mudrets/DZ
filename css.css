@@ -24,7 +24,7 @@
   transition: background-color 1s;
   display: flex;
   justify-content: space-between;
-  padding: 3vh 0;
+  padding: 25px 0;
   flex-wrap: wrap;
 }
 #search {
@@ -59,7 +59,7 @@
   margin: 0 10px;
 }
 #sp2 {
-  height: 3vh;
+  height: 30px;
   font-size: 20px;
   width: 2px;
   border-right: 1px solid var(--gray);
@@ -67,26 +67,29 @@
 }
 #lTeg {
   display: none;
-  padding: 1vh 2vw;
-  font-size: 3vh;
+  padding: 10px 20px;
+  font-size: 30px;
   font-weight: 500;
   font-weight: 300;
   color: var(--gray);
 }
 #wImg,
 .wImgs {
-  height: 15vh;
-  margin: 0 2vw;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px;
 }
 .wImgs img,
 #wImg img {
-  height: 12vh;
+  height: 120px;
 }
 #deg {
   text-align: center;
   width: 180px;
-  font-size: 12vh;
-  line-height: 12vh;
+  font-size: 100px;
+  line-height: 100px;
 }
 #clearBtn,#searchBtn{
   cursor: pointer;
@@ -97,9 +100,9 @@
   justify-content: space-between;
   display: flex;
   flex-direction: column;
-  line-height: 5vh;
-  font-size: 5vh;
-  margin: 0 2vw 0 1vh;
+  line-height: 50px;
+  font-size: 50px;
+  margin: 0 20px 0 10px;
   color: var(--gray);
 }
 #cel,
@@ -114,25 +117,23 @@
   align-items: center;
 }
 #sInfo {
-  padding-left: 1vw;
+  padding-left: 10px;
   color: var(--gray);
-  height: 15vh;
-  font-size: 3vh;
+  font-size: 30px;
 }
 #dInfo {
-  height: 15vh;
   display: flex;
   flex-direction: column;
   text-align: end;
 }
 #wTeg {
-  font-size: 5vh;
-  line-height: 6vh;
+  font-size: 50px;
+  line-height: 60px;
 }
 #date {
   color: var(--gray);
-  font-size: 3vh;
-  line-height: 4vh;
+  font-size: 30px;
+  line-height: 40px;
   text-transform: capitalize;
 }
 #date2{
@@ -142,9 +143,9 @@
   transition: background-color 0.5s;
   cursor: pointer;
   border-radius: 20px;
-  height: 25vh;
+  height: 250px;
   width: 12.5%;
-  margin: 1vh 0;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,7 +155,7 @@
 .pelena {
   border-radius: 20px;
   z-index: 10;
-  height: 25vh;
+  height: 250px;
   min-width: 12.5%;
   position: absolute;
 }
@@ -171,7 +172,7 @@
 .min-max,
 .dayF {
   text-align: center;
-  font-size: 3vh;
+  font-size: 30px;
   color: var(--white);
 }
 .dayF {
@@ -182,7 +183,7 @@
   display: flex;
 }
 #scroll {
-  margin-top: 1vh;
+  margin-top: 10px;
   overflow: hidden;
   background-color: var(--bg2);
   border-radius: 20px;
@@ -199,7 +200,7 @@
   animation: arrow infinite 5s;
   overflow: hidden;
   min-width: 12.5%;
-  height: 20vh;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,15 +224,16 @@
 }
 .speedTxt,
 .miniTemp {
+  margin: 5px 0;
   min-width: 12.5%;
-  height: 5vh;
+  height: 50px;
   text-align: center;
-  font-size: 3vh;
+  font-size: 30px;
 }
 .miniWind {
-  min-width: 5vw;
-  height: 20vh;
-  font-size: 3vh;
+  min-width: 50px;
+  height: 200px;
+  font-size: 30px;
   background-image: url(./res/up-arrow.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -239,7 +241,7 @@
 }
 .high {
   min-width: 12.5%;
-  height: 20vh;
+  height: 200px;
   background-color: var(--bg_yellow);
 }
 .block:hover {
@@ -256,7 +258,8 @@
 .miniTime {
   min-width: 12.5%;
   text-align: center;
-  font-size: 3vh;
+  font-size: 30px;
+  margin: 5px 0;
   cursor: pointer;
   transition: all 0.5s;
 }
@@ -264,18 +267,18 @@
   scale: 1.1;
 }
 .windImg {
-  height: 10vh;
+  height: 100px;
 }
 #btns {
   display: flex;
   align-items: center;
   color: var(--gray);
-  font-size: 3vh;
-  padding-left: 2vw;
+  font-size: 30px;
+  padding-left: 20px;
 }
 #tempBtn,
 #windBtn {
-  line-height: 5vh;
+  line-height: 50px;
   cursor: pointer;
 }
 .activeBtn {
@@ -320,6 +323,24 @@
 #date3{
   display: none;
 }
+@media  screen and (max-width:1202px) {
+#date,#sInfo{
+  font-size: 25px;
+}
+.day,.min-max{
+  font-size: 20px;
+}
+.block{
+  height: 220px;
+}
+.wImgs img,
+#wImg img {
+  height: 100px;
+}
+.miniTime,.miniTemp{
+  font-size: 20px;
+}
+}
 @media  screen and (max-width:994px) {
   .high {
     min-width: 12.5%;
@@ -339,11 +360,11 @@
     transition: background-color 0.5s;
     cursor: pointer;
     border-radius: 20px;
-    padding: 2vh;
+    padding: 20px;
     background-color: var(--bg2);
     height: 50px;
     width: 100%;
-    margin: 1vh 0;
+    margin: 10px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -406,8 +427,8 @@
   }
   .wImgs {
     height: 50px;
-    margin: 0 2vw;
-    width: 20vh;
+    margin: 0 20px;
+    width: 200px;
   }
   #wImg{
     height: 100px;
@@ -419,14 +440,14 @@
     justify-content: space-between;
     display: flex;
     color: var(--gray);
-    font-size: 3vh;
+    font-size: 30px;
     text-transform: capitalize;
-    width: 95vw;
-    line-height: 5vh;
-    padding-bottom: 1vh;
+    width: 100%;
+    line-height: 50px;
+    padding-bottom: 10px;
   }
   #scroll{
-    margin-bottom: 1vh;
+    margin-bottom: 10px;
   }
 }  
 @media  screen and (max-width:768px) {
@@ -519,7 +540,7 @@
     margin: 0;
     font-size: 60px;
     line-height: 60px;
-    margin-bottom: 2vw;
+    margin-bottom: 20px;
   }
   #degBtn {
     width: 25px;
