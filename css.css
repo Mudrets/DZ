@@ -1,106 +1,24 @@
-@font-face {
-    font-family: fut;
-    src: url(./FuturaMediumC.ttf);
-}
-body{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+#draggableElement {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  border-radius: 30px;
+  background-color: #6abad2;
+  color: #ffffff;
+  text-align: center;
+  line-height: 100px;
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  transition: all 0.1s;
+  z-index: 0;
 }
 .bg{
-    background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
-#currencyContainer{
-    text-align: center;
-    padding: 20px;
-    margin:0 10px;
-    background-color: #fff;
-}
-#container{
-    font-family: fut;
-    width: 800px;
-}
-h1 {
-    color: #333;
-}
-
-select,input {
-    height: 40px;
-    padding: 0 10px;
-    font-size: 16px;
-    background-color: #f8f8f8;
-    outline: none;
-    border: 1px solid gray;
-    font-size: 16px;
-}
-#baseCurrency1{
-    width: 100px;
-    margin: 10px 0px;
-}
-#baseCurrency2{
-    width: 100px;
-    margin: 10px 0px;
-}
-table{
-    background-color: white;
-}
-#input1{
-    width: 196px;
-    margin: 10px 0px;
-}
-#input2{
-    width: 300px;
-    margin: 10px 0px;
-}
-#input4{
-    width: 196px;
-    margin: 10px 0px;
-}
-#input3{
-    width: 300px;
-    margin: 10px 0px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4ac35a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-}
-td {
-    width: 100px;
-    border: 1px solid #dddddd;
-    height: 30px;
-    text-align: center;
-}
-.name {
-    
-    background-color: #4ac35a;
-    color: white;
-}
-h1{
-    padding: 50px;
-    text-align: center;
-}
-.calc{
-    text-align: start;
-    font-size: 16px;
-}
-.hide{
-    display: none;
-}
-#swButt{
-    cursor: pointer;
-    color: gray;
-}
-#swButt:hover{
-    transition: all 0.5s;
-    color: black;
+.back{
+  border-radius: 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }

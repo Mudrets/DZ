@@ -1,65 +1,130 @@
-var rounded = function(number){
-  return Math.round(parseFloat(number) * 100) / 100;
+let offsetX, offsetY
+const back = document.querySelector(`.back`)
+// const drag = document.getElementById('drag')
+const draggableElement = document.getElementById('draggableElement')
+const backSize=500
+const boxSize=100
+draggableElement.style.height=`${boxSize}px`
+draggableElement.style.width=`${boxSize}px`
+back.style.height=`${backSize}px`
+back.style.width=`${backSize}px`
+const limits={
+  top:getCoords(back).top,
+  right:getCoords(back).left+backSize-boxSize,
+  buttom:getCoords(back).top+backSize-boxSize,
+  left:getCoords(back).left,
+}
+function limitsF(x,y){
+  if(y<limits.top){
+    y=limits.top
+  }
+  if(y>limits.buttom){
+    y=limits.buttom
+  }
+  if(x<limits.left){
+    x=limits.left
+  }
+  if(x>limits.right){
+    x=limits.right
+  }
+  return{x,y}
+}
+draggableElement.onmousedown = function(e) {
+  console.log(`Block grabbed`)
+  draggableElement.innerHTML=`grabbing`
+  draggableElement.style.transition = 'none'
+  let coords = getCoords(draggableElement)
+  let shiftX = e.pageX - coords.left
+  let shiftY = e.pageY - coords.top
+  document.body.appendChild(draggableElement)
+  draggableElement.style.cursor=`grabbing`
+  moveAt(e)
+  function moveAt(e) {
+    let y = e.pageY - shiftY
+    let x = e.pageX - shiftX
+    y = limitsF(x,y).y
+    x = limitsF(x,y).x
+    e.preventDefault()
+    draggableElement.style.left = `${x}px`
+    draggableElement.style.top = `${y}px`
+  }
+  document.onmousemove = function(e) {
+    moveAt(e)
+  }
+
+  draggableElement.onmouseup = function() {
+    draggableElement.innerHTML=``
+    console.log(`Block dropped`)
+    draggableElement.style.cursor=`grab`
+    draggableElement.style.transition = 'all 0.1s'
+    document.onmousemove = null
+    draggableElement.onmouseup = null
+  }
+
 }
 
-const url = `https://api.privatbank.ua/p24api/exchange_rates?json&date=01.12.2014`
-async function privatbank(){
-  const fileCors = await fetch(url)
-  const data = await fileCors.json()
-  return data.exchangeRate
+draggableElement.ondragstart = function() {
+  return false
 }
-addEventListener(`DOMContentLoaded`,()=>{
-  const baseCurrency1 = document.querySelector(`#baseCurrency1`)
-  const baseCurrency2 = document.querySelector(`#baseCurrency2`)
-  privatbank().then(result => {  
-    for (let i = 0; i < result.length; i++) {
-      baseCurrency2.insertAdjacentHTML(`beforeend`,`
-            <option value="${i}">${result[i].currency}</option>
-            `)
-      baseCurrency1.insertAdjacentHTML(`beforeend`,`
-            <option value="${i}">${result[i].currency}</option>
-            `)
+function getCoords(elem) {
+  let box = elem.getBoundingClientRect()
+  return {
+    top: box.top + scrollY,
+    left: box.left + scrollX
+  }
+}
+
+window.addEventListener(`keypress`, function(e) {
+  let x = getCoords(draggableElement).left
+  let y = getCoords(draggableElement).top
+  if(e.key===`s`){
+    draggableElement.innerHTML=`↓`
+      y=y+3
     }
-    document.querySelector(`#n1`).innerHTML=`${result[14].currency}`
-    document.querySelector(`#usd1`).innerHTML=`${rounded(result[14].purchaseRateNB)}`
-    document.querySelector(`#usd2`).innerHTML=`${rounded(result[14].saleRateNB)}`
-    document.querySelector(`#n2`).innerHTML=`${result[16].currency}`
-    document.querySelector(`#eur1`).innerHTML=`${rounded(result[16].purchaseRateNB)}`
-    document.querySelector(`#eur2`).innerHTML=`${rounded(result[16].saleRateNB)}`
-    document.querySelector(`#n3`).innerHTML=`${result[18].currency}`
-    document.querySelector(`#plz1`).innerHTML=`${rounded(result[18].purchaseRateNB)}`
-    document.querySelector(`#plz2`).innerHTML=`${rounded(result[18].saleRateNB)}`
-    showOut()
+  if(e.key===`S`){
+    draggableElement.innerHTML=`↓`
+      y=y+10
+    }
+  if(e.key===`w`){
+    draggableElement.innerHTML=`↑`
+      y=y-3
+      if(y<0){y=0}
+    }
+  if(e.key===`W`){
+    draggableElement.innerHTML=`↑`
+      y=y-10
+      if(y<0){y=0}
+    }
+  y = limitsF(x,y).y
+  draggableElement.style.top=`${y}px`
+  if(e.key===`d`){
+    draggableElement.innerHTML=`→`
+    x=x+3
+  }
+  if(e.key===`D`){
+    draggableElement.innerHTML=`→`
+    x=x+10
+  }
+  if(e.key===`a`){
+    draggableElement.innerHTML=`←`
+    x=x-3
+    if(x<0){x=0}
+  }
+  if(e.key===`A`){
+    draggableElement.innerHTML=`←`
+    x=x-10
+    if(x<0){x=0}
+  }
+  x = limitsF(x,y).x
+  draggableElement.style.left=`${x}px`
   })
-})
-function showOut(){
-  privatbank().then(result => {
-    const baseCurrency = document.querySelector(`#baseCurrency1`).value
-    document.querySelector(`#n4`).innerHTML=`${result[baseCurrency].currency}`
-    document.querySelector(`#cur1`).innerHTML=`${rounded(result[baseCurrency].purchaseRateNB)}`
-    document.querySelector(`#cur2`).innerHTML=`${rounded(result[baseCurrency].saleRateNB)}`
-  })
-}
-function calculate(){
-  const input1 = document.querySelector(`#input1`).value
-  const input2 = document.querySelector(`#input2`)
-  const baseCurrency1 = document.querySelector(`#baseCurrency1`).value
-  const input3 = document.querySelector(`#input3`).value
-  const input4 = document.querySelector(`#input4`)
-  const baseCurrency2 = document.querySelector(`#baseCurrency2`).value
-  privatbank().then(result => {
-    input2.value=`${(rounded(input1*result[baseCurrency1].saleRateNB))} грн.`  
-    input4.value=`${(rounded(input3/result[baseCurrency2].saleRateNB))}`  
-  })
-}
 
-function switc(){
-  document.querySelector(`.switch1`).classList.toggle(`hide`)
-  document.querySelector(`.switch2`).classList.toggle(`hide`)
-}
-
-document.querySelector(`#butt1`).addEventListener(`click`,calculate)
-document.querySelector(`#swButt`).addEventListener(`click`,switc)
-document.querySelector(`#baseCurrency1`).addEventListener(`change`,showOut)
-document.querySelector(`#baseCurrency2`).addEventListener(`change`,showOut)
+  draggableElement.addEventListener(`mouseenter`, (e)=>{
+    draggableElement.innerHTML=`hover`
+    console.log(`Mouse inBlock`)
+  })
+  draggableElement.addEventListener(`mouseleave`, (e)=>{
+    draggableElement.innerHTML=``
+    console.log(`Mouse outBlock`)
+  })
 
