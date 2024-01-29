@@ -1,0 +1,19 @@
+.button_special{
+    background-color: var(--white);
+    padding: 0 30px;
+    font-family: futura_3;
+    color: var(--gray);
+    text-transform: uppercase;
+    box-shadow: var(--stock_b);
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    transition: all 0.2s;
+    &:hover{
+        box-shadow: var(--hover_b);
+    }
+}
+.button_active{
+}

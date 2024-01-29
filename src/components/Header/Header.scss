@@ -1,0 +1,38 @@
+#header{
+    border-radius: 25px;
+    box-shadow: var(--droppShadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    padding-left: 20px;
+    .center{
+        display: flex;
+        align-items: center;
+    }
+    #nav_add_new{
+        display: block;
+        height: 15px;
+        line-height: 15px;
+        &:hover{
+            color: var(--black);
+        }
+        svg{
+            height: 15px;
+        }
+        &:hover svg{
+            fill: var(--black);
+        }
+    }
+    #nav_contact_list{
+        display: block;
+        line-height: 30px;
+        height: 30px;
+        font-size: 30px;
+        &:hover{
+            color: var(--black);
+        }
+    }
+}

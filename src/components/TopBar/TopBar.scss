@@ -1,0 +1,22 @@
+#type_buttons_cotact_list{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    .b_and_d{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .digit{
+            user-select: none;
+            cursor: default;
+            border-radius: 20px;
+            margin-left: 20px;
+            height: 30px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--stock_b);
+        }
+    }
+}

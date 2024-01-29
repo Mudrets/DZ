@@ -1,0 +1,121 @@
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
+:root {
+    --white: rgb(255, 255, 255);
+    --black: rgba(0, 0, 0, 0.606);
+    --gray:#15151567;
+    --bg: #a5a5a5;
+    --yellow:#dbca5b;
+    --green:#38cc45;
+    --purp:#bc49b3;
+    --blue:#3b84c0d0;
+    --red:#da4d4dda;
+    --droppShadow:rgba(55, 45, 0, 0.18) 0px 2px 10px;
+    --stock_b:rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --hover_b:rgba(55, 45, 0, 0.18) 0px 4px 15px;
+    --accept_b:rgba(0, 55, 99, 0.3) 0px 10px 50px -12px inset, rgba(0, 60, 80, 0.3) 0px 10px 16px -18px inset;
+  }
+@font-face {
+    font-family: Futura_1;
+    src: url(..//src/assets/fonts/FuturaLightC.ttf);
+  }
+@font-face {
+    font-family: Futura_2;
+    src: url(..//src/assets/fonts/FuturaBookC.ttf);
+  }
+@font-face {
+    font-family: Futura_3;
+    src: url(..//src/assets/fonts/FuturaMediumC.ttf);
+  }
+@font-face {
+    font-family: Futura_4;
+    src: url(..//src/assets/fonts/FuturaDemiC.ttf);
+  }
+body{
+    background-color: var(--white);
+    color: var(--white);
+}
+#border{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.text2{
+    font-family: futura_2;
+    text-transform: capitalize;
+    text-transform: none;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.2s;
+    margin-right: 10px;
+}
+.text3{
+    font-family: futura_3;
+    text-transform: capitalize;
+    text-transform: none;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.2s;
+    margin-right: 10px;
+}
+.text4{
+    font-family: futura_4;
+    text-transform: capitalize;
+    text-transform: none;
+    text-decoration: none;
+    font-size: 35px;
+    transition: all 0.2s;
+    margin-right: 10px;
+}
+.bg_white{
+    background-color: var(--white);
+}
+.bg_blue{
+    background-color: var(--blue);
+}
+.bg_yellow{
+    background-color: var(--yellow);
+}
+.bg_red{
+    background-color: var(--red);
+}
+.bg_gray{
+    background-color: var(--gray);
+}
+.bg_black{
+    background-color: var(--black);
+}
+.bg_bg{
+    background-color: var(--bg);
+}
+.bg_green{
+    background-color: var(--green);
+}
+.bg_purp{
+    background-color: var(--purp);
+}
+.c_white{
+    color: var(--white);
+    fill: var(--white);
+}
+.c_blue{
+    color: var(--blue);
+    fill: var(--blue);
+}
+.c_yellow{
+    color: var(--yellow);
+    fill: var(--yellow);
+}
+.c_red{
+    color: var(--red);
+    fill: var(--red);
+}
+.c_gray{
+    color: var(--gray);
+    fill: var(--gray);
+}
+.c_black{
+    color: var(--black);
+    fill: var(--black);
+}
+.c_bg{
+    color: var(--bg);
+    fill: var(--bg);
+}
