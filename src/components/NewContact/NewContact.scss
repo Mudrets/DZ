@@ -1,0 +1,167 @@
+.newContact{
+    box-shadow: var(--droppShadow);
+    border-radius: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .label{
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        select{
+            height: 40px;
+            text-align: center;
+            width: 200px;
+            font-family: futura_2;
+            text-transform: capitalize;
+            box-shadow: var(--stock_b);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            color: var(--blue);
+            option{
+                color: var(--blue);
+            }
+        }
+        input{
+            color: var(--blue);
+            text-align: center;
+            outline: none;
+            border: none;
+            height: 40px;
+            text-transform: capitalize;
+            width: 200px;
+            border-radius: 20px;
+            padding: 0 15px;
+            font-family: futura_2;
+            transition: all 0.2s;
+            box-shadow: var(--stock_b);
+            &:focus{
+                box-shadow: var(--hover_b);
+            }
+            &::placeholder{
+                color: var(--gray);
+            }
+        }
+        .phone{
+            color: var(--blue);
+            text-align: center;
+            outline: none;
+            border: none;
+            height: 40px;
+            text-transform: capitalize;
+            width: 200px;
+            border-radius: 20px;
+            padding: 0 15px;
+            font-family: futura_2;
+            transition: all 0.2s;
+            box-shadow: var(--stock_b);
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+            -moz-appearance: textfield;
+            &:focus{
+                box-shadow: var(--hover_b);
+            }
+            &::placeholder{
+                color: var(--gray);
+            }
+        }
+    }
+    .sp{
+        border-radius: 20px 0px 0px 20px;
+        height: 40px;
+        width: 150px;
+        text-align: center;
+        line-height: 40px;
+        box-shadow: var(--stock_b);
+    }
+    input[type="number"]{
+        text-align: start;
+        width: 50px;
+        color: var(--blue);
+        text-align: center;
+        outline: none;
+        border: none;
+        height: 40px;
+        padding: 0;
+        text-transform: capitalize;
+        border-radius: 0px 20px 20px 0px;
+        font-family: futura_2;
+        transition: all 0.2s;
+        box-shadow: var(--stock_b);
+        line-height: 40px;    
+        text-indent: 5px;
+        &::placeholder{
+            color: var(--gray);
+        }
+    }
+    .check{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        transition: all 0.2s;
+        border: 2px solid var(--white);
+        box-shadow: var(--stock_b);
+        border-radius: 20px;
+        &::before {
+            content: '';
+            color: var(--gray);
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            font-family: futura_2;
+            line-height: 26px;
+            height: 40px;
+        }
+        &:checked {
+            border: 10px solid var(--blue);
+        }
+        &:hover {
+            box-shadow: var(--hover_b);
+        }
+      }
+    input[type="file"] {
+        display: flex;
+        font-family: futura_2;
+        font-size: 15px;
+        color: var(--blue);
+        width: 220px;
+        padding: 10px;
+        &::file-name{
+            margin: 10px;
+        }
+        &::file-selector-button{
+            color: var(--gray);
+            box-shadow: var(--stock_b);
+            height: 40px;
+            width: 120px;
+            border-radius: 20px;
+            background-color: var(--white);
+            outline: none;
+            border: none;
+            font-family: futura_2;
+            font-size: 15px;
+        }
+      }
+      
+}

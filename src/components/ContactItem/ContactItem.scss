@@ -7,7 +7,6 @@
         width: 180px;
         height: 180px;
         border-radius: 100%;
-        background-image: url(../../assets/img/man-avatar.png);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -40,6 +39,14 @@
         &:hover{
             fill: var(--yellow);
         }
+    }
+    .trash{
+        &:hover{
+            fill: var(--red);
+        }
+    }
+    .favorite{
+            fill: var(--yellow);
     }
     .buttons{
         display: flex;

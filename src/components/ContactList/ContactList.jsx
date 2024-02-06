@@ -1,16 +1,14 @@
 import './ContactList.scss'
 import Button from '../Button/Button'
 import TopBar from '../TopBar/TopBar'
+import {useState} from 'react' 
 import ContactItem from '../ContactItem/ContactItem'
-const ContactList = () => {
+const ContactList = (props) => {
     return(
         <div className='container p-0'>
-        <TopBar></TopBar>
+        <TopBar counters={props.counters}></TopBar>
         <div id='contacts'>
-        <ContactItem tag='Work' name='Name Name' number='+38 000 000 0000' email='mail@mail.com'></ContactItem>
-        <ContactItem tag='Work' name='Name Name' number='+38 000 000 0000' email='mail@mail.com'></ContactItem>
-        <ContactItem tag='Work' name='Name Name' number='+38 000 000 0000' email='mail@mail.com'></ContactItem>
-        <ContactItem tag='Work' name='Name Name' number='+38 000 000 0000' email='mail@mail.com'></ContactItem>
+            {props.store.map((el)=>(<ContactItem deleter={props.deleteContact} changer={props.changeFav} favorite={el.favorite} avatar={el.avatar} gender={el.gender} key={el.id} id={el.id} status={el.status} name={el.name} number={el.phone} email={el.email}></ContactItem>))}
         </div>
         </div>
     )

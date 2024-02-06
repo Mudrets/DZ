@@ -1,7 +1,7 @@
 @import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
 :root {
     --white: rgb(255, 255, 255);
-    --black: rgba(0, 0, 0, 0.606);
+    --black: rgb(68, 68, 68);
     --gray:#15151567;
     --bg: #a5a5a5;
     --yellow:#dbca5b;
@@ -44,7 +44,6 @@ body{
     text-decoration: none;
     font-size: 15px;
     transition: all 0.2s;
-    margin-right: 10px;
 }
 .text3{
     font-family: futura_3;
@@ -53,7 +52,6 @@ body{
     text-decoration: none;
     font-size: 20px;
     transition: all 0.2s;
-    margin-right: 10px;
 }
 .text4{
     font-family: futura_4;
@@ -62,7 +60,6 @@ body{
     text-decoration: none;
     font-size: 35px;
     transition: all 0.2s;
-    margin-right: 10px;
 }
 .bg_white{
     background-color: var(--white);

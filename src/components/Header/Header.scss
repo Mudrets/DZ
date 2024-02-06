@@ -17,13 +17,13 @@
         height: 15px;
         line-height: 15px;
         &:hover{
-            color: var(--black);
+            color: var(--blue);
         }
         svg{
             height: 15px;
         }
         &:hover svg{
-            fill: var(--black);
+            fill: var(--blue);
         }
     }
     #nav_contact_list{
@@ -32,7 +32,7 @@
         height: 30px;
         font-size: 30px;
         &:hover{
-            color: var(--black);
+            color: var(--blue);
         }
     }
 }
