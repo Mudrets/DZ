@@ -11,7 +11,7 @@ const ContactItem = ({contact,deleter,changer,changeContact}) => {
                 <div className='col-9'>
                 <div className='tag bg_blue mb-4'>{contact.status}</div>
                 <span className='text4 c_black d-block mb-2'>{contact.name}</span>
-                <span className='text3 c_black d-block'>{contact.number}</span>
+                <span className='text3 c_black d-block'>{contact.phone}</span>
                 <span className='text2 c_gray d-block'>{contact.email}</span>
                 </div>
                 <div className='col-1 buttons'>

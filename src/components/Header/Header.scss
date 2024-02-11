@@ -1,38 +1,47 @@
-#header{
-    border-radius: 25px;
-    box-shadow: var(--droppShadow);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    padding-left: 20px;
-    .center{
+.head{
+    height: 90px;
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    left: 50%;
+    translate: -50%;
+    #header{
+        border-radius: 45px;
+        box-shadow: var(--droppShadow);
         display: flex;
         align-items: center;
-    }
-    #nav_add_new{
-        display: block;
-        height: 15px;
-        line-height: 15px;
-        &:hover{
-            color: var(--blue);
+        justify-content: space-between;
+        width: 1320px;
+        padding: 10px;
+        margin-top: 10px;
+        padding-left: 20px;
+        .center{
+            display: flex;
+            align-items: center;
         }
-        svg{
+        #nav_add_new{
+            display: block;
             height: 15px;
+            line-height: 15px;
+            &:hover{
+                color: var(--blue);
+            }
+            svg{
+                height: 15px;
+            }
+            &:hover svg{
+                fill: var(--blue);
+            }
         }
-        &:hover svg{
-            fill: var(--blue);
-        }
-    }
-    #nav_contact_list{
-        display: block;
-        line-height: 30px;
-        height: 30px;
-        font-size: 30px;
-        &:hover{
-            color: var(--blue);
+        #nav_contact_list{
+            display: block;
+            line-height: 30px;
+            height: 30px;
+            font-size: 30px;
+            &:hover{
+                color: var(--blue);
+            }
         }
     }
 }

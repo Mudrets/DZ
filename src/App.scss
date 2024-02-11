@@ -3,9 +3,9 @@
     --white: rgb(255, 255, 255);
     --black: rgb(68, 68, 68);
     --gray:#15151567;
-    --bg: #a5a5a5;
+    --bg: #cecece;
     --yellow:#dbca5b;
-    --green:#38cc45;
+    --green:#00ff156c;
     --purp:#bc49b3;
     --blue:#3b84c0d0;
     --red:#da4d4dda;
@@ -33,6 +33,19 @@
 body{
     background-color: var(--white);
     color: var(--white);
+    height: 800px;
+    &::-webkit-scrollbar {
+    position: fixed;
+    width: 0px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--white);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 20px;
+    border: 2px solid var(--white)
+  }
 }
 #border{
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);

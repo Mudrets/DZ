@@ -4,6 +4,7 @@ import Input from '../Input/Input'
 
 const Header = () => {
     return(
+        <div className='bg_white head'>
         <div id='header' className="container">
             <div className="center">
                 <Link id='nav_contact_list' className='c_gray me-3 text3' to='/'>
@@ -14,6 +15,7 @@ const Header = () => {
                 </Link>
             </div>
             <Input placeholder='Search' bg='white' color='gray'/>
+        </div>
         </div>
     )
 }

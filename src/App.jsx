@@ -19,7 +19,7 @@ function App() {
     favorite:false
     },
     {
-    id:'test7',
+    id:'test2',
     name:'test',
     phone:'1111111111',
     email:'test2@gmail.com',
@@ -61,9 +61,6 @@ function App() {
     console.log(contact.id);
     setupdateContact(prevStore => contact)
   }
-  function forEacher(forStatus) {
-    console.log(forStatus);
-}
   const handleEditContact = (id, newContact) => {
     setStore(prevStore => {
       return prevStore.map(item => {
@@ -80,7 +77,7 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<ContactList filter={forEacher} changeContact={handleupdateContact} deleteContact={deleteContact} changeFav={changeFav} store={store}/>}></Route>
+          <Route path='/' element={<ContactList changeContact={handleupdateContact} deleteContact={deleteContact} changeFav={changeFav} store={store}/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
           <Route path='/update-contact/:id' element={<UpdateContact contact={updateContact} changeContact={handleEditContact}/>}></Route>
           <Route path='/new-contact' element={<NewContact onNewContact={handleNewContact}/>}></Route>
