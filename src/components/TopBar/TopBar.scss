@@ -1,11 +1,15 @@
 #type_buttons_cotact_list{
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
     .b_and_d{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-right: 20px;
+        margin-bottom: 10px;
         .digit{
             user-select: none;
             cursor: default;

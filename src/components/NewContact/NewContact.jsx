@@ -6,7 +6,7 @@ import {Formik,Form,Field,ErrorMessage} from 'formik'
 import {v4 as uuidv4} from 'uuid'
 import { useState } from 'react'
 import InputMask from 'react-input-mask';
-const NewContact = (props) => {
+const NewContact = ({onNewContact}) => {
     const initialValues = {
         id:uuidv4(),
         name:'',
@@ -24,12 +24,13 @@ const NewContact = (props) => {
         email: Yup.string().email('Invalid email').required('Email is required'),
         avatar: Yup.string().required('Avatar is required'),
         gender: Yup.string().oneOf(['men', 'women'], 'Invalid gender').required('Gender is required'),
-        status: Yup.string().oneOf(['work', 'family', 'private', 'friend'], 'Invalid status').required('Status is required'),
+        status: Yup.string().required('Status is required'),
+        // status: Yup.string().oneOf(['work', 'family', 'private', 'friend'], 'Invalid status').required('Status is required'),
         favorite: Yup.boolean()
       })
     const navigate = useNavigate()
     const handleSubmit = (values,{setSubmitting}) => {
-        props.onNewContact(values)
+        onNewContact(values)
         console.log(values)
         setSubmitting(true)
         navigate('/')
@@ -37,7 +38,7 @@ const NewContact = (props) => {
     return(
         <div className=' container d-flex justify-content-center'>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-            {({isSubmitting})=>(
+            {()=>(
                 <Form className='newContact p-4 mt-5'>
                     <span className='text3 c_blue'>New Contact</span>
                 <div className='label m-2'>
@@ -61,13 +62,7 @@ const NewContact = (props) => {
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='gender'/>
                 </div>
                 <div className='label m-2'>
-                    <Field name='status' as='select'>
-                        <option value="" disabled selected hidden>Choose status</option>
-                        <option value="work">Work</option>
-                        <option value="family">Family</option>
-                        <option value="private">Private</option>
-                        <option value="friend">Friend</option>
-                    </Field>
+                    <Field name='status' as='input' placeholder='Status'></Field>
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='status'/>
                 </div>
                 <div className='check m-2 mb-2'>
@@ -79,10 +74,6 @@ const NewContact = (props) => {
                 <label className='text2 c_gray me-2' htmlFor='favorite'>Favorite</label>
                 <Field type='checkbox' name='favorite' id='favorite'/>
                 </div>
-                {/* <div className='check'>
-                    <Field placeholder='Avatar' type='file' name='avatar' id='avatar'/>
-                    <ErrorMessage className='c_red text2 mt-2' component='span' name='avatar'/>
-                </div> */}
                 <Button type='submit' color='white' bg='blue' text='Add'/>
                 </Form>
             )}

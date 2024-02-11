@@ -7,43 +7,30 @@ import ContactList from './components/ContactList/ContactList'
 import NotFound from './components/NotFound/NotFound'
 import NewContact from './components/NewContact/NewContact'
 function App() {
-  const [store,setStore]= useState([])
-  const [counters,setCounters]=useState(
+  const [store,setStore]= useState([
     {
-      all: Object.keys(store).length,
-      work: store.filter((el) => el.status==='work').length,
-      family: store.filter((el) => el.status==='family').length,
-      friend: store.filter((el) => el.status==='friend').length,
-      private: store.filter((el) => el.status==='private').length,
-    }
-  )
-  const changeCounters = (status,i) => {
-    setCounters((prevCounters) => {
-      if (i) {   
-        return {
-          all: prevCounters.all + 1,
-          work: store.filter((el) => el.status==='work').length,
-          family: store.filter((el) => el.status==='family').length,
-          friend: store.filter((el) => el.status==='friend').length,
-          private: store.filter((el) => el.status==='private').length,
-          [status]: prevCounters[status] + 1,
-        };
-      }
-      else{
-        return {
-          all: prevCounters.all - 1,
-          work: store.filter((el) => el.status==='work').length,
-          family: store.filter((el) => el.status==='family').length,
-          friend: store.filter((el) => el.status==='friend').length,
-          private: store.filter((el) => el.status==='private').length,
-          [status]: prevCounters[status] - 1,
-        };
-      }
-    });
-  }
+    id:'test1',
+    name:'test',
+    phone:'0000000000',
+    email:'test1@gmail.com',
+    avatar:'11',
+    gender:'men',
+    status:'family',
+    favorite:false
+    },
+    {
+    id:'test7',
+    name:'test',
+    phone:'1111111111',
+    email:'test2@gmail.com',
+    avatar:'22',
+    gender:'women',
+    status:'work',
+    favorite:false
+    },
+])
   const handleNewContact = (NewContact) => {
     setStore(prevStore => [...prevStore,NewContact])
-    changeCounters(NewContact.status,true)
   }
   const changeFav = (id) => {
     setStore(prevStore => {
@@ -56,21 +43,47 @@ function App() {
     });
   }
   const deleteContact = (id,status) => {
-    setStore(prevStore => {
-      return prevStore.filter(item => item.id !== id);
-    });
-    changeCounters(status)
+    setStore(prevStore => prevStore.filter(item => item.id !== id));
   }
+  const [updateContact,setupdateContact]=useState(
+    {
+        id:'',
+        name:'',
+        phone:'',
+        email:'',
+        avatar:'',
+        gender:'',
+        status:'',
+        favorite:false
+    }
+  )
+  const handleupdateContact = (contact) => {
+    console.log(contact.id);
+    setupdateContact(prevStore => contact)
+  }
+  function forEacher(forStatus) {
+    console.log(forStatus);
+}
+  const handleEditContact = (id, newContact) => {
+    setStore(prevStore => {
+      return prevStore.map(item => {
+        if (item.id === id) {
+          return newContact ;
+        }
+        return item;
+      });
+    });
+    console.log(store);
+  };
   return (
     <>
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<ContactList counters={counters} deleteContact={deleteContact} changeFav={changeFav} store={store}/>}></Route>
+          <Route path='/' element={<ContactList filter={forEacher} changeContact={handleupdateContact} deleteContact={deleteContact} changeFav={changeFav} store={store}/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
-          <Route path='/update-contact' element={<UpdateContact/>}></Route>
+          <Route path='/update-contact/:id' element={<UpdateContact contact={updateContact} changeContact={handleEditContact}/>}></Route>
           <Route path='/new-contact' element={<NewContact onNewContact={handleNewContact}/>}></Route>
-          <Route path='/update-contact' element={<UpdateContact/>}></Route>
         </Routes>
       </Router>
     </>
