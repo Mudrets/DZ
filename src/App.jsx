@@ -27,7 +27,7 @@ function App() {
     gender:'women',
     status:'work',
     favorite:false
-    },
+    }
 ])
   const handleNewContact = (NewContact) => {
     setStore(prevStore => [...prevStore,NewContact])

@@ -2,7 +2,6 @@
     padding: 0 30px;
     font-family: futura_3;
     text-transform: uppercase;
-    box-shadow: var(--stock_b);
     width: 130px;
     height: 30px;
     border-radius: 20px;
@@ -10,7 +9,8 @@
     border: none;
     transition: all 0.2s;
     &:hover{
-        box-shadow: var(--hover_b);
+        color: var(--black);
+        background-color: var(--yellow);
     }
 }
 .button_active{

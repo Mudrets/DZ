@@ -40,7 +40,7 @@ const NewContact = ({onNewContact}) => {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {()=>(
                 <Form className='newContact p-4 mt-5'>
-                    <span className='text3 c_blue'>New Contact</span>
+                    <span className='text3 c_yellow'>New Contact</span>
                 <div className='label m-2'>
                     <Field placeholder='Name' type='text' name='name' id='name'/>
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='name'/>
@@ -71,10 +71,10 @@ const NewContact = ({onNewContact}) => {
                 </div>
                 <ErrorMessage className='c_red text2 mt-2' component='span' name='avatar'/>
                 <div className='check m-2 mb-2'>
-                <label className='text2 c_gray me-2' htmlFor='favorite'>Favorite</label>
+                <label className='text2 c_black me-2' htmlFor='favorite'>Favorite</label>
                 <Field type='checkbox' name='favorite' id='favorite'/>
                 </div>
-                <Button type='submit' color='white' bg='blue' text='Add'/>
+                <Button type='submit' color='black' bg='red' text='Add'/>
                 </Form>
             )}
         </Formik>

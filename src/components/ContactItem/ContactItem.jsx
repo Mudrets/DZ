@@ -9,7 +9,7 @@ const ContactItem = ({contact,deleter,changer,changeContact}) => {
             <div className='row ps-4 pe-4 pb-3 pt-3'>
                 <div style={{backgroundImage: `url(https://randomuser.me/api/portraits/${contact.gender}/${contact.avatar}.jpg)`}} className='col-3 avatar me-4'></div>
                 <div className='col-9'>
-                <div className='tag bg_blue mb-4'>{contact.status}</div>
+                <div className='tag bg_yellow mb-4'>{contact.status}</div>
                 <span className='text4 c_black d-block mb-2'>{contact.name}</span>
                 <span className='text3 c_black d-block'>{contact.phone}</span>
                 <span className='text2 c_gray d-block'>{contact.email}</span>

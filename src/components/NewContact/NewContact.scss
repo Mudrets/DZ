@@ -1,7 +1,7 @@
 .newContact{
     position: absolute;
     top: 10%;
-    box-shadow: var(--droppShadow);
+    background-color: var(--bg);
     border-radius: 20px;
     width: 300px;
     display: flex;
@@ -20,20 +20,20 @@
             width: 200px;
             font-family: futura_2;
             text-transform: capitalize;
-            box-shadow: var(--stock_b);
+            background-color: var(--white);
+            color: var(--black);
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
             border-radius: 20px;
             outline: none;
             border: none;
-            color: var(--blue);
             option{
-                color: var(--blue);
+                color: var(--black);
             }
         }
         input{
-            color: var(--blue);
+            color: var(--black);
             text-align: center;
             outline: none;
             border: none;
@@ -44,16 +44,13 @@
             padding: 0 15px;
             font-family: futura_2;
             transition: all 0.2s;
-            box-shadow: var(--stock_b);
-            &:focus{
-                box-shadow: var(--hover_b);
-            }
+            background-color: var(--white);
             &::placeholder{
-                color: var(--gray);
+                color: var(--black);
             }
         }
         .phone{
-            color: var(--blue);
+            color: var(--black);
             text-align: center;
             outline: none;
             border: none;
@@ -64,33 +61,30 @@
             padding: 0 15px;
             font-family: futura_2;
             transition: all 0.2s;
-            box-shadow: var(--stock_b);
             &::-webkit-inner-spin-button,
             &::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
             -moz-appearance: textfield;
-            &:focus{
-                box-shadow: var(--hover_b);
-            }
             &::placeholder{
-                color: var(--gray);
+                color: var(--black);
             }
         }
     }
     .sp{
+        background-color: var(--white);
         border-radius: 20px 0px 0px 20px;
         height: 40px;
         width: 150px;
         text-align: center;
         line-height: 40px;
-        box-shadow: var(--stock_b);
+        color: var(--black);
     }
     input[type="number"]{
         text-align: start;
         width: 50px;
-        color: var(--blue);
+        color: var(--yellow);
         text-align: center;
         outline: none;
         border: none;
@@ -100,11 +94,11 @@
         border-radius: 0px 20px 20px 0px;
         font-family: futura_2;
         transition: all 0.2s;
-        box-shadow: var(--stock_b);
         line-height: 40px;    
         text-indent: 5px;
+        background-color: var(--white);
         &::placeholder{
-            color: var(--gray);
+            color: var(--black);
         }
     }
     .check{
@@ -123,11 +117,10 @@
         justify-content: center;
         transition: all 0.2s;
         border: 2px solid var(--white);
-        box-shadow: var(--stock_b);
         border-radius: 20px;
         &::before {
             content: '';
-            color: var(--gray);
+            color: var(--black);
             display: flex;
             align-content: center;
             justify-content: center;
@@ -136,33 +129,7 @@
             height: 40px;
         }
         &:checked {
-            border: 10px solid var(--blue);
-        }
-        &:hover {
-            box-shadow: var(--hover_b);
-        }
-      }
-    input[type="file"] {
-        display: flex;
-        font-family: futura_2;
-        font-size: 15px;
-        color: var(--blue);
-        width: 220px;
-        padding: 10px;
-        &::file-name{
-            margin: 10px;
-        }
-        &::file-selector-button{
-            color: var(--gray);
-            box-shadow: var(--stock_b);
-            height: 40px;
-            width: 120px;
-            border-radius: 20px;
-            background-color: var(--white);
-            outline: none;
-            border: none;
-            font-family: futura_2;
-            font-size: 15px;
+            border: 10px solid var(--yellow);
         }
       }
       

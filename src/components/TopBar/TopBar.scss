@@ -1,24 +1,18 @@
 #type_buttons_cotact_list{
-    top: 0;
-    left: 50%;
-    top: 80px;
+    height: 7vh;
     background-color: var(--white);
-    position: fixed;
-    translate: -50%;
-    padding: 15px;
-    border-radius: 45px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 1320px;
     z-index: 100;
-    box-shadow: var(--droppShadow);
     .b_and_d{
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-right: 20px;
         .digit{
+            color: var(--black);
             user-select: none;
             cursor: default;
             border-radius: 20px;
@@ -28,7 +22,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--stock_b);
         }
     }
 }

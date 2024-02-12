@@ -1,4 +1,3 @@
-import './UpdateContact.scss'
 import * as Yup from 'yup'
 import Button from '../Button/Button'
 import { useNavigate,useParams } from 'react-router-dom'
@@ -35,7 +34,7 @@ const UpdateContact = ({contact,changeContact}) => {
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {()=>(
                 <Form className='newContact p-4 mt-5'>
-                    <span className='text3 c_blue'>Update Contact</span>
+                    <span className='text3 c_yellow'>Update Contact</span>
                 <div className='label m-2'>
                     <Field placeholder='Name' type='text' name='name' id='name'  />
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='name'/>
@@ -65,10 +64,10 @@ const UpdateContact = ({contact,changeContact}) => {
                 </div>
                 <ErrorMessage className='c_red text2 mt-2' component='span' name='avatar'/>
                 <div className='check m-2 mb-2'>
-                <label className='text2 c_gray me-2' htmlFor='favorite'>Favorite</label>
+                <label className='text2 c_black me-2' htmlFor='favorite'>Favorite</label>
                 <Field type='checkbox' name='favorite' id='favorite'/>
                 </div>
-                <Button type='submit' color='white' bg='blue' text='Update'/>
+                <Button type='submit' color='black' bg='purp' text='Update'/>
                 </Form>
             )}
         </Formik>

@@ -18,16 +18,16 @@ const ContactList = ({store,filter,active}) => {
     return(
         <>
         <div id="type_buttons_cotact_list">
-            <div className='b_and_d'  key={'all'} onClick={()=>filter('all')}>
-            {active==='all' &&<Button color='gray' bg='white' text={'all'}></Button>}
-            {active!=='all' &&<Button color='white' bg='bg' text={'all'}></Button>}
-            <span className='digit bg_blue'>{store.length}</span>
+            <div className='b_and_d'  key={'all'}>
+            {active==='all' &&<Button color='black' func={()=>filter('all')} bg='yellow' text={'all'}></Button>}
+            {active!=='all' &&<Button color='gray' func={()=>filter('all')} bg='bg' text={'all'}></Button>}
+            <span className='digit bg_red'>{store.length}</span>
             </div>
             {statusClear.map((status)=>(
-            <div className='b_and_d' key={status} onClick={()=>filter(status)}>
-            {active!==status &&<Button color='white' bg='bg' text={status}></Button>}
-            {active===status &&<Button color='gray' bg='white' text={status}></Button>}
-            <span className='digit bg_blue'>{countOccurrences(store.map((el) => el.status))[status]}</span>
+            <div className='b_and_d' key={status}>
+            {active===status &&<Button color='black' func={()=>filter(status)} bg='yellow' text={status}></Button>}
+            {active!==status &&<Button color='gray' func={()=>filter(status)} bg='bg' text={status}></Button>}
+            <span className='digit bg_red'>{countOccurrences(store.map((el) => el.status))[status]}</span>
             </div>
             ))}
         </div>

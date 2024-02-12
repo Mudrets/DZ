@@ -12,16 +12,18 @@
         text-decoration: none;
         text-align: center;
         text-transform: uppercase;
-        color: var(--yellow);
         width: 100%;
         display: inline-block;
         transition: all 0.2s;
+        color: var(--red);
+        user-select: none;
         &:hover{
-            color: var(--red);
+            color: var(--yellow);
         }
     }
     h1{
-        color: var(--blue);
+        cursor: default;
+        color: var(--black);
         text-align: center;
         margin-top: 20px;
         animation: colorSwitch 3s linear infinite;

@@ -8,10 +8,6 @@
     padding: 0 15px;
     font-family: futura_2;
     transition: all 0.2s;
-    box-shadow: var(--stock_b);
-    &:focus{
-        box-shadow: var(--hover_b);
-    }
     &::placeholder{
         color: var(--gray);
     }
