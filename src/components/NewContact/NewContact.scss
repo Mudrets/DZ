@@ -46,7 +46,7 @@
             transition: all 0.2s;
             background-color: var(--white);
             &::placeholder{
-                color: var(--black);
+                color: var(--gray);
             }
         }
         .phone{
@@ -68,7 +68,7 @@
         }
             -moz-appearance: textfield;
             &::placeholder{
-                color: var(--black);
+                color: var(--gray);
             }
         }
     }
@@ -98,7 +98,7 @@
         text-indent: 5px;
         background-color: var(--white);
         &::placeholder{
-            color: var(--black);
+            color: var(--gray);
         }
     }
     .check{

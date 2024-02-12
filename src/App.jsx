@@ -35,7 +35,7 @@ function App() {
     email:'test3@gmail.com',
     avatar:'33',
     gender:'men',
-    status:'random',
+    status:'new status',
     favorite:false
     },
     {
@@ -139,8 +139,8 @@ function App() {
         <Routes>
           <Route path='/' element={<ContactList changeContact={handleupdateContact} deleteContact={deleteContact} changeFav={changeFav} store={store}/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
-          <Route path='/update-contact/:id' element={<UpdateContact contact={updateContact} changeContact={handleEditContact}/>}></Route>
-          <Route path='/new-contact' element={<NewContact onNewContact={handleNewContact}/>}></Route>
+          <Route path='/update-contact/:id' element={<UpdateContact store={store} contact={updateContact} changeContact={handleEditContact}/>}></Route>
+          <Route path='/new-contact' element={<NewContact store={store} onNewContact={handleNewContact}/>}></Route>
         </Routes>
       </Router>
     </>

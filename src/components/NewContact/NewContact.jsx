@@ -5,8 +5,7 @@ import './NewContact.scss'
 import {Formik,Form,Field,ErrorMessage} from 'formik'
 import {v4 as uuidv4} from 'uuid'
 import { useState } from 'react'
-import InputMask from 'react-input-mask';
-const NewContact = ({onNewContact}) => {
+const NewContact = ({onNewContact,store}) => {
     const initialValues = {
         id:uuidv4(),
         name:'',
@@ -24,8 +23,7 @@ const NewContact = ({onNewContact}) => {
         email: Yup.string().email('Invalid email').required('Email is required'),
         avatar: Yup.string().required('Avatar is required'),
         gender: Yup.string().oneOf(['men', 'women'], 'Invalid gender').required('Gender is required'),
-        status: Yup.string().required('Status is required'),
-        // status: Yup.string().oneOf(['work', 'family', 'private', 'friend'], 'Invalid status').required('Status is required'),
+        status: Yup.string().required('Status is required').max(10),
         favorite: Yup.boolean()
       })
     const navigate = useNavigate()
@@ -35,6 +33,8 @@ const NewContact = ({onNewContact}) => {
         setSubmitting(true)
         navigate('/')
     }
+    const [addStatus,setAddStatus]= useState(false)
+    const statusClear=[...new Set(store.map((el) => el.status.toLowerCase()))];
     return(
         <div className=' container d-flex justify-content-center'>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
@@ -62,7 +62,14 @@ const NewContact = ({onNewContact}) => {
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='gender'/>
                 </div>
                 <div className='label m-2'>
-                    <Field name='status' as='input' placeholder='Status'></Field>
+                {!addStatus&&<Field name='status' as='select' onClick={(e) => {
+                        if (e.target.value==='new status') {setAddStatus(true)}else{setAddStatus(false)}
+                    }}>
+                        <option value="" disabled selected hidden>Choose status</option>
+                        {statusClear.map((status)=>(<option value={status}>{status}</option>))}
+                        <option value="new status">add new status</option>
+                    </Field>}
+                    {addStatus&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='status'/>
                 </div>
                 <div className='check m-2 mb-2'>
