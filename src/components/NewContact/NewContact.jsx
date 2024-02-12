@@ -62,7 +62,7 @@ const NewContact = ({onNewContact,store}) => {
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='gender'/>
                 </div>
                 <div className='label m-2'>
-                {!addStatus&&<Field name='status' as='select' onClick={(e) => {
+                {statusClear.length>0&&!addStatus&&<Field name='status' as='select' onClick={(e) => {
                         if (e.target.value==='new status') {setAddStatus(true)}else{setAddStatus(false)}
                     }}>
                         <option value="" disabled selected hidden>Choose status</option>
@@ -70,6 +70,7 @@ const NewContact = ({onNewContact,store}) => {
                         <option value="new status">add new status</option>
                     </Field>}
                     {addStatus&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
+                    {statusClear.length<1&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
                     <ErrorMessage className='c_red text2 mt-2' component='span' name='status'/>
                 </div>
                 <div className='check m-2 mb-2'>
