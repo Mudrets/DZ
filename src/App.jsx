@@ -11,7 +11,7 @@ function App() {
     {
     id:'test1',
     name:'test',
-    phone:'0000000000',
+    phone:'1111111111',
     email:'test1@gmail.com',
     avatar:'11',
     gender:'men',
@@ -21,13 +21,73 @@ function App() {
     {
     id:'test2',
     name:'test',
-    phone:'1111111111',
+    phone:'2222222222',
     email:'test2@gmail.com',
     avatar:'22',
     gender:'women',
     status:'work',
     favorite:false
-    }
+    },
+    {
+    id:'test3',
+    name:'test',
+    phone:'3333333333',
+    email:'test3@gmail.com',
+    avatar:'33',
+    gender:'men',
+    status:'random',
+    favorite:false
+    },
+    {
+    id:'test4',
+    name:'test',
+    phone:'4444444444',
+    email:'test4@gmail.com',
+    avatar:'44',
+    gender:'women',
+    status:'work',
+    favorite:false
+    },
+    {
+    id:'test5',
+    name:'test',
+    phone:'5555555555',
+    email:'test5@gmail.com',
+    avatar:'55',
+    gender:'men',
+    status:'family',
+    favorite:false
+    },
+    {
+    id:'test6',
+    name:'test',
+    phone:'6666666666',
+    email:'test6@gmail.com',
+    avatar:'66',
+    gender:'women',
+    status:'random',
+    favorite:false
+    },
+    {
+    id:'test7',
+    name:'test',
+    phone:'7777777777',
+    email:'test7@gmail.com',
+    avatar:'77',
+    gender:'men',
+    status:'family',
+    favorite:false
+    },
+    {
+    id:'test8',
+    name:'test',
+    phone:'8888888888',
+    email:'test8@gmail.com',
+    avatar:'88',
+    gender:'women',
+    status:'work',
+    favorite:false
+    },
 ])
   const handleNewContact = (NewContact) => {
     setStore(prevStore => [...prevStore,NewContact])
