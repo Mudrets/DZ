@@ -2,9 +2,20 @@
     height: 7vh;
     background-color: var(--white);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        position: fixed;
+        height: 10px;
+      }
+      &::-webkit-scrollbar-track {
+        background: var(--white);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--red);
+        border-radius: 20px;
+        border: 2px solid var(--white)
+      }
     min-height: 60px;
     z-index: 100;
     .b_and_d{

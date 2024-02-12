@@ -4,15 +4,6 @@
     height: 86vh;
     border-radius: 20px 20px 0 0;
     &::-webkit-scrollbar {
-        position: fixed;
         width: 0px;
-      }
-      &::-webkit-scrollbar-track {
-        background: var(--white);
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--red);
-        border-radius: 20px;
-        border: 2px solid var(--white)
       }
 }

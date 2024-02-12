@@ -65,7 +65,7 @@ function App() {
     email:'test6@gmail.com',
     avatar:'66',
     gender:'women',
-    status:'random',
+    status:'work',
     favorite:false
     },
     {
