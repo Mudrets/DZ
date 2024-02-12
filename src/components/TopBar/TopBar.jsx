@@ -1,7 +1,7 @@
 import './TopBar.scss'
 import Button from '../Button/Button'
 const ContactList = ({store,filter,active}) => {
-    const statusClear=[...new Set(store.map((el) => el.status))]
+    const statusClear=[...new Set(store.map((el) => el.status.toLowerCase()))];
     function countOccurrences(arr) {
         const countMap = {};
       
@@ -27,7 +27,7 @@ const ContactList = ({store,filter,active}) => {
             <div className='b_and_d' key={status}>
             {active===status &&<Button color='black' func={()=>filter(status)} bg='yellow' text={status}></Button>}
             {active!==status &&<Button color='gray' func={()=>filter(status)} bg='bg' text={status}></Button>}
-            <span className='digit bg_red'>{countOccurrences(store.map((el) => el.status))[status]}</span>
+            <span className='digit bg_red'>{countOccurrences(store.map((el) => el.status.toLowerCase()))[status.toLowerCase()]}</span>
             </div>
             ))}
         </div>
