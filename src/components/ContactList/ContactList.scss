@@ -1,9 +1,22 @@
 #contacts{
-    overflow-y: scroll;
-    z-index: 10;
-    height: 86vh;
-    border-radius: 20px 20px 0 0;
-    &::-webkit-scrollbar {
-        width: 0px;
-      }
+  position: relative;
+  padding: 1vw;
+  background-color: var(--bl_bg);
+  height: 88vh;
+  width: 78%;
+  position: relative;
+  left: 22%;
+  border-radius: var(--st_b_r);
+  box-shadow: var(--st_b_s);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1vw;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    position: fixed;
+    width: 0px;
+  }
+}
+.over_hiden{
+  overflow-y: hidden;
 }

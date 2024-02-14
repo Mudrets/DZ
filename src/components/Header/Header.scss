@@ -1,38 +1,51 @@
 #header{
-    border-radius: 45px;
-    background-color: var(--bg);
+    position: relative;
+    width: 100%;
+    min-height: 70px;
+    height: 8vh;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 1320px;
-    padding: 10px;
-    margin-top: 10px;
-    padding-left: 20px;
-    .center{
+    #logo{
+        width: 21%;
+        height: 16vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 60px;
+        font-family: futura_4;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: var(--bg);
+        border-radius: var(--st_b_r);
+        box-shadow: var(--st_b_s);
+        border: 1px solid var(--bl_bg);
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	    background-size: 100% 100%;
+        transition: background-size 1s ease;
+        &:hover{
+            background-size: 600% 600%;
+        }
+    }
+    #secondBar{
+        box-shadow: var(--st_b_s);
+        height: 6vh;
         display: flex;
         align-items: center;
-    }
-    #nav_add_new{
-        display: block;
-        height: 15px;
-        line-height: 15px;
-        &:hover{
-            color: var(--yellow);
-        }
-        svg{
-            height: 15px;
-        }
-        &:hover svg{
-            fill: var(--yellow);
-        }
-    }
-    #nav_contact_list{
-        display: block;
-        line-height: 30px;
-        height: 30px;
-        font-size: 30px;
-        &:hover{
-            color: var(--yellow);
+        padding: 0vw 20px 0 30px;
+        justify-content: space-between;
+        background-color: var(--bl_bg);
+        width: 78%;
+        border-radius: var(--st_b_r);
+        #add_new{
+            color: var(--sec_f_c);
+            text-decoration: none;
+            text-transform: capitalize;
+            font-family: futura_3;
+            font-size: 20px;
+            transition: all 0.2s;
+            &:hover{
+                color: var(--bg);
+            }
         }
     }
 }

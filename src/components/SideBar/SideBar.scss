@@ -1,0 +1,55 @@
+#type_buttons_cotact_list{
+    padding: 2vh 0;
+    width: 20.5vw;
+    background-color: var(--bl_bg);
+    border-radius: var(--st_b_r);
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 1vw;
+    left: 0;
+    top: 20vh;
+    button{
+      background-color: var(--bl_bg);
+      font-family: futura_3;
+      text-transform: uppercase;
+      text-align: start;
+      width: 150px;
+      height: 30px;
+      outline: none;
+      border: none;
+      transition: all 0.2s;
+      &:hover{
+          color: var(--bg);
+      }
+  }
+    .b_and_d{
+      margin: 1vh 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-right: 20px;
+      .digit{
+        margin-right: 1vw;
+          box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+          color: var(--bg);
+          user-select: none;
+          cursor: default;
+          border-radius: 20px;
+          margin-left: 20px;
+          height: 30px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+    }
+    .active{
+      color: var(--bg);
+    }
+    .inActive{
+      color: var(--sec_f_c);
+    }
+}

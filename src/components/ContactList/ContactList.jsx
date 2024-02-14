@@ -1,21 +1,31 @@
 import './ContactList.scss'
-import Button from '../Button/Button'
-import TopBar from '../TopBar/TopBar'
-import {useState} from 'react' 
 import ContactItem from '../ContactItem/ContactItem'
-const ContactList = ({deleteContact,changeFav,store,changeContact,newStatus}) => {
-    const [statusFilter,setFilterStatus]= useState('all')
-    function filterStatus(keepStatus){
-        setFilterStatus(prevStat=>keepStatus)
-    }
+import { useSelector,useDispatch} from 'react-redux'
+const ContactList = () => {
+    const contacts = useSelector(state => state.contacts)
+    const statusFilter = useSelector(state => state.statusFilter)
     return(
-        <div className='container p-0'>
-        <TopBar filter={filterStatus} active={statusFilter} store={store}></TopBar>
-        <div id='contacts'>
-            {statusFilter!=='all'&&store.filter(item => item.status === statusFilter).map((el)=>(<ContactItem changeContact={changeContact} deleter={deleteContact} newStatus={newStatus} changer={changeFav} contact={el} key={el.id}></ContactItem>))}
-            {statusFilter==='all'&&store.map((el)=>(<ContactItem changeContact={changeContact} deleter={deleteContact} newStatus={newStatus} changer={changeFav} contact={el} key={el.id}></ContactItem>))}
+        <>
+        <div id='contacts' className={`${'over_hiden'}`}>
+            {statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}
+            {statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}
         </div>
-        </div>
+        </>
     )
 }
 export default ContactList
+
+
+// import './ContactList.scss'
+// import ContactItem from '../ContactItem/ContactItem'
+// const ContactList = ({deleteContact,changeFav,store,changeContact,newStatus,statusFilter,isUpdating}) => {
+//     return(
+//         <>
+//         <div id='contacts'>
+//             {statusFilter!=='all'&&store.filter(item => item.status === statusFilter).map((el)=>(<ContactItem isUpdating={isUpdating} changeContact={changeContact} deleter={deleteContact} newStatus={newStatus} changer={changeFav} contact={el} key={el.id}></ContactItem>))}
+//             {statusFilter==='all'&&store.map((el)=>(<ContactItem changeContact={changeContact} deleter={deleteContact} isUpdating={isUpdating} newStatus={newStatus} changer={changeFav} contact={el} key={el.id}></ContactItem>))}
+//         </div>
+//         </>
+//     )
+// }
+// export default ContactList

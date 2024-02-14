@@ -1,0 +1,287 @@
+.newContact{
+    overflow: hidden;
+    position: absolute;
+    margin-left: 1vw;
+    height: 78vh;
+    left: 0;
+    top: 20vh;
+    background-color: var(--bl_bg);
+    border-radius: var(--st_b_r);
+    box-shadow: var(--st_b_s);
+    width: 20.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .nc{
+        font-size: 30px;
+        color: var(--bg);
+        font-family: futura_4;
+    }
+    span{
+        text-transform: capitalize;
+        font-size: 20px;
+        color: var(--purp);
+    }
+    .label{
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    input{
+        outline: none;
+        border: none;
+        height: 4vh;
+        text-transform: capitalize;
+        width: 80%;
+        text-align: center;
+        padding: 0 25px;
+        font-family: futura_2;
+        font-size: 20px;
+        color: var(--bg);
+        background-color: var(--bl_bg);
+        border-radius: var(--sec_b_r);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 0px 0px 1px inset;
+        transition: all 0.2s;
+        &::placeholder{
+            color: var(--sec_f_c);
+        }
+    }
+    select{
+        outline: none;
+        border: none;
+        height: 4vh;
+        text-transform: capitalize;
+        width: 80%;
+        text-align: center;
+        font-family: futura_2;
+        font-size: 20px;
+        color: var(--bg);
+        background-color: var(--bl_bg);
+        border-radius: var(--sec_b_r);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 0px 0px 1px inset;
+        transition: all 0.2s;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        transition: all 0.2s;
+        &::placeholder{
+            color: var(--sec_f_c);
+        }
+    }
+    input[type="number"]{
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+        }
+    }
+    button{
+        outline: none;
+        border: none;
+        color: var(--bg);
+        height: 4vh;
+        width: 230px;
+        box-shadow: var(--st_b_s);
+        border-radius: var(--sec_b_r);
+        background: linear-gradient(
+            60deg,
+            #f79533,
+            #f37055,
+            #ef4e7b,
+            #a166ab,
+            #5073b8,
+            #1098ad,
+            #07b39b,
+            #6fba82
+        );
+        background-size: 100% 100%;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+            background-size: 600% 600%;
+            color: var(--bg);
+            box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+            scale: 101%;
+        }
+    }
+    .n{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #f79533 0px 0px 0px 2px inset;&:focus{box-shadow: #f79533 0px 4px 15px 0px, #f79533 0px 0px 0px 2px inset}}
+    .phone{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #f37055 0px 0px 0px 2px inset;&:focus{box-shadow: #f37055 0px 4px 15px 0px, #f37055 0px 0px 0px 2px inset}}
+    .e{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #ef4e7b 0px 0px 0px 2px inset;&:focus{box-shadow: #ef4e7b 0px 4px 15px 0px, #ef4e7b 0px 0px 0px 2px inset}}
+    .g{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #a166ab 0px 0px 0px 2px inset;&:focus{box-shadow: #a166ab 0px 4px 15px 0px, #a166ab 0px 0px 0px 2px inset}}
+    .s{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #5073b8 0px 0px 0px 2px inset;&:focus{box-shadow: #5073b8 0px 4px 15px 0px, #5073b8 0px 0px 0px 2px inset}}
+    .a{box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #1098ad 0px 0px 0px 2px inset;&:focus{box-shadow: #1098ad 0px 4px 15px 0px, #1098ad 0px 0px 0px 2px inset}}
+    
+    #statInp{
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px, #6fba82 0px 0px 0px 2px inset;&:focus{box-shadow: #6fba82 0px 4px 15px 0px, #6fba82 0px 0px 0px 2px inset};
+
+    }
+    label{
+        color: var(--bg);
+        font-size: 20px;
+        font-family: futura_2;
+    }
+    .check{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    input[type="checkbox"] {
+        padding: 0;
+        margin: 0;
+        height: 20px;
+        width: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        transition: all 0.2s;
+        border: 2px solid var(--bg);
+        border-radius: 20px;
+        &::before {
+            content: ''
+        }
+        &:checked {
+            border: 10px solid var(--bg);
+        }
+    }
+}
+// .newContact{
+//     position: relative;
+//     top: 10%;
+//     background-color: var(--bg);
+//     border-radius: 20px;
+//     width: 300px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-around;
+//     .label{
+//         flex-direction: column;
+//         width: 100%;
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         select{
+//             height: 40px;
+//             text-align: center;
+//             width: 200px;
+//             font-family: futura_2;
+//             text-transform: capitalize;
+//             background-color: var(--white);
+//             color: var(--black);
+//             -webkit-appearance: none;
+//             -moz-appearance: none;
+//             appearance: none;
+//             border-radius: 20px;
+//             outline: none;
+//             border: none;
+//             option{
+//                 color: var(--black);
+//             }
+//         }
+//         input{
+//             color: var(--black);
+//             text-align: center;
+//             outline: none;
+//             border: none;
+//             height: 40px;
+//             text-transform: capitalize;
+//             width: 200px;
+//             border-radius: 20px;
+//             padding: 0 15px;
+//             font-family: futura_2;
+//             transition: all 0.2s;
+//             background-color: var(--white);
+//             &::placeholder{
+//                 color: var(--gray);
+//             }
+//         }
+//         .phone{
+//             color: var(--black);
+//             text-align: center;
+//             outline: none;
+//             border: none;
+//             height: 40px;
+//             text-transform: capitalize;
+//             width: 200px;
+//             border-radius: 20px;
+//             padding: 0 15px;
+//             font-family: futura_2;
+//             transition: all 0.2s;
+//             &::-webkit-inner-spin-button,
+//             &::-webkit-outer-spin-button {
+//             -webkit-appearance: none;
+//             margin: 0;
+//         }
+//             -moz-appearance: textfield;
+//             &::placeholder{
+//                 color: var(--gray);
+//             }
+//         }
+//     }
+//     .sp{
+//         background-color: var(--white);
+//         border-radius: 20px 0px 0px 20px;
+//         height: 40px;
+//         width: 150px;
+//         text-align: center;
+//         line-height: 40px;
+//         color: var(--black);
+//     }
+//     input[type="number"]{
+//         text-align: start;
+//         width: 50px;
+//         color: var(--yellow);
+//         text-align: center;
+//         outline: none;
+//         border: none;
+//         height: 40px;
+//         padding: 0;
+//         text-transform: capitalize;
+//         border-radius: 0px 20px 20px 0px;
+//         font-family: futura_2;
+//         transition: all 0.2s;
+//         line-height: 40px;    
+//         text-indent: 5px;
+//         background-color: var(--white);
+//         &::placeholder{
+//             color: var(--gray);
+//         }
+//     }
+//     .check{
+//         width: 100%;
+//         justify-content: center;
+//         display: flex;
+//         align-items: center;
+//     }
+//     input[type="checkbox"] {
+//         width: 20px;
+//         height: 20px;
+//         appearance: none;
+//         -webkit-appearance: none;
+//         display: flex;
+//         align-content: center;
+//         justify-content: center;
+//         transition: all 0.2s;
+//         border: 2px solid var(--white);
+//         border-radius: 20px;
+//         &::before {
+//             content: '';
+//             color: var(--black);
+//             display: flex;
+//             align-content: center;
+//             justify-content: center;
+//             font-family: futura_2;
+//             line-height: 26px;
+//             height: 40px;
+//         }
+//         &:checked {
+//             border: 10px solid var(--yellow);
+//         }
+//       }
+      
+// }

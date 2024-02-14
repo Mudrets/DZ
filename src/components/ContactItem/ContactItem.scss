@@ -1,56 +1,324 @@
 .ContactItem{
-    margin-bottom: 10px;
-    background-color: var(--bg);
-    border-radius: 20px;
-    z-index: 10;
+    width: 24vw;
+    position: relative;
+    border-radius:  var(--st_b_r);
+    height: 30vw;
+    background-color: var(--bl_sec_bg);
+    box-shadow: var(--st_b_s);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    transition: all 0.6s ease;
+    // animation: fixed 0.6s ease;
     .avatar{
-        width: 180px;
-        height: 180px;
-        border-radius: 100%;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border: 3px solid var(--gray);
+        font-family: futura_4;
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        background-color: var(--bg);
+        border-radius: var(--st_b_r);
+        font-size: 0;
+        padding:0;
+        width: 60%;
+        color: var(--st_f_c);
+        text-transform: capitalize;
     }
-    .tag{
+    .gender{
+        transition: all 0.6s ease;
+        height: auto;
+        font-family: futura_3;
+        font-size: 0;
+        text-align: end;
+        max-width: 20vw;
+        background-color: var(--bl_bg);
+        color: var(--bg);
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+    }
+    input{
+        transition: all 0.6s ease;
+        outline: none;
+        border: none;
+    }
+    span{
+        transition: all 0.6s ease;
+        color: var(--bg);
+        padding: 0 1vw;
+        margin: 0.5vh;
+    }
+    .status{
+        text-align: center;
+        max-width:30%;
         user-select: none;
-        align-items: center;
+        position: absolute;
+        top: -1%;
+        right: -1%;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        padding: 0 1vw;
+        justify-content: end;
+        font-family: futura_4;
+        text-transform: capitalize;
+        font-size: 1vw;
+        height: 50px;
+        border-radius: 0 25px 0 25px;
+        color: var(--bg);
+        background-color: var(--bl_bg);
+    }
+    span{
+        color: var(--bg);
+        padding: 0 1vw;
+        margin: 0.5vh;
+    }
+    .name{
+        font-family: futura_4;
+        position: absolute;
+        top: 13%;
+        left: 5%;
+        max-width: 250px;
+        text-align: center;
+        background-color: var(--bg);
+        border-radius: var(--st_b_r);
+        font-size: 1vw;
+        color: var(--st_f_c);
+        text-transform: capitalize;
+    }
+    .email{
+        max-width: 10vw;
+        text-align: end;
+        color: var(--bg);
+        background-color: var(--bl_bg);
         font-family: futura_2;
-        font-size: 12px;
-        color: var(--black);
-        text-transform: uppercase;
-        width: 100px;
-        height: 20px;
-        border-radius: 20px;
+        font-size: 1vw;
+        color: var(--sec_f_c);
+    }
+    .phone{
+        max-width: 10vw;
+        text-align: end;
+        color: var(--bg);
+        background-color: var(--bl_bg);
+        font-family: futura_3;
+        font-size: 1vw;
+    }
+    .info{
+        padding-right: 5%;
+        background-color: var(--bl_bg);
+        border-radius: 25px 0 0 0;
+        height: 20%;
+        position: absolute;
+        bottom: -1vh;
+        right: -1vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+    }
+    .btns{
+        transition: all 0.6s ease;
+        user-select: none;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 30%;
+        bottom: 5vh;
     }
     svg{
+        transition: all 0.6s ease;
+        fill: var(--st_f_c);
+        width: 60%;
+        height: 60%;
+    }
+    .b{
+        transition: all 0.6s ease;
+        user-select: none;
         cursor: pointer;
-        transition: all 0.2s;
-        scale: 2;
-        fill: var(--black);
-        &:hover{
-            fill: var(--blue);
-        }
-    }
-    .star{
-        &:hover{
-            fill: var(--yellow);
-        }
-    }
-    .trash{
-        &:hover{
-            fill: var(--red);
-        }
-    }
-    .favorite{
-            fill: var(--yellow);
-    }
-    .buttons{
+        transition: all 0.6s;
         display: flex;
-        align-items: end;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
+        height: 2vw;
+        width: 2vw;
+        border-radius: 0 100% 100% 0;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 10px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        scale: 1.1;
+        &:hover{
+            scale: 1.2;
+        }
+    }
+    .pelena{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: var(--st_b_r);
+        z-index: 10;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        // box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 10px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+}
+@keyframes fixed{
+    0%{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    100%{
+        margin: 2vh 0 0 2vh;
+        width: 24vw;
+        position: absolute;
+        height: 30vw;
+    }
+}
+.updating{
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s ease;
+    animation: updating 0.6s ease;
+    .status{
+        user-select: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 1vw;
+        justify-content: end;
+        font-family: futura_4;
+        text-transform: capitalize;
+        font-size: 2vw;
+        height: 10%;
+        width: 20%;
+        border-radius: 0 25px 0 25px;
+        color: var(--bg);
+        background-color: var(--bl_bg);
+    }
+    .name{
+        font-family: futura_4;
+        position: absolute;
+        background-color: var(--bg);
+        border-radius: var(--st_b_r);
+        font-size: 2vw;
+        max-width: 50%;
+        color: var(--st_f_c);
+        text-transform: capitalize;
+    }
+    .avatar{
+        font-family: futura_4;
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        background-color: var(--bg);
+        border-radius: var(--st_b_r);
+        font-size: 1vw;
+        padding: 0.8vw 2vw;
+        width: 60%;
+        color: var(--st_f_c);
+        text-transform: capitalize;
+    }
+    .gender{
+        height: auto;
+        font-family: futura_3;
+        font-size: 2vw;
+        text-align: end;
+        max-width: 20vw;
+        background-color: var(--bl_bg);
+        color: var(--bg);
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+    }
+    .email{
+        font-family: futura_2;
+        font-size: 2vw;
+        color: var(--sec_f_c);
+        max-width: 20vw;
+    }
+    .phone{
+        height: auto;
+        font-family: futura_3;
+        font-size: 3vw;
+        max-width: 20vw;
+    }
+    .info{
+        background-color: var(--bl_bg);
+        border-radius: 25px 0 0 0;
+        height: 30%;
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: end;
+    }
+    .btns{
+        user-select: none;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 50%;
+        bottom: 5vh;
+    }
+    svg{
+        fill: var(--st_f_c);
+        width: 60%;
+        height: 60%;
+    }
+    .b{
+        user-select: none;
+        cursor: pointer;
+        transition: all 0.6s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4vw;
+        width: 4vw;
+        border-radius: 0 100% 100% 0;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 10px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        scale: 1.1;
+        &:hover{
+            scale: 1.2;
+        }
+    }
+}
+.none{
+    display: none;
+}
+@keyframes updating {
+    0%{
+        top: 0;
+        left: 50%;
+        translate: (-50%);
+        margin: 2vh 0 0 2vh;
+        width: 24vw;
+        position: absolute;
+        height: 30vw;
+    }
+    100%{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
     }
 }
