@@ -49,9 +49,9 @@ const UpdateContact = () => {
         navigate('/')
     }
     return(
-        <div className=' container d-flex justify-content-center'>
+        <>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-                <Form className='newContact p-4'>
+                {/* <Form className='newContact p-4'>
                 <span className='nc'>Update Contact</span>
             <div className='label m-2'>
                 <Field placeholder='Name' className='n' type='text' name='name' id='name'/>
@@ -94,9 +94,9 @@ const UpdateContact = () => {
             <Field type='checkbox' name='favorite' id='favorite'/>
             </div>
             <button type='submit'>ADD</button>
-            </Form>
+            </Form> */}
         </Formik>
-        </div>
+        </>
     )
 }
 export default UpdateContact

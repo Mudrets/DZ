@@ -1,7 +1,9 @@
 import './SideBar.scss'
 import { useSelector,useDispatch} from 'react-redux'
 import { statusFilter } from '../../redux/action'
+import { isUpdating,updateContact } from '../../redux/action'
 const ContactList = () => {
+    const Updating = useSelector(state => state.isUpdating)
     const dispatch = useDispatch()
     const contacts = useSelector(state => state.contacts)
     const active = useSelector(state => state.statusFilter)
@@ -24,6 +26,7 @@ const ContactList = () => {
     return(
         <>
         <div id="type_buttons_cotact_list">
+          {/* {Updating[0]&&<div className='pelena'></div>} */}
             <div className='b_and_d'  key={'all'}>
             <span className='digit bg_red'>{contacts.length}</span>
             <button className={`button_special ${active==='all' &&'active'} ${active!=='all' &&'inActive'}`} onClick={()=>handleStatusFilter('all')} >All</button>

@@ -10,6 +10,12 @@
     margin-left: 1vw;
     left: 0;
     top: 20vh;
+    .pelena{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
     button{
       background-color: var(--bl_bg);
       font-family: futura_3;

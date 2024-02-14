@@ -15,9 +15,9 @@ function App() {
       <Router>
         <Header/>
         <ContactList/>
+        <TopBar/>
         <Routes>
           {/* <Route path='*' element={<NotFound/>}></Route> */}
-          <Route path='/' element={<TopBar/>}></Route>
           <Route path='/update-contact/:id'element={<UpdateContact/>}></Route>
           <Route path='/new-contact' element={<NewContact/>}></Route>
         </Routes>
