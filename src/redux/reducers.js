@@ -1,4 +1,4 @@
-import {ADD_CONTACT,DELETE_CONTACT,STATUS_FILTER,UPDATE_CONTACT,IS_UPDATING,CHANGE_FAVORITE,SEARCH_CONTACT,ADD_STATUS,DELETE_STATUS}from './type'
+import {ADD_CONTACT,DELETE_CONTACT,STATUS_FILTER,UPDATE_CONTACT,IS_UPDATING,CHANGE_FAVORITE,SEARCH_CONTACT,ADD_STATUS,DELETE_STATUS,IS_ADDING}from './type'
 
 const initialState = {
     contacts:[
@@ -85,6 +85,7 @@ const initialState = {
     ],
     statusFilter:'all',
     isUpdating:[false,'id'],
+    isAdding:false,
     searchTerm:'',
     statusList:['other','work','family']
 }
@@ -119,6 +120,11 @@ const reducers =(state = initialState, action) => {
             return{
                 ...state,
                 isUpdating:action.payload
+            }
+        case IS_ADDING:
+            return{
+                ...state,
+                isAdding:action.payload
             }
         case SEARCH_CONTACT:
             return{

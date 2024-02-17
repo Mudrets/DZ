@@ -2,13 +2,12 @@ import './ContactItem.scss'
 import { validationSchema } from '../../assets/validation/validation'
 import {Link} from "react-router-dom"
 import { useNavigate } from 'react-router-dom'
-import { useState,useEffect } from 'react'
+import { useEffect } from 'react'
 import { changeFavorite, deleteContact,isUpdating,updateContact } from '../../redux/action'
 import { useSelector,useDispatch} from 'react-redux'
 import {Formik,Form,Field,ErrorMessage} from 'formik'
 const ContactItem = ({contact}) => {
     const statusList = useSelector(state => state.statusList)
-    const contacts = useSelector(state => state.contacts)
     const navigate = useNavigate()
     const Updating = useSelector(state => state.isUpdating)
     const dispatch = useDispatch()
@@ -85,7 +84,7 @@ const ContactItem = ({contact}) => {
                     </Field>
                 </div>
                 <div className='btns'>
-                    {!Updating[0]&&<Link className='b' onClick={()=>{handleUpdateContact(true,contact.id)}} to={`update-contact/${contact.id}`}>
+                    {!Updating[0]&&<Link className='b' onClick={()=>{handleUpdateContact(true,contact.id)}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16"> <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/> </svg>
                     </Link>}
                     {Updating[1]===contact.id&&<button type='submit' className='b'>

@@ -2,15 +2,18 @@ import './ContactList.scss'
 import ContactItem from '../ContactItem/ContactItem'
 import { useSelector} from 'react-redux'
 import SideBar from '../SideBar/SideBar'
+import NewContact from '../NewContact/NewContact'
 const ContactList = () => {
     const contacts = useSelector(state => state.contacts)
     const statusFilter = useSelector(state => state.statusFilter)
+    const isAdding = useSelector(state => state.isAdding)
     return(
         <>
         <SideBar/>
         <div id='contacts' className={`${'over_hiden'}`}>
-            {statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}
-            {statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}
+            {isAdding&&<NewContact/>}
+            {statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
+            {statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
         </div>
         </>
     )
