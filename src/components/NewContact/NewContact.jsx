@@ -5,8 +5,9 @@ import {Formik,Form,Field,ErrorMessage} from 'formik'
 import {v4 as uuidv4} from 'uuid'
 import { useState } from 'react'
 import { useSelector,useDispatch} from 'react-redux'
-import { addContact } from '../../redux/action'
+import { addContact,addStatus } from '../../redux/action'
 const NewContact = () => {
+    const statusList = useSelector(state => state.statusList)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const contacts = useSelector(state => state.contacts)
@@ -21,10 +22,11 @@ const NewContact = () => {
         favorite:false
     }
     const handleSubmit = (values) => {
+        dispatch(addStatus(values.status))
         dispatch(addContact(values))
         navigate('/')
     }
-    const [addStatus,setAddStatus]= useState(false)
+    const [isAddStatus,setisAddStatus]= useState(false)
     const statusClear=[...new Set(contacts.map((el) => el.status.toLowerCase()))];
     return(
         <div className=' container d-flex justify-content-center'>
@@ -53,15 +55,15 @@ const NewContact = () => {
                     <ErrorMessage className='text2 mt-2' component='span' name='gender'/>
                 </div>
                 <div className='label m-2'>
-                {statusClear.length>0&&!addStatus&&<Field className='s' name='status' as='select' onClick={(e) => {
-                        if (e.target.value==='new status') {setAddStatus(true)}else{setAddStatus(false)}
+                {statusList.length>0&&!isAddStatus&&<Field className='s' name='status' as='select' onClick={(e) => {
+                        if (e.target.value==='other') {setisAddStatus(true)}else{setisAddStatus(false)}
                     }}>
                         <option value="" disabled selected hidden>Choose status</option>
-                        {statusClear.map((status)=>(<option value={status}>{status}</option>))}
-                        <option value="new status">add new status</option>
+                        {statusList.map((status)=>(<option value={status}>{status}</option>))}
+                        <option value="other">add new status</option>
                     </Field>}
-                    {addStatus&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
-                    {statusClear.length<1&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
+                    {isAddStatus&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
+                    {statusList.length<1&&<Field id='statInp' name='status' as='input' placeholder='New status'></Field>}
                     <ErrorMessage className='text2 mt-2' component='span' name='status'/>
                 </div>
                 <div className='label m-2'>

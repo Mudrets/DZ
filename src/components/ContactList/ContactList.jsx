@@ -1,11 +1,13 @@
 import './ContactList.scss'
 import ContactItem from '../ContactItem/ContactItem'
-import { useSelector,useDispatch} from 'react-redux'
+import { useSelector} from 'react-redux'
+import SideBar from '../SideBar/SideBar'
 const ContactList = () => {
     const contacts = useSelector(state => state.contacts)
     const statusFilter = useSelector(state => state.statusFilter)
     return(
         <>
+        <SideBar/>
         <div id='contacts' className={`${'over_hiden'}`}>
             {statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}
             {statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>))}

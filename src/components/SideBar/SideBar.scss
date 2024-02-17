@@ -1,5 +1,5 @@
 #type_buttons_cotact_list{
-    padding: 2vh 0;
+    padding: 2vh 1vw;
     width: 20.5vw;
     background-color: var(--bl_bg);
     border-radius: var(--st_b_r);
@@ -16,12 +16,23 @@
       height: 100%;
       z-index: 100;
     }
+    input{
+      outline: none;
+      border: none;
+      background-color: var(--sec_bl_bg);
+      color: var(--bg);
+      font-family: futura_3;
+      font-size: inherit;
+      text-transform: uppercase;
+      &::placeholder{
+        color: var(--sec_f_c);
+      }
+    }
     button{
       background-color: var(--bl_bg);
       font-family: futura_3;
       text-transform: uppercase;
       text-align: start;
-      width: 150px;
       height: 30px;
       outline: none;
       border: none;
@@ -31,12 +42,11 @@
       }
   }
     .b_and_d{
-      margin: 1vh 0;
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: start;
-      margin-right: 20px;
+      justify-content: space-between;
+      padding: 1vh 1vw;
       .digit{
         margin-right: 1vw;
           box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
@@ -44,12 +54,18 @@
           user-select: none;
           cursor: default;
           border-radius: 20px;
-          margin-left: 20px;
           height: 30px;
           width: 40px;
           display: flex;
           align-items: center;
           justify-content: center;
+      }
+    }
+    svg{
+      transition: all 0.2s;
+      fill: var(--sec_f_c);
+      &:hover{
+        fill:var(--bg);
       }
     }
     .active{

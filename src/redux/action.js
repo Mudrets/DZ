@@ -1,4 +1,4 @@
-import {ADD_CONTACT,DELETE_CONTACT,UPDATE_CONTACT,STATUS_FILTER,IS_UPDATING,CHANGE_FAVORITE}from './type'
+import {ADD_CONTACT,DELETE_CONTACT,UPDATE_CONTACT,STATUS_FILTER,IS_UPDATING,CHANGE_FAVORITE,SEARCH_CONTACT,ADD_STATUS,DELETE_STATUS}from './type'
 
 export const addContact = (newContact) => {
     return{
@@ -15,7 +15,7 @@ export const deleteContact = (id) => {
 export const updateContact = (id,contact) => {
     return{
         type: UPDATE_CONTACT,
-        payload:[id,contact]
+        payload:{id,contact}
     }
 }
 export const statusFilter = (status) => {
@@ -34,5 +34,17 @@ export const changeFavorite = (id) => {
     return{
         type: CHANGE_FAVORITE,
         payload:id
+    }
+}
+export const addStatus = (status) => {
+    return{
+        type: ADD_STATUS,
+        payload:status
+    }
+}
+export const deleteStatus = (status) => {
+    return{
+        type: DELETE_STATUS,
+        payload:status
     }
 }

@@ -27,7 +27,7 @@ const UpdateContact = () => {
         return () => {
         handleIsUpdating(false,'id')
         };
-      }, [location.pathname]);
+      }, []);
     let initialValues ={}
     if (contact===undefined) {
         return
@@ -51,7 +51,7 @@ const UpdateContact = () => {
     return(
         <>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
-                {/* <Form className='newContact p-4'>
+                <Form className='newContact p-4'>
                 <span className='nc'>Update Contact</span>
             <div className='label m-2'>
                 <Field placeholder='Name' className='n' type='text' name='name' id='name'/>
@@ -94,7 +94,7 @@ const UpdateContact = () => {
             <Field type='checkbox' name='favorite' id='favorite'/>
             </div>
             <button type='submit'>ADD</button>
-            </Form> */}
+            </Form>
         </Formik>
         </>
     )

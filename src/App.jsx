@@ -1,11 +1,10 @@
 import './App.scss'
 import { BrowserRouter as Router,Routes, Route} from 'react-router-dom'
-import UpdateContact from './components/UpdateContact/UpdateContact'
+// import UpdateContact from './components/UpdateContact/UpdateContact'
 import Header from './components/Header/Header'
 import ContactList from './components/ContactList/ContactList'
 import NotFound from './components/NotFound/NotFound'
 import NewContact from './components/NewContact/NewContact'
-import TopBar from './components/SideBar/SideBar'
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -14,11 +13,11 @@ function App() {
     <Provider store={store}>
       <Router>
         <Header/>
-        <ContactList/>
-        <TopBar/>
         <Routes>
-          {/* <Route path='*' element={<NotFound/>}></Route> */}
-          <Route path='/update-contact/:id'element={<UpdateContact/>}></Route>
+          <Route path='*' element={<NotFound/>}></Route>
+          <Route path='/'element={<ContactList/>}></Route>
+          <Route path='/update-contact/:id'element={<ContactList/>}></Route>
+          {/* <Route path='/update-contact/:id'element={<UpdateContact/>}></Route> */}
           <Route path='/new-contact' element={<NewContact/>}></Route>
         </Routes>
       </Router>

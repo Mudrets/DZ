@@ -1,4 +1,4 @@
-import {ADD_CONTACT,DELETE_CONTACT,STATUS_FILTER,UPDATE_CONTACT,IS_UPDATING,CHANGE_FAVORITE}from './type'
+import {ADD_CONTACT,DELETE_CONTACT,STATUS_FILTER,UPDATE_CONTACT,IS_UPDATING,CHANGE_FAVORITE,SEARCH_CONTACT,ADD_STATUS,DELETE_STATUS}from './type'
 
 const initialState = {
     contacts:[
@@ -29,7 +29,7 @@ const initialState = {
             email:'test3@gmail.com',
             avatar:'https://images.unsplash.com/photo-1527610276295-f4c1b38decc5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             gender:'men',
-            status:'new status',
+            status:'other',
             favorite:false
             },
             {
@@ -84,7 +84,9 @@ const initialState = {
             },
     ],
     statusFilter:'all',
-    isUpdating:[false,'id']
+    isUpdating:[false,'id'],
+    searchTerm:'',
+    statusList:['other','work','family']
 }
 const reducers =(state = initialState, action) => {
     switch (action.type){
@@ -102,8 +104,8 @@ const reducers =(state = initialState, action) => {
             return {
                 ...state,
                 contacts: state.contacts.map(contact => {
-                    if (contact.id === action.payload[0]) {
-                      return action.payload[1]
+                    if (contact.id === action.payload.id) {
+                      return action.payload.contact
                     } 
                     return contact
                   })
@@ -118,6 +120,11 @@ const reducers =(state = initialState, action) => {
                 ...state,
                 isUpdating:action.payload
             }
+        case SEARCH_CONTACT:
+            return{
+                ...state,
+                searchTerm: action.payload
+            }
         case CHANGE_FAVORITE:
             return{
                 ...state,
@@ -127,6 +134,24 @@ const reducers =(state = initialState, action) => {
                     } 
                     return contact
                   })
+            }
+        case DELETE_STATUS:
+            return{
+                ...state,
+                contacts: state.contacts.map(contact => {
+                    if (contact.status === action.payload) {
+                      return {...contact, status: 'other'}
+                    } 
+                    return contact
+                  }),
+                statusList:state.statusList.filter(status => status !== action.payload)
+            }
+        case ADD_STATUS:
+            if (!state.statusList.includes(action.payload)&&action.payload!=='') {         
+                return{
+                    ...state,
+                    statusList:[...state.statusList, action.payload]
+                }
             }
         default:
             return state

@@ -6,6 +6,6 @@ export const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
     avatar: Yup.string().required('Avatar is required'),
     gender: Yup.string().oneOf(['men', 'women'], 'Invalid gender').required('Gender is required'),
-    status: Yup.string().required('Status is required').max(10),
+    status: Yup.string().required('Status is required').max(10).min(1),
     favorite: Yup.boolean()
   })

@@ -48,4 +48,17 @@
             }
         }
     }
+    input{
+        outline: none;
+        border: none;
+        font-family: futura_3;
+        font-size: 20px;
+        background-color: var(--bl_bg);
+        color: var(--bg);
+        text-align: end;
+        padding: 0 1vw;
+        &::placeholder{
+            color: var(--sec_f_c);
+        }
+    }
 }

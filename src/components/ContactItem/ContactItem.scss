@@ -92,9 +92,14 @@
         color: var(--bg);
     }
     .status{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        border: none;
         text-transform: lowercase;
         text-align: center;
-        max-width:30%;
+        width:35%;
         user-select: none;
         position: absolute;
         top: 0;
@@ -115,7 +120,7 @@
         position: absolute;
         top: 13%;
         left: 5%;
-        max-width: 250px;
+        width: 50%;
         text-align: center;
         background-color: var(--bg);
         border-radius: var(--st_b_r);
@@ -124,6 +129,7 @@
         text-transform: capitalize;
     }
     .email{
+        margin-left: 1vw;
         max-width: 10vw;
         text-align: end;
         color: var(--bg);
