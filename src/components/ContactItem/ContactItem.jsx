@@ -42,6 +42,7 @@ const ContactItem = ({contact}) => {
             <Formik initialValues={initialValues} validationSchema={validationSchema} onReset={handleReset} onSubmit={handleSubmit}>
                 {({ resetForm }) => (
                 <Form style={{backgroundImage: `url(${contact.avatar})`}} id={contact.id} className={`ContactItem ${Updating[0]&&Updating[1]===contact.id&&'update'}`}>
+                <div className='psevd'><button type='button' onClick={()=>{console.log(contact)}}>log</button></div>
                 <span className='upsp'>Please update contact info</span>
                 <ErrorMessage className='error e1' component='span' name='phone' />
                 <ErrorMessage className='error e2' component='span' name='status'/>
@@ -49,7 +50,6 @@ const ContactItem = ({contact}) => {
                 <ErrorMessage className='error e4' component='span' name='gender'/>
                 <ErrorMessage className='error e5' component='span' name='name'/>
                 <ErrorMessage className='error e6' component='span' name='avatar'/>
-                <button type='button' onClick={()=>{console.log(contact)}}>log</button>
                 <Field  type='text' className='name' placeholder='name' disabled {...updatingCard} id='name' name='name'/>
                 <Field  type='text' id='avatar' placeholder='avtatar link' disabled {...updatingCard} name='avatar' className='avatar'/>
                 <Field disabled {...updatingCard} className='status' name='status' as='select' onClick={(e) => {
