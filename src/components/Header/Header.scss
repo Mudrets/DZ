@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     #logo{
+        user-select: none;
         width: 21%;
         height: 16vh;
         justify-content: center;
@@ -27,6 +28,7 @@
         }
     }
     #secondBar{
+        user-select: none;
         box-shadow: var(--st_b_s);
         height: 6vh;
         display: flex;

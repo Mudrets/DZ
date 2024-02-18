@@ -1,5 +1,4 @@
 import { validationSchema } from '../../assets/validation/validation'
-import './Contact.scss'
 import {Formik,Form,Field,ErrorMessage} from 'formik'
 import {v4 as uuidv4} from 'uuid'
 import { useSelector,useDispatch} from 'react-redux'

@@ -12,6 +12,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1vw;
   overflow-y: scroll;
+  user-select: none;
   &::-webkit-scrollbar {
     position: fixed;
     width: 0px;
