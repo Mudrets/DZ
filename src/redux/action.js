@@ -24,6 +24,12 @@ export const statusFilter = (status) => {
         payload:status
     }
 }
+export const searchContact = (name) => {
+    return{
+        type: SEARCH_CONTACT,
+        payload:name
+    }
+}
 export const isUpdating = (bool,id) => {
     return{
         type: IS_UPDATING,

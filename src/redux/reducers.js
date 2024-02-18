@@ -74,7 +74,7 @@ const initialState = {
             },
             {
             id:'test8',
-            name:'firstName lastName',
+            name:'secName lastName',
             phone:'8888888888',
             email:'test8@gmail.com',
             avatar:'https://images.unsplash.com/photo-1584598437775-a34887172533?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxwSTZzNURPcXJuOHx8ZW58MHx8fHx8',

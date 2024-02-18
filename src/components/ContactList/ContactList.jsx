@@ -6,14 +6,17 @@ import NewContact from '../NewContact/NewContact'
 const ContactList = () => {
     const contacts = useSelector(state => state.contacts)
     const statusFilter = useSelector(state => state.statusFilter)
+    const nameFilter = useSelector(state => state.searchTerm)
     const isAdding = useSelector(state => state.isAdding)
     return(
         <>
         <SideBar/>
         <div id='contacts' className={`${'over_hiden'}`}>
             {isAdding&&<NewContact/>}
-            {statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
-            {statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
+            {nameFilter===''&&statusFilter!=='all'&&contacts.filter(item => item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
+            {nameFilter===''&&statusFilter==='all'&&contacts.map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
+            {nameFilter!==''&&statusFilter!=='all'&&contacts.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase())&&item.status === statusFilter).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
+            {nameFilter!==''&&statusFilter==='all'&&contacts.filter(item => item.name.toLowerCase().includes(nameFilter.toLowerCase())).map((el)=>(<ContactItem contact={el} key={el.id}></ContactItem>)).reverse()}
         </div>
         </>
     )

@@ -42,6 +42,11 @@
       &:hover{
           color: var(--bg);
       }
+      &:disabled{
+        &:hover{
+          color: var(--sec_f_c);
+      }
+      }
   }
     .b_and_d{
       width: 100%;

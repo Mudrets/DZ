@@ -49,10 +49,9 @@ const ContactItem = ({contact}) => {
                 <ErrorMessage className='error e4' component='span' name='gender'/>
                 <ErrorMessage className='error e5' component='span' name='name'/>
                 <ErrorMessage className='error e6' component='span' name='avatar'/>
-                {/* <button type='button' onClick={()=>{console.log(contact)}}>log</button> */}
+                <button type='button' onClick={()=>{console.log(contact)}}>log</button>
                 <Field  type='text' className='name' placeholder='name' disabled {...updatingCard} id='name' name='name'/>
                 <Field  type='text' id='avatar' placeholder='avtatar link' disabled {...updatingCard} name='avatar' className='avatar'/>
-                {/* <Field  type='checkbox' id='favorite' disabled {...updatingCard} name='favorite' className='favorite'/> */}
                 <Field disabled {...updatingCard} className='status' name='status' as='select' onClick={(e) => {
                 }}>
                     {statusList.map((status)=>(<option key={status} value={status}>{status}</option>))}
