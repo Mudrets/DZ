@@ -47,7 +47,7 @@ const initialState = {
             name:'firstName lastName',
             phone:'5555555555',
             email:'test5@gmail.com',
-            avatar:'https://plus.unsplash.com/premium_photo-1679971488735-6e4d613c682f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            avatar:'https://images.pexels.com/photos/395196/pexels-photo-395196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             gender:'men',
             status:'family',
             favorite:false
@@ -57,7 +57,7 @@ const initialState = {
             name:'firstName lastName',
             phone:'6666666666',
             email:'test6@gmail.com',
-            avatar:'https://plus.unsplash.com/premium_photo-1680790392289-e8ccd9a0bf5e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            avatar:'https://images.pexels.com/photos/1585634/pexels-photo-1585634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             gender:'women',
             status:'work',
             favorite:false
@@ -67,7 +67,7 @@ const initialState = {
             name:'firstName lastName',
             phone:'7777777777',
             email:'test7@gmail.com',
-            avatar:'https://plus.unsplash.com/premium_photo-1694618625457-14fec8cb76a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXxHUWdaZzJDdGZuVXx8ZW58MHx8fHx8',
+            avatar:'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             gender:'women',
             status:'family',
             favorite:false
