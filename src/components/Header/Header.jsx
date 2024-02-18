@@ -1,12 +1,19 @@
 import './Header.scss'
 import {Link} from "react-router-dom"
-import { useDispatch} from 'react-redux'
+import { useSelector,useDispatch} from 'react-redux'
 import { isAdding,isUpdating } from '../../redux/action'
 const Header = () => {
+    const Adding = useSelector(state => state.isAdding)
     const dispatch = useDispatch()
-    const handleAdd = (bool) => {
-        dispatch(isAdding(true))
-        dispatch(isUpdating(true,'id'))
+    const handleAdd = () => {
+        if(!Adding){
+            dispatch(isAdding(true))
+            dispatch(isUpdating(true,'id'))
+        }
+        else{
+            dispatch(isAdding(false))
+            dispatch(isUpdating(false,'id'))
+        }
       }
     return(
         <div id='header'>
@@ -14,7 +21,7 @@ const Header = () => {
                 Contact List
             </div>
             <div id="secondBar">
-                <Link id='add_new' onClick={()=>handleAdd(true)} >Add new</Link>
+                <Link id='add_new' onClick={()=>handleAdd()} >Add new</Link>
                 <input placeholder='Search' type="text" />
             </div>
         </div>

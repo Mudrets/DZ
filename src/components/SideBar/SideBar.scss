@@ -25,6 +25,7 @@
       font-family: futura_3;
       font-size: inherit;
       text-transform: uppercase;
+      border-bottom: 2px solid var(--sec_f_c);
       &::placeholder{
         color: var(--sec_f_c);
       }
