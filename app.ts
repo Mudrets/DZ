@@ -1,131 +1,65 @@
-//task 1
-console.log('task 1');
-
-class Address {
-    city: string;
-    street: string;
-    postalCode: number;
-    constructor(city: string,street: string,postalCode: number){
-        this.city = city
-        this.street = street
-        if (postalCode.toString().length === 6) {
-            this.postalCode = postalCode;
-        } else {
-            throw new Error('Postal code must have a 6 digits.');
-        }
-    }
-    logger ():string {
-        // console.log(`${this.city} ${this.street} ${this.postalCode}`);
-        return `\nCity: ${this.city};\nStreet: ${this.street};\nPostal code: ${this.postalCode};`
-    }
+interface mass {
+    [key: string]: any;
 }
+//1
+console.log('1');
+type tuple = [string, number];
 
-class Custumer {
-    name: string;
-    age: number;
-    address:Address;
-    constructor(name: string,age: number,address:Address){
-        this.name = name
-        this.age = age
-        this.address = address
-    }
-    logger ():string {
-        console.log(`Name: ${this.name};\nAge: ${this.age} y.o.;\n ${this.address.logger()}`);
-        return `${this.name} ${this.age} ${this.address.logger()}`
-    }
-}
-const myAddress = new Address('Rivne', 'Malinova 34', 330100);
-const myCustumer = new Custumer('Rinata', 25, myAddress);
-myCustumer.logger()
+let user: tuple = ["Johan", 25];
 
-//task 2
+console.log(`Name: ${user[0]}, Age: ${user[1]}`);
+
+//2
 console.log('');
-console.log('task 2');
+console.log('2');
+const genders:mass[] =[
+    {id:1,gender:'men'},
+    {id:2,gender:'women'},
+    {id:3,gender:'men'},
+    {id:4,gender:'men'},
+]
+function searchAll (mass:mass[],gender:string):mass{
+    const filteredMass = mass.filter(obj => obj.gender === gender)
 
-interface Shape {
-    calculateArea(): number;
+    console.log(filteredMass);
 }
+searchAll(genders,'men')
+searchAll(genders,'women')
 
-class Rectangle implements Shape {
-    width: number;
-    height: number;
-
-    constructor(width: number, height: number) {
-        this.width = width;
-        this.height = height;
-    }
-
-    calculateArea(): number {
-        return this.width * this.height;
-    }
-}
-
-class Circle implements Shape {
-    radius: number;
-
-    constructor(radius: number) {
-        this.radius = radius;
-    }
-
-    calculateArea(): number {
-        return Math.PI * this.radius ** 2;
-    }
-}
-
-const rectangle = new Rectangle(5, 10);
-const circle = new Circle(7);
-
-console.log('S rectangle:', rectangle.calculateArea());
-console.log('S circle:', circle.calculateArea());
-
-//task 3
+//3
 console.log('');
-console.log('task 3');
-
-class Store {
-    name: string;
-    products: string[];
-
-    constructor(name: string) {
-        this.name = name;
-        this.products = [];
-    }
-
-    addProduct(product: string): void {
-        this.products.push(product);
-        console.log(`Product "${product}" added to the store.`);
-    }
-
-    removeProduct(product: string): void {
-        const index = this.products.indexOf(product);
-        if (index !== -1) {
-            this.products.splice(index, 1);
-            console.log(`Product "${product}" removed from the store.`);
-        } else {
-            console.log(`Product "${product}" not found in the store.`);
-        }
-    }
-
-    displayProducts(): void {
-        if (this.products.length === 0) {
-            console.log('There are no products in the store.');
-        } else {
-            console.log(`Products in the store "${this.name}":`);
-            this.products.forEach((product, index) => {
-                console.log(`${index + 1}. ${product}`);
-            });
-        }
-    }
+console.log('3');
+const vegetables:mass[] =[
+    {id:1,vegetable:'tomato'},
+    {id:2,vegetable:'potato'},
+    {id:3,vegetable:'paper'},
+    {id:4,vegetable:'cucumber'},
+    {id:5,vegetable:'paper'},
+]
+function searchFirst (mass:mass[],gender:string):mass{
+    const filteredMass = mass.find(obj => obj.vegetable === gender)
+    if(filteredMass){
+        console.log(filteredMass);
+    }else{console.log('Gender not found')}
 }
+searchFirst(vegetables,'paper')
+searchFirst(vegetables,'banana')
 
-const myStore = new Store('Book store');
-
-myStore.addProduct('Book 1');
-myStore.addProduct('Book 2');
-myStore.addProduct('Book 3');
-
-myStore.displayProducts();
-
-myStore.removeProduct('Book 2');
-
-myStore.displayProducts();
+//4
+console.log('');
+console.log('4');
+const digits:mass[] =[
+    {id:1,digit:21},
+    {id:2,digit:43},
+    {id:3,digit:2},
+    {id:4,digit:11},
+    {id:5,digit:96},
+]
+function average (mass:mass[],digit:string):number{
+    const sum: number = mass.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue[digit];
+    }, 0);
+    const average = sum / mass.length
+    return average
+}
+console.log(average(digits,'digit'));

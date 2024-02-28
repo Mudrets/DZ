@@ -1,98 +1,59 @@
 "use strict";
-//task 1
-console.log('task 1');
-class Address {
-    constructor(city, street, postalCode) {
-        this.city = city;
-        this.street = street;
-        if (postalCode.toString().length === 6) {
-            this.postalCode = postalCode;
-        }
-        else {
-            throw new Error('Postal code must have a 6 digits.');
-        }
-    }
-    logger() {
-        // console.log(`${this.city} ${this.street} ${this.postalCode}`);
-        return `\nCity: ${this.city};\nStreet: ${this.street};\nPostal code: ${this.postalCode};`;
-    }
-}
-class Custumer {
-    constructor(name, age, address) {
-        this.name = name;
-        this.age = age;
-        this.address = address;
-    }
-    logger() {
-        console.log(`Name: ${this.name};\nAge: ${this.age} y.o.;\n ${this.address.logger()}`);
-        return `${this.name} ${this.age} ${this.address.logger()}`;
-    }
-}
-const myAddress = new Address('Rivne', 'Malinova 34', 330100);
-const myCustumer = new Custumer('Rinata', 25, myAddress);
-myCustumer.logger();
-//task 2
+//1
+console.log('1');
+let user = ["Johan", 25];
+console.log(`Name: ${user[0]}, Age: ${user[1]}`);
+//2
 console.log('');
-console.log('task 2');
-class Rectangle {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
-    }
-    calculateArea() {
-        return this.width * this.height;
-    }
+console.log('2');
+const genders = [
+    { id: 1, gender: 'men' },
+    { id: 2, gender: 'women' },
+    { id: 3, gender: 'men' },
+    { id: 4, gender: 'men' },
+];
+function searchAll(mass, gender) {
+    const filteredMass = mass.filter(obj => obj.gender === gender);
+    console.log(filteredMass);
 }
-class Circle {
-    constructor(radius) {
-        this.radius = radius;
-    }
-    calculateArea() {
-        return Math.PI * this.radius ** 2;
-    }
-}
-const rectangle = new Rectangle(5, 10);
-const circle = new Circle(7);
-console.log('S rectangle:', rectangle.calculateArea());
-console.log('S circle:', circle.calculateArea());
-//task 3
+searchAll(genders, 'men');
+searchAll(genders, 'women');
+//3
 console.log('');
-console.log('task 3');
-class Store {
-    constructor(name) {
-        this.name = name;
-        this.products = [];
+console.log('3');
+const vegetables = [
+    { id: 1, vegetable: 'tomato' },
+    { id: 2, vegetable: 'potato' },
+    { id: 3, vegetable: 'paper' },
+    { id: 4, vegetable: 'cucumber' },
+    { id: 5, vegetable: 'paper' },
+];
+function searchFirst(mass, gender) {
+    const filteredMass = mass.find(obj => obj.vegetable === gender);
+    if (filteredMass) {
+        console.log(filteredMass);
     }
-    addProduct(product) {
-        this.products.push(product);
-        console.log(`Product "${product}" added to the store.`);
-    }
-    removeProduct(product) {
-        const index = this.products.indexOf(product);
-        if (index !== -1) {
-            this.products.splice(index, 1);
-            console.log(`Product "${product}" removed from the store.`);
-        }
-        else {
-            console.log(`Product "${product}" not found in the store.`);
-        }
-    }
-    displayProducts() {
-        if (this.products.length === 0) {
-            console.log('There are no products in the store.');
-        }
-        else {
-            console.log(`Products in the store "${this.name}":`);
-            this.products.forEach((product, index) => {
-                console.log(`${index + 1}. ${product}`);
-            });
-        }
+    else {
+        console.log('Gender not found');
     }
 }
-const myStore = new Store('Book store');
-myStore.addProduct('Book 1');
-myStore.addProduct('Book 2');
-myStore.addProduct('Book 3');
-myStore.displayProducts();
-myStore.removeProduct('Book 2');
-myStore.displayProducts();
+searchFirst(vegetables, 'paper');
+searchFirst(vegetables, 'banana');
+//4
+console.log('');
+console.log('4');
+const digits = [
+    { id: 1, digit: 21 },
+    { id: 2, digit: 43 },
+    { id: 3, digit: 2 },
+    { id: 4, digit: 11 },
+    { id: 5, digit: 96 },
+];
+function average(mass, digit) {
+    const sum = mass.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue[digit];
+    }, 0);
+    const average = sum / mass.length;
+    return average;
+}
+console.log(average(digits, 'digit'));
