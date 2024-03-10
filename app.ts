@@ -1,64 +1,60 @@
-//1
-interface name {
-  name: string;
-}
+interface contact { name: string; phone: number }
+class PhoneBook {
+  private contacts: contact[]
 
-function checker(param: any): void {
-  if(typeof param === 'object' && 'name' in param && Object.keys(param).length > 1) {
-      console.log(`В объекте был найден параметр 'Name' его значение: ${param.name}, так же в объекте указаны другие параметры такие как:`);
-      for(const key in param){
-        if(key !== 'name'){
-          console.log(`Параметр: ${key} со значением: ${param[key]}`);
-        }
-      }
+  constructor() {
+      this.contacts = []
   }
-  else if (typeof param === 'object' && 'name' in param) {
-      console.log(`В объекте был найден параметр 'Name' его значение: ${param.name}`);
-  } 
-  else if(typeof param !== 'object') {
-      console.log('Заданое значение не являеться объектом');
+
+  addContact(name: string, phone: number): void {
+      const newContact: contact = { name, phone }
+      this.contacts.push(newContact);
+      console.log(`Контакт ${name} добавлен в телефонную книжку.`)
   }
-  else {
-    console.log(`Объект не имеет параметра 'Name', но в объекте указаны другие параметры такие как:`);
-    for(const key in param){
-      console.log(`Параметр: ${key} со значением: ${param[key]}`);
+
+  findContactByName(name: string): void {
+    const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
+    if (foundContact) {
+      console.log(`Номер телефона ${foundContact.name}: ${foundContact.phone}`)
+    }
+    else{
+      console.log(`Контакт ненайден в книжке`)
     }
   }
-}
 
-const obj1: name = { name: 'Exp Name' };
-const obj2: object = { age: 25 };
-const obj3: object = { name: 'Exp Name', age: 25 };
-const obj4: number = 23
-
-checker(obj1);
-checker(obj2);
-checker(obj3);
-checker(obj4);
-
-//2
-console.log('');
-function checkArr(param: any): void {
-  if (Array.isArray(param) && param.every((num) => typeof num === 'number')) {
-      const sum = param.reduce((acc, num) => acc + num, 0);
-      console.log(`Сумма чисел масива: ${sum}`);
-  } 
-  else if (Array.isArray(param) && param.every((num) => typeof num !== 'number')){
-      console.log("Заданое значение не являеться числовым масивом");
+ findContactByNumber(phone: number): void {
+    const foundContact = this.contacts.find(contact => contact.phone === phone)
+    if (foundContact) {
+      console.log(`Контак под номером телефона ${foundContact.phone}: ${foundContact.name}`)
+    }
+    else{
+      console.log(`Телефеон ненайден в книжке`)
+    }
   }
-  else if (Array.isArray(param) && param.some((num) => typeof num !== 'number')){
-      console.log("Заданое значение не являеться чистым числовым масиво, и имеет разные типы значений");
-  }
-  else {
-      console.log("Заданое значение не являеться масивом");
+
+  deleteContact(name: string): void {
+    const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
+      const index = this.contacts.findIndex(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
+      if (foundContact) {
+        if (index !== -1) {
+            this.contacts.splice(index, 1);
+            console.log(`Контакт ${foundContact.name} удалён из телефонной книги`)
+        } 
+      }
+        else {
+            console.log(`Контакт ${name} ненайден в книжке`)
+        }
   }
 }
 
-const array1:number[] = [1, 2, 3, 4, 5];
-const array2: any[] = ['a', 'b', 'c'];
-const array3: any[] = [1, 2, 'a'];
-const array4: string = '123';
-checkArr(array1);
-checkArr(array2);
-checkArr(array3);
-checkArr(array4);
+const phoneBook = new PhoneBook()
+
+phoneBook.addContact("Алиса", 123456789)
+phoneBook.addContact("Варя", 987654321)
+
+phoneBook.findContactByName("алиса")
+phoneBook.findContactByName("ангелина")
+phoneBook.findContactByNumber(987654321)
+
+phoneBook.deleteContact("варя")
+phoneBook.deleteContact("гена")
