@@ -54,10 +54,10 @@ function checkArr(param: any): void {
   }
 }
 
-const array1 = [1, 2, 3, 4, 5];
-const array2 = ['a', 'b', 'c'];
-const array3 = [1, 2, 'a'];
-const array4 = '123';
+const array1:number[] = [1, 2, 3, 4, 5];
+const array2: any[] = ['a', 'b', 'c'];
+const array3: any[] = [1, 2, 'a'];
+const array4: string = '123';
 checkArr(array1);
 checkArr(array2);
 checkArr(array3);
