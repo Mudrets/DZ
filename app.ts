@@ -1,78 +1,64 @@
 //1
-interface Shape {
-    name: string;
-    calculateArea: () => number;
-  }
-  
-  function createShape(name: string, calculateArea: () => number): Shape {
-    return {
-        name,
-        calculateArea,
-    };
+interface name {
+  name: string;
 }
-function calculateCircleArea(radius: number): number {
-    return Math.PI * Math.pow(radius, 2);
-}
-function calculateRectangleArea(width: number, height: number): number {
-    return width * height;
-}
-const circle = createShape("Circle", () => calculateCircleArea(5));
-console.log(`S ${circle.name}: ${circle.calculateArea()}`);
 
-const rectangle = createShape("Rectangle", () => calculateRectangleArea(4, 6));
-console.log(`S ${rectangle.name}: ${rectangle.calculateArea()}`);
+function checker(param: any): void {
+  if(typeof param === 'object' && 'name' in param && Object.keys(param).length > 1) {
+      console.log(`В объекте был найден параметр 'Name' его значение: ${param.name}, так же в объекте указаны другие параметры такие как:`);
+      for(const key in param){
+        if(key !== 'name'){
+          console.log(`Параметр: ${key} со значением: ${param[key]}`);
+        }
+      }
+  }
+  else if (typeof param === 'object' && 'name' in param) {
+      console.log(`В объекте был найден параметр 'Name' его значение: ${param.name}`);
+  } 
+  else if(typeof param !== 'object') {
+      console.log('Заданое значение не являеться объектом');
+  }
+  else {
+    console.log(`Объект не имеет параметра 'Name', но в объекте указаны другие параметры такие как:`);
+    for(const key in param){
+      console.log(`Параметр: ${key} со значением: ${param[key]}`);
+    }
+  }
+}
+
+const obj1: name = { name: 'Exp Name' };
+const obj2 = { age: 25 };
+const obj3 = { name: 'Exp Name', age: 25 };
+const obj4 = 23
+
+checker(obj1);
+checker(obj2);
+checker(obj3);
+checker(obj4);
 
 //2
-interface Settings {
-    theme?: string;
-    fontSize?: number;
-    isDarkMode?: boolean;
+console.log('');
+function checkArr(param: any): void {
+  if (Array.isArray(param) && param.every((num) => typeof num === 'number')) {
+      const sum = param.reduce((acc, num) => acc + num, 0);
+      console.log(`Сумма чисел масива: ${sum}`);
+  } 
+  else if (Array.isArray(param) && param.every((num) => typeof num !== 'number')){
+      console.log("Заданое значение не являеться числовым масивом");
   }
-  
-  function updateSettings(newSettings: Settings): void {
-    console.log("New Settings:", newSettings);
+  else if (Array.isArray(param) && param.some((num) => typeof num !== 'number')){
+      console.log("Заданое значение не являеться чистым числовым масиво, и имеет разные типы значений");
   }
-  
-  const newSettings: Settings = {
-    theme: "light",
-    fontSize: 16,
-    isDarkMode: false,
-  };
-  
-  updateSettings(newSettings);
-  
-  //3
-  interface User {
-    name: string;
-    age: number;
+  else {
+      console.log("Заданое значение не являеться масивом");
   }
-  
-  interface Account {
-    username: string;
-    email: string;
-  }
-  
-  interface UserProfile extends User, Account {}
-  
-  function getUserProfile(user: User, account: Account): UserProfile {
-    const userProfile: UserProfile = {
-      ...user,
-      ...account,
-    };
-  
-    return userProfile;
-  }
-  
-  const user: User = {
-    name: "Name",
-    age: 25,
-  };
-  
-  const account: Account = {
-    username: "UserName",
-    email: "rendom@example.com",
-  };
-  
-  const userProfileResult: UserProfile = getUserProfile(user, account);
-  console.log("UserProfile res:", userProfileResult);
-  
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = ['a', 'b', 'c'];
+const array3 = [1, 2, 'a'];
+const array4 = '123';
+checkArr(array1);
+checkArr(array2);
+checkArr(array3);
+checkArr(array4);
