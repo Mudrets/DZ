@@ -27,9 +27,9 @@ function checker(param: any): void {
 }
 
 const obj1: name = { name: 'Exp Name' };
-const obj2 = { age: 25 };
-const obj3 = { name: 'Exp Name', age: 25 };
-const obj4 = 23
+const obj2: object = { age: 25 };
+const obj3: object = { name: 'Exp Name', age: 25 };
+const obj4: number = 23
 
 checker(obj1);
 checker(obj2);
