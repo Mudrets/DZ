@@ -1,60 +1,30 @@
-interface contact { name: string; phone: number }
-class PhoneBook {
-  private contacts: contact[]
+function biggerEl(mass: (number | string)[]): number | string | undefined {
+    if (mass.length === 0) return undefined
 
-  constructor() {
-      this.contacts = []
-  }
+    let lastBigEl = mass[0]
 
-  addContact(name: string, phone: number): void {
-      const newContact: contact = { name, phone }
-      this.contacts.push(newContact);
-      console.log(`Контакт ${name} добавлен в телефонную книжку.`)
-  }
-
-  findContactByName(name: string): void {
-    const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
-    if (foundContact) {
-      console.log(`Номер телефона ${foundContact.name}: ${foundContact.phone}`)
-    }
-    else{
-      console.log(`Контакт ненайден в книжке`)
-    }
-  }
-
- findContactByNumber(phone: number): void {
-    const foundContact = this.contacts.find(contact => contact.phone === phone)
-    if (foundContact) {
-      console.log(`Контак под номером телефона ${foundContact.phone}: ${foundContact.name}`)
-    }
-    else{
-      console.log(`Телефеон ненайден в книжке`)
-    }
-  }
-
-  deleteContact(name: string): void {
-    const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
-      const index = this.contacts.findIndex(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase())
-      if (foundContact) {
-        if (index !== -1) {
-            this.contacts.splice(index, 1);
-            console.log(`Контакт ${foundContact.name} удалён из телефонной книги`)
-        } 
-      }
-        else {
-            console.log(`Контакт ${name} ненайден в книжке`)
+    for (let elem of mass) {
+        if (typeof elem === 'number' && (typeof lastBigEl === 'number' || typeof lastBigEl === 'undefined') && elem > lastBigEl) {
+            lastBigEl = elem            
         }
-  }
+        else if (typeof elem === 'string' && (typeof lastBigEl === 'string' || typeof lastBigEl === 'undefined') && elem.length > lastBigEl.length) {
+            lastBigEl = elem
+        }
+        else if (typeof elem === 'string' && (typeof lastBigEl === 'number' || typeof lastBigEl === 'undefined') && elem.length > lastBigEl) {
+            lastBigEl = elem
+        }
+        else if (typeof elem === 'number' && (typeof lastBigEl === 'string' || typeof lastBigEl === 'undefined') && elem > lastBigEl.length) {
+            lastBigEl = elem
+        }
+    }
+
+    return lastBigEl
 }
 
-const phoneBook = new PhoneBook()
+const digits: number[] = [1, 52, 33, 9, 2]
+const strings: string[] = ['apple', 'orange', 'banana']
+const all: (string|number)[] = [1, 7, 3,'apple', 'orange', 'banana']
 
-phoneBook.addContact("Алиса", 123456789)
-phoneBook.addContact("Варя", 987654321)
-
-phoneBook.findContactByName("алиса")
-phoneBook.findContactByName("ангелина")
-phoneBook.findContactByNumber(987654321)
-
-phoneBook.deleteContact("варя")
-phoneBook.deleteContact("гена")
+console.log(biggerEl(strings))
+console.log(biggerEl(digits))
+console.log(biggerEl(all))

@@ -1,50 +1,27 @@
 "use strict";
-class PhoneBook {
-    constructor() {
-        this.contacts = [];
-    }
-    addContact(name, phone) {
-        const newContact = { name, phone };
-        this.contacts.push(newContact);
-        console.log(`Контакт ${name} добавлен в телефонную книжку.`);
-    }
-    findContactByName(name) {
-        const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase());
-        if (foundContact) {
-            console.log(`Номер телефона ${foundContact.name}: ${foundContact.phone}`);
+function biggerEl(mass) {
+    if (mass.length === 0)
+        return undefined;
+    let lastBigEl = mass[0];
+    for (let elem of mass) {
+        if (typeof elem === 'number' && (typeof lastBigEl === 'number' || typeof lastBigEl === 'undefined') && elem > lastBigEl) {
+            lastBigEl = elem;
         }
-        else {
-            console.log(`Контакт ненайден в книжке`);
+        else if (typeof elem === 'string' && (typeof lastBigEl === 'string' || typeof lastBigEl === 'undefined') && elem.length > lastBigEl.length) {
+            lastBigEl = elem;
         }
-    }
-    findContactByNumber(phone) {
-        const foundContact = this.contacts.find(contact => contact.phone === phone);
-        if (foundContact) {
-            console.log(`Контак под номером телефона ${foundContact.phone}: ${foundContact.name}`);
+        else if (typeof elem === 'string' && (typeof lastBigEl === 'number' || typeof lastBigEl === 'undefined') && elem.length > lastBigEl) {
+            lastBigEl = elem;
         }
-        else {
-            console.log(`Телефеон ненайден в книжке`);
+        else if (typeof elem === 'number' && (typeof lastBigEl === 'string' || typeof lastBigEl === 'undefined') && elem > lastBigEl.length) {
+            lastBigEl = elem;
         }
     }
-    deleteContact(name) {
-        const foundContact = this.contacts.find(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase());
-        const index = this.contacts.findIndex(contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase());
-        if (foundContact) {
-            if (index !== -1) {
-                this.contacts.splice(index, 1);
-                console.log(`Контакт ${foundContact.name} удалён из телефонной книги`);
-            }
-        }
-        else {
-            console.log(`Контакт ${name} ненайден в книжке`);
-        }
-    }
+    return lastBigEl;
 }
-const phoneBook = new PhoneBook();
-phoneBook.addContact("Алиса", 123456789);
-phoneBook.addContact("Варя", 987654321);
-phoneBook.findContactByName("алиса");
-phoneBook.findContactByName("ангелина");
-phoneBook.findContactByNumber(987654321);
-phoneBook.deleteContact("варя");
-phoneBook.deleteContact("гена");
+const digits = [1, 52, 33, 9, 2];
+const strings = ['apple', 'orange', 'banana'];
+const all = [1, 7, 3, 'apple', 'orange', 'banana'];
+console.log(biggerEl(strings));
+console.log(biggerEl(digits));
+console.log(biggerEl(all));
